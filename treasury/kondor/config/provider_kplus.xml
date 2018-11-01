@@ -1,0 +1,22 @@
+<providers>
+	<provider id="kplus.groovy" type="groovy">
+		<context path="test/com/reuters/kplustp/common/JAdapter/XGroovyRequest" compiledTempSuffix="groovyScr"/>
+	</provider>
+	<provider id="kplus.sybase" type="database">
+        <dataSource>
+        <property name="db.url" value="jdbc:sqlserver://kplus-db:1433;databaseName=kplus"/>
+        <property name="db.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+        <property name="user" value=""/>
+        <property name="password" value=""/>
+        <property name="encryptedPassword" value=""/>
+        <property name="KTPPLUSDBNAME" value="kplus"/>
+        <property name="KPLUSDBNAME" value="kplus"/>
+        <property name="KPLUSGLOBALDBNAME" value="kplus"/>
+        <property name="KPLUSARCHIVEDBNAME" value="KplusArchive"/>
+        <property name="KREDITNETDBNAME" value="Kustom"/>
+        <property name="KUSTOMDBNAME" value="Kustom"/>
+        </dataSource>
+    </provider>
+	<provider id="kplus.fpml" type="fpml">
+	</provider>
+</providers>

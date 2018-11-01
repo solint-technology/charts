@@ -1,0 +1,52 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ template "frcmr.fullname" . }}
+  labels:
+    app: {{ template "frcmr.name" . }}
+    chart: {{ template "frcmr.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "frcmr.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "frcmr.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      hostAliases:
+      - ip : "{{ .Values.els.ip }}"
+        hostnames:
+        - "{{ .Values.els.host }}"
+      hostname: frcmr
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+          - name: ELS_PORT
+            value: "{{ .Values.els.port }}"
+          - name: ELS_HOST
+            value: "{{ .Values.els.host }}"
+          - name: RVD_HOST
+            value: fusion-risk-rvd-svc
+          - name: CARGO_HOST
+            value: "frcargo"
+          - name: CARGO_PORT
+            value: "8181"
+          - name: SA_PASSWD
+            value: "Kondor_123"
+          - name: SERVER
+            value: "all"
+          volumeMounts:
+          - mountPath: /home/fusionrisk/CMR/config
+            name: config-volume
+      volumes:
+        - name: config-volume
+          configMap:
+            name: {{ .Release.Name }}-fusion-risk

@@ -1,0 +1,196 @@
+#
+#
+#   File : tradekast.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      The TRADEKAST port is the name of the service (declared in the services
+#      list) TRADEKAST is using to watch for connections.
+#      default: tradekast
+TRADEKAST_PORT kplus_tradekast
+#
+#
+#
+#      The output directory for the tradekast log files on Unix.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/peripherals
+LOGDIR "/opt/finastra/kplus-front/entities/Standalone/log/peripherals"
+#
+#
+#
+#      The output directory for the tradekast log files on Windows.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\peripherals
+LOGDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\peripherals"
+#
+#
+#
+#      Number of days before the tradekast log files are deleted. 
+#      If you do NOT want the log files to be deleted, set this parameter to -1.
+#      default: 15
+LOGREMOVE 15
+#
+#
+#
+#      Boolean parameter that indicates whether an event is sent to the
+#      TRADEKAST Blotter when a deal/request/sign is sent. You can use the
+#      TRADEKAST Blotter (Communications -> Blotters -> Monitoring -> 
+#      On-line Communication) for troubleshooting problems with communication
+#      only if this parameter is set to TRUE.
+#      default: FALSE
+FEED_TRADEKAST_BLOTTER FALSE
+#
+#
+#
+#      Path used for temporary storage of misc files.
+#      default: /tmp
+TMP_PATH "/tmp"
+#
+#
+#
+#      Allows TradeKast to communicate with clients either by means of TCP/IP or
+#      by means of Tib/Rendezvous
+#      default: TCP_IP_MODE
+COMM_MODE RENDEZVOUS_MODE
+#
+#
+#
+#      The SSL Network Management Station (NMS) watchdog interval in seconds.
+#      This parameter is only applicable if the NM_ACTIVATE parameter is set
+#      to TRUE.
+#      default: 90
+NM_WATCH_DOG 90
+#
+#
+#
+#      The application identification for the SSL Network Management Agent (NMA).
+#      This parameter is only applicable if the NM_ACTIVATE parameter is set to
+#      TRUE. The value MUST be between 256 and 512.
+#      default: 256
+NM_APP_ID 256
+#
+#
+#
+#      Boolean parameter that indicates if the SSL Network Management Station
+#      (NMS) is activated.
+#      default: FALSE
+NM_ACTIVATE FALSE
+#
+#
+#
+#      Port number used for inter-daemon communication
+#      default: 8888
+RV_PORT 8889
+#
+#
+#
+#      TIB/Rendezvous Network: Specifies the network interface and the multicast
+#      groups used to send and receive messages
+#           Example: lan0;224.1.1.1,224.1.1.2;224.1.1.1
+#      default: 
+RV_NETWORK eth0;;
+#
+#
+#
+#      Service, hostname, and port number used to connect to the daemon.
+#           Examples: tcp:1234 or tcp:hostname:1234
+#      default: 
+RV_DAEMON tcp:kplus-front-rvd-kis-tk-svc:8889
+#
+#
+#
+#      Specify if more than one TradeKast process is allowed to run on this entity.
+#      default: FALSE
+RUN_MANY_TRADEKASTS FALSE
+#
+#
+#
+#      Specify if TradeKast must check and allow only one client doing pricing 
+#      to connect
+#      Only if some clients do complex pricing (with CCO or Simulation) can 
+#      they affect one another; otherwise it is safe to have multiple pricing 
+#      clients connect to the same tradekast server.
+#      default: TRUE
+ALLOW_MULTIPLE_PRICING_CLIENTS TRUE
+#
+#
+#
+#      Define in millisecond the frequency used to update the metrics for the monitoring
+#      The minimum value for the frequency is 200. (if a value inferior to 200 is specified,
+#      the frequency will be set to 200)
+#      default: 500
+MONITORING_PUSH_TIME 500
+#
+#
+#
+#      Flag for filtering out ExternalConstans and ExternalReferences tables, as the size of the message could be maily to that data, which is useless for K+TP.
+#      default: TRUE
+EXPORT_EXTERNAL_DEAL_CONSTANTS_AND_VALUES TRUE
+#
+#
+#
+#      Boolean parameter that indicates if a heartbeat thread is initialized.
+#      Heartbeat is used to preserve disconnection when huge deals are processed.
+#      default: FALSE
+HEARTBEAT_THREAD FALSE
+#
+#
+#
+#      The heartbeat port is the name of the service (declared in the services
+#      list) TRADEKAST is using to watch for connections in the heartbeat thread.
+#      default: tradekasthb
+HEARTBEAT_PORT tradekasthb
+#
+#
+#
+#      Maximum time interval in seconds TRADEKAST waits 
+#      for the ACK message from the client. 
+#      0 means ACK_TIMEOUT = CLIENT_TIMEOUT.
+#      default: 0
+ACK_TIMEOUT 0
+#
+#
+#
+#      Entry in DealsOperationMvts is not required in export. 
+#      If it's set to TRUE:
+#      - TradeKast doesn't export information about operation (DealsOperations, etc).
+#      - It's not compatible with K+TP workflow.
+#      default: FALSE
+NO_ME FALSE
+#
+#
+#
+#      Specifies if the connection is established with rv secure daemon
+#      default: False
+IS_RVD_SECURE_DAEMON FALSE
+#
+#
+#
+#      This parameter is only applicable only if IS_RVD_SECURE_DAEMON parameter is set to TRUE. Specifies the username of the secure daemon client
+#      default: 
+RVD_SECURE_USERNAME 
+#
+#
+#
+#      This parameter is only applicable only if IS_RVD_SECURE_DAEMON parameter is set to TRUE. Specifies the crypted password to rvsd daemon
+#             Example: {Crypt2}c1rtjvRHE5t=
+#      default: 
+RVD_SECURE_PASSWORD {Crypt2}1r+mEDOTSIM=
+#
+#
+#
+#      Brief description of K+ service (server, handler or peripheral).
+#      default: "Kondor export server exports new data to potential subscribers. If this service is stopped deals and data export will not work properly"
+SERVICE_DESCRIPTION "Kondor export server exports new data to potential subscribers. If this service is stopped deals and data export will not work properly"
+#
+#
+#
+#      Brief display name of K+ service (server, handler or peripheral).
+#      default: "TradeKast (tradekast)"
+SERVICE_DISPLAYNAME "TradeKast (tradekast)"
+#
+#
+#   End of file
+#
+

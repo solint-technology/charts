@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WS_Proxy>
+	<Server name="frcmr" address="frcmr" port="19084" path="/KGRWebServices"/>
+	<Service name="" forwardTo="frcmr"/>
+</WS_Proxy>

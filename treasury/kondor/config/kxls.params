@@ -1,0 +1,230 @@
+#
+#
+#   File : kxls.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Output directory for the Kondor+ Excel server log files on Unix.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/peripherals
+LOGDIR "/opt/finastra/kplus-front/entities/Standalone/log/peripherals"
+#
+#
+#
+#      Output directory for the Kondor+ Excel server log files on Windows.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\peripherals
+LOGDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\peripherals"
+#
+#
+#
+#      Number of days before the Kondor+ DealFlow server log files are deleted by Kondor+. 
+#      If you do not want the log files to be deleted, set this parameter to -1.
+#      default: 15
+LOGREMOVE 15
+#
+#
+#
+#      Codifier used to check registration & authorisation in simple mode
+#      default: EXCEL
+CODIFIER EXCEL
+#
+#
+#
+#      Maximum time expected between 2 messages for a client
+#      default: 30
+PING_FREQUENCY 30
+#
+#
+#
+#      Maximum time expected to receive a Ping from the client side and considering a Session dead.
+#      default: 300
+SESSION_TIMEOUT 120
+#
+#
+#
+#      Conflation time for aggregating RT position updates in milliseconds
+#      default: 1000
+RT_POS_CONF_TIME 1000
+#
+#
+#
+#      Maximum time expected between 2 Share Messages
+#      default: 60
+TIMEOUT_CW_SHARE 60
+#
+#
+#
+#      Maximum time expected for executing a KSP request
+#      default: 120
+KSP_TIMEOUT 120
+#
+#
+#
+#      Security Mode for User authentication and matching
+#      Possible values are: LOW, MEDIUM, HIGH
+#      default: MEDIUM
+SECURITY_LEVEL MEDIUM
+#
+#
+#
+#      Indicates if the Kondor+ Gateway server sends messages to Kondor+ Communications 
+#      -> Blotters -> Monitors -> Excel each time a procedure is called.
+#      default: FALSE
+FEED_MONITOR_BLOTTER FALSE
+#
+#
+#
+#      RTK config full file name on Unix
+#      default: /opt/finastra/kplus-front/entities/Standalone/config/RTKReportManager.params
+RTK_CONFIG_FILE "/opt/finastra/kplus-front/entities/Standalone/config/RTKReportManager.params"
+#
+#
+#
+#      RTK config full file name on Windows
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\config\RTKReportManager.params
+RTK_CONFIG_FILE_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\config\RTKReportManager.params"
+#
+#
+#
+#      RDV Service configuration (default is set in kplus.params)
+#      default: 7500
+RDV_SERVICE 7500
+#
+#
+#
+#      RDV Network configuration (default is set in kplus.params)
+#      default: eth0;;
+RDV_NETWORK eth0;;
+#
+#
+#
+#      RDV Daemon configuration (default is set in kplus.params)
+#      default: tcp:kplus-front-rvd:7500
+RDV_DAEMON tcp:kplus-front-rvd-svc:7500
+#
+#
+#
+#      Taken from tradekast params
+#      default: kplus_tradekast
+TK_SERVICE kplus_tradekast
+#
+#
+#
+#      Taken from generic var KIS_KFIS_RESPONSE_MODE
+#      default: tradekast
+TK_HOSTS tradekast
+#
+#
+#
+#      Port number used for inter-daemon communication
+#      default: 
+TK_RDV_SERVICE 
+#
+#
+#
+#      TIB/Rendezvous Network: Specifies the network interface and the multicast
+#      groups used to send and receive messages
+#           Example: lan0;224.1.1.1,224.1.1.2;224.1.1.1
+#      default: 
+TK_RDV_NETWORK 
+#
+#
+#
+#      Service, hostname, and port number used to connect to the daemon.
+#           Examples: tcp:1234 or tcp:hostname:1234
+#      default: 
+TK_RDV_DAEMON 
+#
+#
+#
+#      Taken from tradekast params
+#      default: kplus_kis
+KIS_SERVICE kplus_kis
+#
+#
+#
+#      Taken from generic var IMPORT_DATA
+#      default: kis
+KIS_HOSTS kis
+#
+#
+#
+#      Port number used for inter-daemon communication
+#      default: 
+KIS_RDV_SERVICE 
+#
+#
+#
+#      TIB/Rendezvous Network: Specifies the network interface and the multicast
+#      groups used to send and receive messages
+#           Example: lan0;224.1.1.1,224.1.1.2;224.1.1.1
+#      default: 
+KIS_RDV_NETWORK 
+#
+#
+#
+#      Service, hostname, and port number used to connect to the daemon.
+#           Examples: tcp:1234 or tcp:hostname:1234
+#      default: 
+KIS_RDV_DAEMON 
+#
+#
+#
+#      Define in millisecond the frequency used to update the metrics for the monitoring
+#      The minimum value for the frequency is 200. (if a value inferior to 200 is specified,
+#      the frequency will be set to 200)
+#      default: -1
+MONITORING_PUSH_TIME -1
+#
+#
+#
+#      The SSL Network Management Station (NMS) watchdog interval in seconds.
+#      This parameter is only applicable if the NM_ACTIVATE parameter is set
+#      to TRUE.
+#      default: 90
+NM_WATCH_DOG 90
+#
+#
+#
+#      Application identification for the Reuters Triarch Network Management Agent 
+#      (NMA). This parameter is only applicable if NM is activated. The value must be between 256 and 512
+#      default: 256
+NM_APP_ID 256
+#
+#
+#
+#      Boolean parameter that indicates if the SSL Network Management Station
+#      (NMS) is activated.
+#      default: FALSE
+NM_ACTIVATE FALSE
+#
+#
+#
+#      Path to Record models.
+#      default: /opt/finastra/kplus-front/common/kcrecord/Models
+KCRECORD_MODEL_PATH "/opt/finastra/kplus-front/common/kcrecord/Models"
+#
+#
+#
+#      Path to Record mapping rules.
+#      default: /opt/finastra/kplus-front/common/kcrecord/Mappings
+KCRECORD_MAPPING_PATH "/opt/finastra/kplus-front/common/kcrecord/Mappings"
+#
+#
+#
+#      Brief description of K+ service (server, handler or peripheral).
+#      default: "Kondor Gateway Server. This server offers various services of trading, pricing, reporting and others to Excel Trading, Fusion Capital Kondor Insight and any client developed application based on the KSG Java API"
+SERVICE_DESCRIPTION "Kondor Gateway Server. This server offers various services of trading, pricing, reporting and others to Excel Trading, Fusion Capital Kondor Insight and any client developed application based on the KSG Java API"
+#
+#
+#
+#      Brief display name of K+ service (server, handler or peripheral).
+#      default: "Gateway Server (kxls)"
+SERVICE_DISPLAYNAME "Gateway Server (kxls)"
+#
+#
+#   End of file
+#
+

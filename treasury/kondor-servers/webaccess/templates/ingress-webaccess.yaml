@@ -1,0 +1,17 @@
+{{- if .Values.ingress.enabled -}}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: webaccess
+  annotations:
+    nginx.org/rewrites: "serviceName=webaccess rewrite=/webaccess"
+spec:
+  rules:
+  - host: {{ .Values.ingress.host }}
+    http:
+      paths:
+      - path: /webaccess
+        backend:
+          serviceName: webaccess
+          servicePort: {{ .Values.service.port }}
+{{- end }}

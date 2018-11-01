@@ -1,0 +1,264 @@
+#
+#
+#   File : kplussecurity.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Server authentication mode
+#      Defines if user authentication is performed over an external directory
+#      or handled internally by K+
+#      Possible values: 
+#      - LDAP   : external LDAP directory
+#      - KONDOR : Kondor+ internal
+#      - BankFusion : Misys SSO BankFusion (see BankFusion screen)
+#      default: LEGACY
+AUTHENTICATION_MODE LEGACY
+#
+#
+#
+#      Search time limit in seconds
+#      Specifies the maximum number of seconds to wait when binding with a 
+#      user or searching an entry in the LDAP repository
+#      default: 10
+LDAP_SEARCH_TIME_LIMIT 10
+#
+#
+#
+#      Primary LDAP server addresse
+#      This is the URL of the LDAP repository in format.
+#      If the address is:
+#      ldap://my.ldap.server.address
+#      then you must specify:
+#      my.ldap.server.address
+#      port number must not be specified in the URL
+#      default: 
+LDAP_SERVER_ADDRESS_1 
+#
+#
+#
+#      Secondary LDAP server addresse
+#      This is the URL of the LDAP repository in format.
+#      If the address is:
+#      ldap://my.ldap.server.address
+#      then you must specify:
+#      my.ldap.server.address
+#      port number must not be specified in the URL
+#      default: 
+LDAP_SERVER_ADDRESS_2 
+#
+#
+#
+#      Primary LDAP port address
+#      This is the port used to communicate with the LDAP repository
+#      default: 389
+LDAP_SERVER_PORT_1 389
+#
+#
+#
+#      Secondary LDAP port address
+#      This is the port used to communicate with the LDAP repository
+#      default: 389
+LDAP_SERVER_PORT_2 389
+#
+#
+#
+#      Primary LDAP SSL port address
+#      This is the SSL port used to communicate with the LDAP repository
+#      default: 636
+LDAP_SERVER_SSL_PORT_1 636
+#
+#
+#
+#      Secondary LDAP SSL port address
+#      This is the SSL port used to communicate with the LDAP repository
+#      default: 636
+LDAP_SERVER_SSL_PORT_2 636
+#
+#
+#
+#      Defines which user is chosen for the LDAP connection
+#      Possible values:
+#      BIND   : the user directly binds with the LDAP repository
+#      SEARCH : the user is first searched, then binded
+#      SASL   : uses SASL protocol (SASL mode described after)
+#      default: SEARCH
+LDAP_CONNECTION_MODE SEARCH
+#
+#
+#
+#      Users base DN in repository in LDAP format
+#      default: 
+LDAP_USERS_BASE_DN 
+#
+#
+#
+#      LDAP users unique attribute name
+#      can be something as dc or uid most of the time
+#      When BIND mode is used, this parameter is concatenated with
+#      LDAP_USERS_BASE_DN to provide the user path in the LDAP tree
+#      default: uid
+LDAP_USERS_BIND_ATTRIBUTE_NAME uid
+#
+#
+#
+#      Generic LDAP user name DN used when LDAP_SERVER_CONNECTION_MODE
+#      is configured with SEARCH
+#      if empty, then an anonymous search is performed
+#      default: 
+LDAP_SEARCH_USER_DN 
+#
+#
+#
+#      Generic LDAP password used when LDAP_SERVER_CONNECTION_MODE
+#      is configured with SEARCH
+#      This password is not encrypted and must NOT be discarded
+#      default: 
+LDAP_SEARCH_PASSWORD {Crypt2}1r+mEDOTSIM=
+#
+#
+#
+#      LDAP users search depth in LDAP tree when SEARCH mode is used
+#      Possible values:
+#      SCOPE_BASE : search users in LDAP_USERS_BASE_DN level only
+#      SCOPE_ONE  : search users up to one level below LDAP_USERS_BASE_DN
+#      SCOPE_SUB  : search users on all sub-levels from LDAP_USERS_BASE_DN
+#      default: SCOPE_BASE
+LDAP_SEARCH_DEPTH SCOPE_BASE
+#
+#
+#
+#      Optional filter used for searching entries in users tree
+#      when SEARCH mode is used
+#      default: 
+LDAP_SEARCH_FILTER 
+#
+#
+#
+#      LDAP users cache size in number of users
+#      Specify the maximum size of the LDAP cache in K+. 
+#      Zero means that no cache is used
+#      Cache increases authentication response time but password changes
+#      are not taken into account immediatly.
+#      default: 500
+LDAP_CACHE_SIZE 500
+#
+#
+#
+#      LDAP users cache time before refresh in seconds
+#      Cache is refreshed after the value is exceeded
+#      default: 300
+LDAP_CACHE_TIME_TO_LIVE 300
+#
+#
+#
+#      Defines if link between the server and the LDAP repository is protected
+#      by SSL/TLS or not.
+#      Enabling SSL is strongly recommended when passwords are used for 
+#      authentication purposes
+#      Possible values :
+#      0 : disabled
+#      1 : enable
+#      default: 0
+LDAP_SSL_ENABLED 0
+#
+#
+#
+#      Absolute path of directory for Authorites Certificates.
+#      All CA certificates found in the directory are considered valid
+#      Certificates must be in X.509v3 format
+#      For Windows certificates should be in Windows' certficate store.
+#      default: 
+LDAP_SSL_CA_DIRECTORY_UNIX 
+#
+#
+#
+#      Absolute path of server certificate if needed for mutual SSL handshake
+#      The certificate must be in PKCS12 format
+#      For Windows certificates should be in Windows' certficate store.
+#      default: 
+LDAP_SSL_SERVER_CERTIFICATE_PATH_UNIX 
+#
+#
+#
+#      Absolute path of server key if needed for mutual SSL handshake
+#      The key must not be crypted
+#      For Windows certificates should be in Windows' certficate store.
+#      default: 
+LDAP_SSL_SERVER_KEY_PATH_UNIX 
+#
+#
+#
+#      Specify the SASL mechanism when LDAP_SERVER_AUTHENTICATION_MODE
+#      is configured with SASL
+#      Possible values:
+#      DIGEST-MD5 : Digest Authentication as a SASL Mechanism
+#      LOGIN  : Plain login mechanism
+#      default: LOGIN
+LDAP_SERVER_SASL_MODE LOGIN
+#
+#
+#
+#      Value of the shared secret when LDAP_SERVER_SASL_MODE is set to DIGEST 
+#      This secret is not encrypted and must NOT be discarded
+#      default: 
+LDAP_SERVER_SASL_DIGEST_SHARED_SECRET 
+#
+#
+#
+#      BankFusion: Webservices base address
+#      Can be list of several locations, separated by ';' sign.
+#      default: https://localhost:8081/bfweb
+BANKFUSION_SERVICE_URL https://localhost:8081/bfweb
+#
+#
+#
+#      BankFusion: Heartbeat frequency in minutes
+#      default: 30
+BANKFUSION_HEARTBEAT_FREQUENCY 30
+#
+#
+#
+#      BankFusion HTTPS: client private keystore filename (PEM format)
+#      default: client.pem
+BANKFUSION_HTTPS_KEYSTORE_FILENAME client.pem
+#
+#
+#
+#      BankFusion HTTPS: client certificate private key password
+#      default: clientpass
+BANKFUSION_HTTPS_KEY_PASSWORD clientpass
+#
+#
+#
+#      BankFusion HTTPS: trusted Certificate Authorities public keys (PEM format)
+#      default: trustedCA.pem
+BANKFUSION_HTTPS_TRUSTEDCA_FILENAME trustedCA.pem
+#
+#
+#
+#      BankFusion: Enable SiteMinder (R) integration.
+#      Only MS Windows client binaries are supported.
+#      default: False
+BANKFUSION_SITEMINDER_ENABLE FALSE
+#
+#
+#
+#      BankFusion: SiteMinder (R) Web Agent URL
+#      Example: http://reverseproxy:8080/bfweb/servlet/GetOTPForUserServlet
+#      default: 
+BANKFUSION_EXTERNAL_WEB_LOGIN_URL 
+#
+#
+#
+#      BankFusion: SiteMinder
+#      TRUE: when the browser component is displayed, the window is maximized
+#      default: FALSE
+BANKFUSION_SITEMINDER_MAXIMIZE_BROWSER FALSE
+#
+#
+#   End of file
+#
+

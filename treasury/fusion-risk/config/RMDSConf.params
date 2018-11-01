@@ -1,0 +1,14 @@
+#!/bin/sh
+SOURCENAME="KONDOR"
+RMDSCONF="RMDS.cnf"
+TRANSLATIONFILE="translation_file-sample.csv"
+BEGINDATE="2010-10-01"
+ENDDATE=" "
+COMMAND="bin/$ARCH/$PROGRAM"
+RMDBINARY="$BASE/bin/$ARCH/RMDSExtractor"
+OUTPUT="/home/fusionrisk/CMR/interface/rate"
+SERVICENAME="IDN_SELECTFEED"
+TSDATE_INFRA="sass3"
+DATA_DIR="/home/fusionrisk/CMR/interface/rate/samples"
+
+

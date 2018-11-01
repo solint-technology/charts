@@ -1,0 +1,238 @@
+#
+#
+#   File : kois.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Indicates weither the server takes KVS, KBS, KCS or KOIS identity.
+#      -> Default: KOIS
+#      default: KOIS
+SERVER_PROFILE KOIS
+#
+#
+#
+#      Name of the Kondor+ Other Instruments Server family. A family is a
+#      group of servers and agents working together.
+#      -> Default: CurvesServer if SERVER_PROFIL is KCS
+#         OIServer if SERVER_PROFIL is KOIS
+#      default: OIServer
+SERVER_FAMILY OIServer
+#
+#
+#
+#      Integer or String indicating the TCP/IP port used by the agent to connect
+#      to this server. A string is used to indicate the name of the service 
+#      (declared in the services file, usually using "ypcat -k services").
+#      
+#      default: kois
+SERVER_PORT kplus_kois
+#
+#
+#
+#      Defines the output directory for log files on Unix.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/servers
+LOGDIR  "/opt/finastra/kplus-front/entities/Standalone/log/servers"
+#
+#
+#
+#      Defines the output directory for log files on Windows.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers
+LOGDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers"
+#
+#
+#
+#      Level of information stored in the log files.
+#      0=Errors, 1=Warnings, 2= Informational messages 3=Debug
+#      default: 1
+LOGLEVEL  1
+#
+#
+#
+#      Number of days before the server log files are deleted. 
+#      If you do NOT want the log files to be deleted, set this parameter to -1.
+#      Remove log after <n> days, -1 means never
+#      default: 15
+LOGREMOVE  15
+#
+#
+#
+#      Boolean indicate if the server saves rates, bonds and curves
+#      Between midnight and the night batch.
+#      default: FALSE
+MIDNIGHT_RUN  FALSE
+#
+#
+#
+#      Number of seconds between break time and midnight
+#      KVS must stop before midnight for log files management
+#      default: 10
+MIDNIGHT_BREAK  10
+#
+#
+#
+#      Integer indicating the maximum number of snapshot records open
+#      at a given time. Snapshot records are used to handle records which
+#      do not update in real time.
+#      default: 50
+MAX_CONCURRENT_SNAPSHOT  50
+#
+#
+#
+#      Maximum number of pending real-time tasks processed on each iteration
+#      of the main loop.
+#      This value must be AT LEAST 1.
+#      default: 50
+MAX_REALTIME_TASK_PER_LOOP 50
+#
+#
+#
+#      Maximum number of pending common tasks processed by the agent on each iteration
+#      of the main loop.
+#      default: 16
+MAX_COMMON_TASK_PER_LOOP 16
+#
+#
+#
+#      Maximum size of the common task queue of each agent. The server won't dispatch more than
+#      the specified number of task to each agent.
+#      This value must be AT LEAST 1.
+#      default: 16
+MAX_COMMON_TASK_PER_AGENT 16
+#
+#
+#
+#      Boolean parameters indicates if server should save instruments values to
+#      the database.
+#      default: TRUE
+DATABASE_UPDATE  TRUE
+#
+#
+#
+#      Minimum number of seconds that must ellapse between two database storage
+#      of a given instrument value. If 0 then the instrument value is saved as
+#      soon as possible.
+#      default: 3
+DATABASE_UPDATE_INTERVAL  3
+#
+#
+#
+#      Minimum delay in seconds between two computations of Theorical Price
+#      Basket Indexes.
+#      default: 10
+MIN_CALC_DELAY_BASKET_INDEXES 10
+#
+#
+#
+#      Minimum delay in seconds between two computations of Theorical Price
+#      Papers.
+#      default: 10
+MIN_CALC_DELAY_PAPERS 10
+#
+#
+#
+#      Minimum delay in seconds between two computations of Theorical Price
+#      Warrants.
+#      default: 10
+MIN_CALC_DELAY_WARRANTS 10
+#
+#
+#
+#      Boolean indicates if the server manage Theorical Price
+#      Basket Indexes.
+#      -> Default: TRUE if SERVER_PROFIL is KOIS, FALSE otherwise.
+#      default: TRUE
+MANAGE_KOIS_BASKETINDEXES TRUE
+#
+#
+#
+#      Boolean indicates if the server manage Theorical Price
+#      Papers.
+#      -> Default: TRUE if SERVER_PROFIL is KOIS, FALSE otherwise.
+#      default: TRUE
+MANAGE_KOIS_PAPERS TRUE
+#
+#
+#
+#      Boolean indicates if the server manage Theorical Price
+#      Warrants.
+#      -> Default: TRUE if SERVER_PROFIL is KOIS, FALSE otherwise.
+#      default: TRUE
+MANAGE_KOIS_WARRANTS TRUE
+#
+#
+#
+#      Path of the log file for performance statistic on Unix. Must be fully qualified.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/servers/kbs-perf-statistic.csv
+PERFORMANCE_STATISTIC_PATH "/opt/finastra/kplus-front/entities/Standalone/log/servers/kbs-perf-statistic.csv"
+#
+#
+#
+#      Path of the log file for performance statistic on Windows. Must be fully qualified.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers\kbs-perf-statistic.csv
+PERFORMANCE_STATISTIC_PATH_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers\kbs-perf-statistic.csv"
+#
+#
+#
+#      Values separator in the log file for performance statistic.
+#      default: ;
+SEPARATOR ;
+#
+#
+#
+#      Frequency in minutes of log and reset of performance statistics.
+#      default: 15.0
+PERFORMANCE_STATISTIC_RESET_FREQUENCY 15.0
+#
+#
+#
+#      Enable log of performance statistics.
+#      default: FALSE
+PERFORMANCE_STATISTIC_ENABLE FALSE
+#
+#
+#
+#      A ratio between 0.0 and 0.99.
+#      A value of 0.0 indicates that no agent is dedicated to real-time task processing.
+#      A value of 0.1 indicates that floor(0.1 * number of agents) will be dedicated for real-time task processing.
+#      For example, with 5 agents and a value of 0.4, two agents will be dedicated.
+#      If the value is greater than 0.0 and there is more than one agent running then there will always be at least one agent dedicated to real-time task processing.
+#      
+#      Default meaning that for kbs and kois there is no dedicated agent, while for kcs there is at least one dedicated agent.
+#      default: 0
+DEDICATED_REALTIME_AGENTS_RATIO 0
+#
+#
+#
+#      Interval in seconds between the integration of a KCS message
+#      concerning the same curve into the system.
+#      This value must be AT LEAST 1.
+#      default: 300
+KCS_MESSAGE_INTEGRATION_INTERVAL 300
+#
+#
+#
+#      Define in millisecond the frequency used to update the metrics for the monitoring
+#      The minimum value for the frequency is 200. (if a value inferior to 200 is specified,
+#      the frequency will be set to 200)
+#      default: 500
+MONITORING_PUSH_TIME 500
+#
+#
+#
+#      Description of K+ service (server, handler or peripheral).
+#      default: "Kondor Other Instruments Server.  If this service is stopped Kondor RealTime will not work properly"
+SERVICE_DESCRIPTION "Kondor Other Instruments Server.  If this service is stopped Kondor RealTime will not work properly"
+#
+#
+#
+#      Display name of K+ service (server, handler or peripheral).
+#      default: "Other Instruments Server (kois)"
+SERVICE_DISPLAYNAME "Other Instruments Server (kois)"
+#
+#
+#   End of file
+#
+

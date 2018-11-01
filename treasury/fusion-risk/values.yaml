@@ -1,0 +1,14 @@
+# Default values for fusion-risk.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+fusion-risk-rvd:
+  rvdService:
+    type: ClusterIP
+    port: 7500
+    nodePort: 30501
+
+  httpService:
+    type: NodePort
+    port: 7501
+    nodePort: 30101

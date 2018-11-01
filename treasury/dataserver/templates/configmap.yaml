@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "dataserver.fullname" . }}
+  labels:
+    app: {{ template "dataserver.name" . }}
+    chart: {{ template "dataserver.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+data:
+  startAndLoad.sh: |
+{{ include "startAndLoad.sh" . | indent 4 }}

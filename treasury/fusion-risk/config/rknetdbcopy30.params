@@ -1,0 +1,88 @@
+#
+#    File    : rknetdbcopy.params
+#
+#    Synopsis: This file contains all of the parameters that can modify
+#              the initialization of rknetdbcopy.
+#
+#
+#    Kondor database server type : SYBASE or SQL_SERVER
+#    default: SYBASE
+DBMS_SERVER_TYPE SYBASE
+
+# if DBMS_SERVER_TYPE = SYBASE :
+#    Absolute path name of the Sybase interfaces file that contains KONDOR_SERVER_NAME
+#    Do NOT use the Sybase variable $SYBASE here.
+#    if not set, $SYBASE/interfaces will be used if present,
+#             or ~sybase/interfaces if ~sybase exists.
+#DBMS_INTERFACE_SUN4SOL /database/sybase/interfaces/sun4sol/interfaces
+#DBMS_INTERFACE_RS6000  /database/sybase/interfaces/rs6000/interfaces
+#DBMS_INTERFACE_X86SOL  /database/sybase/interfaces/x86sol/interfaces
+#DBMS_INTERFACE_LINUX  /database/sybase/interfaces/linux/interfaces
+#DBMS_INTERFACE_WINNT   \\ptxsnas01\database\dat\sybase\interfaces\winnt\sql.ini
+
+# if DBMS_SERVER_TYPE = SQL_SERVER :
+#    Absolute path name of the freetds.conf file that contains KONDOR_SERVER_NAME
+#    if not set, value of $FREETDSCONF (freetds.conf path) will be used if present
+#DBMS_INTERFACE_SUN4SOL /kreditnethome/3rdparty/freetds/etc/freetds.conf
+#DBMS_INTERFACE_RS6000 /kreditnethome/3rdparty/freetds/etc/freetds.conf
+#DBMS_INTERFACE_X86SOL /kreditnethome/3rdparty/freetds/etc/freetds.conf
+#DBMS_INTERFACE_LINUX /kreditnethome/3rdparty/freetds/etc/freetds.conf
+#
+#    Kondor Server Name
+#    default: SYBASE
+KONDOR_SERVER_NAME 
+#
+#    Name of the Kondor+ Database.
+#    default: KplusLocal
+#
+KONDOR_DATABASE_NAME kplus
+#
+#    Identification of the source dedicated to this Kondor+ system
+#    Definition of its short name (up to 16 characters)
+#    default: KONDOR
+#SOURCE_SHORTNAME KONDOR
+#
+#    Definition of the source's long name (up to 40 characters)
+#    default: KONDOR
+#SOURCE_NAME KONDOR
+#
+#    Definition of the kplus login name for this Kondor+ source.
+#    default: kplus
+SOURCE_KPLUS_LOGIN kplus
+#
+#    Definition of the time delta with the master server (in pos./neg. hours)
+#    default: 0
+#SOURCE_TIME_DELTA 0
+#
+#    Definition of the consolidation folder for all trades coming from
+#    this source. If none is specified, the original folders will be
+#    replicated and used in their original trades.
+#    default:
+#SOURCE_FOLDER_SHORTNAME
+#
+#    Definition of the consolidation folder for all trades coming from
+#    this source. If none is specified, the original folders will be
+#    replicated and used in their original trades.
+#    default:
+#SOURCE_FOLDER_NAME
+#
+#    Specify a particular codifier to use when copying some data from
+#    Kondor+. When Folders, Users and Cpty are copied, if they have a
+#    code for this codifier, it will be used instead of the original
+#    shortname during the copy.
+#    default:
+#USE_CODIFIER
+#
+#    Specify verbose mode
+#    default: FALSE
+#VERBOSE_MODE TRUE
+#
+#    Active Power Tier log
+#    default: FALSE
+#POWERTIERLOG	FALSE
+#
+#    Specify the counterparty hierarchy deph to copy
+#    default: 10
+#HIERARCHY_DEPTH 10
+#
+# End of File

@@ -1,0 +1,64 @@
+kind: Deployment
+apiVersion: apps/v1beta2
+metadata:
+  name: {{ template "collateral.fullname" . }}
+  {{- template "collateral.labels" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  minReadySeconds: 30
+  strategy:
+{{ toYaml .Values.updateStrategy | indent 4 }}
+  selector:
+    matchLabels:
+      app: {{ template "collateral.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "collateral.name" . }}
+        chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+        release: {{ .Release.Name }}
+        heritage: {{ .Release.Service }}
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+    spec:
+      {{- if .Values.imagePullSecrets }}
+      imagePullSecrets:
+{{ toYaml .Values.imagePullSecrets | indent 8 }}
+      {{- end }}
+      containers:
+      - name: {{ template "collateral.name" . }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+          - containerPort: {{ .Values.port }}
+{{- if .Values.configMap.enabled }}
+        volumeMounts:
+        - name: config
+          mountPath: {{ .Values.mountPath | quote }}
+{{- end }}
+        livenessProbe:
+          httpGet:
+            scheme: HTTP
+            path: /login
+            port: {{ .Values.port }}
+          initialDelaySeconds: 60
+          timeoutSeconds: 30
+        readinessProbe:
+          httpGet:
+            scheme: HTTP
+            path: /login
+            port: {{ .Values.port }}
+          initialDelaySeconds: 60
+          timeoutSeconds: 30
+        command: ["/bin/sh", "-c"]
+        resources:
+{{ toYaml .Values.resources | indent 12 }}
+        args: ["/dist/collateral/start.sh && tail -f /dev/null"]
+      terminationGracePeriodSeconds: 60
+{{- if .Values.configMap.enabled }}
+      volumes:
+        - name: config
+          configMap:
+            name: {{ template "collateral.fullname" . }}
+{{- end }}

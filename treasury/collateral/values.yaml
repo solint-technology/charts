@@ -1,0 +1,386 @@
+# Frontend service
+configMap:
+  enabled: true
+
+replicaCount: 1
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 64Mi
+  requests:
+    cpu: 100m
+    memory: 64Mi
+
+# The update strategy to apply to the Deployment
+updateStrategy:
+  rollingUpdate:
+    maxUnavailable: 1
+  type: RollingUpdate
+
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 11
+  targetCPUUtilizationPercentage: 50
+
+image:
+  repository: registry.misys.global.ad/enterprise-collateral/collateral-product-app-kondor
+  tag: 3.0.0.M04-SNAPSHOT-TO
+  pullPolicy: IfNotPresent
+
+mountPath: /target/etc/server.conf
+
+ingress:
+  enabled: false
+  # Used to create an Ingress record.
+  #hosts:
+  #  - frontend.domain.example
+  #path: /frontend
+  #annotations:
+  # kubernetes.io/ingress.class: nginx
+  # nginx.ingress.kubernetes.io/rewrite-target: /
+  # kubernetes.io/tls-acme: "true"
+  #tls:
+  # Secrets must be manually created in the namespace.
+  # - secretName: chart-example-tls
+  #   hosts:
+  #     - licensing.domain.example
+
+
+# collateral cargo configuration
+system:
+  opendashboard:
+    folder: misysboard
+    user:
+      model: DEFAULT_MODEL
+  tibrv:
+    libs:
+      path: lib
+  yar:
+    default:
+      timeout: 5000
+cargo:
+  web:
+    http: true
+    httpPort: 8181
+    secure: false
+    httpsPort: 8183
+    keymanagerPassword: OOMoqEGsC1GT0oQ0wvi+wQ==
+    keystorePassword: OOMoqEGsC1GT0oQ0wvi+wQ==
+  monitoring:
+    collect:
+      enable: true
+      format: LOG
+      period: 5
+dasel:
+  extensionTimeOut: 1
+  maxThreads: 16
+bi:
+  aggregateReports: false
+fabric:
+  database:
+    driver: net.sourceforge.jtds.jdbc.Driver
+    password: OOMoqEGsC1GT0oQ0wvi+wQ==
+    url: jdbc:jtds:sqlserver://kplus-db:1433;DatabaseName=Kustom
+    username: kplus
+  repository:
+    xRefEnabled: false
+    xRefInitTimeOut: 300000
+fcgc:
+  licensing:
+    applicationName: FCGC
+    serviceName: els_port_gdqa
+collateral:
+  acadia:
+    proxyinfo:
+      rootUrl: https://uat.acadiahub.com:443/amp
+      username: MISYS.CPTY.API@MisysCpty
+      password: OOMoqEGsC1GT0oQ0wvi+wQ==
+      timeFrame: 2
+      updateTimeFrame: 10
+      proxyHost: ''
+      proxyPort: ''
+      proxyUsername: ''
+      proxyPassword: ''
+      isProxyEnabled: false
+      refreshRate: 600
+      automaticPollingEnable: false
+  reporting:
+    reportingCurrency: EUR
+  spi:
+    cashService: KONDOR
+    securityService: KONDOR
+    securitiesInventoryService: FCBO
+    sensitivitiesService: KONDOR
+    cashMovementsBalancesService: DEFAULT_NO_CASH_BALANCES
+  exposure:
+    serviceNames:
+      interest: InterestMockService
+      haircut: HaircutMockService
+      allinprice: AllInPriceMockService
+      amount: AmountMockService
+      rate: RateMockService
+      complete: CompleteTradeDataMockService
+  service:
+    bulkLoadWaitTime: 300000
+    tradeAssignmentWaitTime: 360000
+    waitForMtmEvents: false
+    loadAllReportsAtStartTime: true
+  impl:
+    asOfDate: '2018-01-04'
+  gateway:
+    provider:
+      marketdata:
+        repoRatesService: CSV
+        fxForwardRatesService: CSV
+        oisRateService: CSV
+    endpoint:
+      rest:
+        optimizationInputTimeout: 50
+  mkdata:
+    addon:
+      csv:
+        pathToFileForRepoRates: etc/feeder/feeder_repo_rates.csv
+        pathToFileForFxForwardRates: etc/feeder/feeder_fx_fwd_rates.csv
+        pathToFileForOisRates: etc/feeder/feeder_ois_rates.csv
+  im:
+    addon:
+      acadia:
+        contextFactory: org.apache.activemq.jndi.ActiveMQInitialContextFactory
+        providerUrl: tcp://unused:14616
+        connectionFactory: QueueConnectionFactory
+        timeout: 3
+        threadPoolSize: 10
+        requestQueueName: acadiaInboundQueue
+        responseQueueName: acadiaOutboundQueue
+        username: orchestrate
+        password: OOMoqEGsC1GT0oQ0wvi+wQ==
+        tradeBatchSize: 1000
+      fusionrisk:
+        contextFactory: org.apache.activemq.jndi.ActiveMQInitialContextFactory
+        providerUrl: tcp://unused:14616?wireFormat.maxInactivityDuration=0
+        connectionFactory: QueueConnectionFactory
+        timeout: 3
+        threadPoolSize: 10
+        requestQueueName: ffc.cdm.request
+        responseQueueName: ffc.cdm.response
+        userName: orchestrate
+        password: OOMoqEGsC1GT0oQ0wvi+wQ==
+        varType: H
+        riskMeasure: Q
+        leftOrRightTail: R
+        confidenceLevel: 0.99
+        decayFactor: 0.99
+        pnlCubeConfigurations:
+            - currencyId: USD
+              pnlCubeId: CubeIdA
+            - currencyId: EUR
+              pnlCubeId: CubeIdB
+  brokerstatement:
+    addon:
+      contextFactory: org.apache.activemq.jndi.ActiveMQInitialContextFactory
+      providerUrl: tcp://unused:14616?wireFormat.maxInactivityDuration=0
+      connectionFactory: QueueConnectionFactory
+      responseQueueName: caddResponseQueue
+      password: ''
+      userName: ''
+integration:
+  kondor:
+    common:
+      database:
+        jdbcClassname: net.sourceforge.jtds.jdbc.Driver
+        jdbcUrl: jdbc:jtds:sqlserver://kplus-db:1433;DatabaseName=kplus;loginTimeout=10
+        jdbcUsername: kplus
+        jdbcPassword: OOMoqEGsC1GT0oQ0wvi+wQ==
+        kplusDbName: kplus
+        kplustpDbName: ktpplus
+        instanceName: Kplus1
+        maxActive: '30'
+      rdvstream:
+        enabled: true
+        service: 7500
+        network: eth0;;
+        daemon: tcp:kplus-front-rvd:7500
+        tibrvOemLicense: true
+      dbstream:
+        enabled: true
+      reportstream:
+        enabled: true
+      codifier:
+        enabled: true
+        codifier: CMF-INT
+        isdacodifier: ISDA
+      currency:
+        identityCardId: 1
+      versioning:
+        useVersioning: false
+      service:
+        impl:
+          ksg:
+            ksgConnectionCredentials:
+              ksgSso: 'false'
+              ksgUser: kplus
+              ksgPassword: OOMoqEGsC1GT0oQ0wvi+wQ==
+    bo:
+      gateway:
+        ironurl: http://kdews:7576/irongw
+        kml:
+          applicationName: kplustp
+          dbName: ktpplus
+          dbUrl: jdbc:sqlserver://kplus-db:1433;selectMethod=cursor;DatabaseName=ktpplus
+          enabled: 'true'
+          password: OOMoqEGsC1GT0oQ0wvi+wQ==
+          rvDaemon: tcp:kplus-front-rvd-kis-tk:8889
+          rvNetWork: eth0;;
+          rvService: 8889
+          user: ktpplus
+      store:
+        impl:
+          asofdate:
+            cityShortName: ITMI
+    collateral:
+      domain:
+        impl:
+          pathToFileForSimmRiskPerimeters: etc/sensitivities/sensitivities2.txt
+      callaccountsdeals:
+        adjusted: N
+        adjustmentOn: N
+        amendmentType: N
+        averageFirstCoupon: N
+        calculationMethod: W
+        clearingModesId: 0
+        dailyAccrualRounding: N
+        dealStatus: V
+        dealType: I
+        endDateRollConvention: M
+        eoma: N
+        eomaType: B
+        floatingRatesShortName: USD-LIB-1Y
+        foldersId: 58942
+        foldersIdCaptured: 58942
+        fullCoupon: N
+        inputMode: I
+        interestType: S
+        isAModel: N
+        isCollaterizedByAnnex: N
+        mrLiable: N
+        noticePeriod: 0
+        paymentLagType: B
+        resetInArrears: N
+        rollConvention: O
+        typeOfCallAccount: N
+        typeOfEvent: N
+        typeOfInstrId: 0
+        usersId: 1
+        valueDateConvention: 0
+        ourInitialMarginId: 59213
+        theirInitialMarginId: 59214
+        variationMarginId: 59215
+        netMarginId: 59216
+      repodeals:
+        adjustMaturityDate: N
+        adjusted: N
+        basis: M
+        brkPrdInterpolation: N
+        brokenPeriod: B
+        calculationMethod: W
+        callNoticesShortName: 1MONTH
+        capturedMarketValue: P
+        capturedMaturity: N
+        clearingModesId: '0'
+        compoundAverageFrequency: N
+        computeConvexityBias: N
+        conversionRate: 1
+        costOfCarry: 0
+        couponsCumul: 0
+        dealStatus: V
+        deliveryMode: D
+        discountMargin: 0
+        endDateRollConvention: M
+        eoma: N
+        eomaType: B
+        feeIndexedAmount: N
+        fixedRate: 0
+        fixingFrequency: N
+        foldersId: 58942
+        forwardConversionRate: 0
+        frequency: M
+        haircutMethod: I
+        ignoreCouponPayments: S
+        imm: N
+        indexation: F
+        indexedAdjFactor: 1
+        indexedFwdAdjFactor: 1
+        indexedFwdFxRate1: 1
+        indexedFwdFxRate2: 1
+        indexedFxRate1: 1
+        indexedFxRate2: 1
+        inputMode: I
+        interestCalcMethod: S
+        isBooked: Y
+        isCollateralized: N
+        isCollateralizedByAnnex: N
+        isExponentiallyCompounded: N
+        japaneseRepo: N
+        lendingRate: 0
+        line: 1
+        mixedCollateralType: 0
+        mrLiable: N
+        override: N
+        paymentAt: E
+        paymentLag: 0
+        paymentLagType: B
+        paymentType: R
+        priceOrigin: M
+        quantoAdj: N
+        rate: 0
+        refCostOfCarry: 0
+        refReinvestedCoupons: 0
+        referenceValue: 0
+        reinvestedCoupons: 0
+        resetInArrears: Y
+        resetLag: 0
+        rollConvention: M
+        roundingType: R
+        scheduleGeneration: E
+        scheduleMerging: N
+        typeOfEvent: N
+        typeOfInstrShortName: REPO
+        useBrazilianRoundingRules: N
+        used: U
+        usersId: 1
+    insight:
+      service:
+        impl:
+          mtmreport:
+            enableDataComputation: true
+            reportDatabase: insight
+            reportName: TO_SETUP_COLLAT
+            subReportName: TO_SETUP_COLLAT
+            timeWaitingForFirstReport: 60
+            onReportFailureKeepListeningForNextReports: true
+          simmreport:
+            enableDataComputation: false
+            reportDatabase: insight
+            reportName: SIMM
+            subReportName: SIMM
+            timeWaitingForFirstReport: 100
+            onReportFailureKeepListeningForNextReports: false
+    soap:
+      locatorAddress: http://klws:8090
+      useLocator: 'true'
+      kdewsFixedAddress: unused
+ksg:
+  asyncTimeout: 30
+  rvdDaemon: tcp:kplus-front-rvd:7500
+  rvdNetwork: eth0;;
+  rvdService: 7500
+  rvdSubject: KPLUS_kplus
+  timeout: 120
+crossassetdepo:
+  domain:
+    impl:
+      sandbarDates: {}
+      isInitialRun: false
+

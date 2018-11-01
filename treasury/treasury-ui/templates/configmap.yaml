@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "treasury-ui.fullname" . }}
+  labels:
+    app: {{ template "treasury-ui.fullname" . }}
+    chart: {{ template "treasury-ui.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+data:
+  conf.json: |
+{{ include "conf.json" . | indent 4 }}
+  mb-package.json: |
+{{ include "mb-package.json" . | indent 4 }}

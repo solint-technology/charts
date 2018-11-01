@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<compliance>
+    <plugins>
+        <plugin>
+            <id>2</id>
+            <displayName>CVA MGR Limit</displayName>
+            <displayOrder>2</displayOrder>
+            <pluginClass>com.trmsys.compliance.plugin.cvabuiltin.PluginCVABuiltIn</pluginClass>
+            <panelClass>com.trmsys.compliance.plugin.cvabuiltin.PanelCVABuiltIn</panelClass>
+            <pluginConfiguration>
+                <pluginClass>com.trmsys.compliance.plugin.cvamgrlimit.PluginCVAMGRLimit</pluginClass>
+                <panelClass>com.trmsys.compliance.plugin.cvamgrlimit.PanelCVAMGRLimit</panelClass>
+                <serverUrl></serverUrl>
+                <kgrSourceForCurrentKplus>KONDOR</kgrSourceForCurrentKplus>
+                <kgrLoginName></kgrLoginName>
+                <kgrPassword>{Crypt2}1r+mEDOTSIM=</kgrPassword>
+            </pluginConfiguration>
+            <enabled>FALSE</enabled>
+        </plugin>
+    </plugins>
+</compliance>

@@ -1,0 +1,84 @@
+#
+#
+#   File : kes.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Defines the id wich will identify server in RDV communication with externale clients
+#      This ID should be unique in the RDV network
+#      default: 1
+SERVER_ID 1
+#
+#
+#
+#      Defines the number of threads used to execute parallel operations
+#      default: 8
+MAX_PARALLEL_OPERATIONS 8
+#
+#
+#
+#      Number of seconds to wait for response from repository
+#      default: 20
+KES_TO_REPOSITORY_TIMEOUT 20
+#
+#
+#
+#      Defines the output directory for log files on Unix.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/servers
+LOGDIR "/opt/finastra/kplus-front/entities/Standalone/log/servers"
+#
+#
+#
+#      Defines the output directory for log files on Windows.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers
+LOGDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers"
+#
+#
+#
+#      Level of information written to the log files.
+#      default: 1
+LOGLEVEL 1
+#
+#
+#
+#      Identifies whether the tmp files are to be removed at the end of the job execution
+#      default: TRUE
+REMOVE_TEMP_FILES TRUE
+#
+#
+#
+#      Identifies where the tmp files will be stored on Unix
+#      default: /opt/finastra/kplus-front/kplus/share/insight/temp
+TEMP_FILES_DIR "/opt/finastra/kplus-front/kplus/share/insight/temp"
+#
+#
+#
+#      Identifies where the tmp files will be stored on Windows
+#      default: C:\Program Files\Reuters\Kplus30\kplus\share\insight\temp
+TEMP_FILES_DIR_WINNT "C:\Program Files\Reuters\Kplus30\kplus\share\insight\temp"
+#
+#
+#
+#      Description of K+ service (server, handler or peripheral).
+#      default: "Kondor Insight Event Server. If this service is stopped Insight Reports will not work properly"
+SERVICE_DESCRIPTION "Kondor Insight Event Server. If this service is stopped Insight Reports will not work properly"
+#
+#
+#
+#      Display name of K+ service (server, handler or peripheral).
+#      default: "Insight Event Server (kes)"
+SERVICE_DISPLAYNAME "Insight Event Server (kes)"
+#
+#
+#
+#      Number of miliseconds that a single movement event will wait in event queue to be merged with next incomming event if event generation frequecy is higher that timeout in this parameter. If set to 0 queue will  work like classic FIFO queue
+#      default: 1000
+EVENT_QUEUE_THRESHOLD_IN_MILISECONDS 1000
+#
+#
+#   End of file
+#
+

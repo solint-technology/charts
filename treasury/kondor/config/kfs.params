@@ -1,0 +1,56 @@
+#
+#
+#   File : kfs.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Output directory for Kondor+ Financial Server log files.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/peripherals
+KFS_LOGDIR "/opt/finastra/kplus-front/entities/Standalone/log/peripherals"
+#
+#
+#
+#      Number of days before the KFS log files are deleted. If you do not want
+#      the log files to be deleted, set this parameter to -1.
+#      default: 15
+KFS_LOGREMOVE 15
+#
+#
+#
+#      Maximum number of simultaneous connections to the server.
+#      default: 100
+KFS_NB_CONNECTIONS 100
+#
+#
+#
+#      ???
+#      default: 1024
+KFS_DEFQUEUESIZE 1024
+#
+#
+#
+#      File name and path to the HTML help.
+#      default: ./KFS_func_doc.html
+KFS_HTML_NAME "./KFS_func_doc.html"
+#
+#
+#
+#      Name of KFS defined in the database interfaces file.
+#      default: OpenKFS
+KFS_SERVER_NAME OpenKFS
+#
+#
+#
+#      Define in millisecond the frequency used to update the metrics for the monitoring
+#      The minimum value for the frequency is 200. (if a value inferior to 200 is specified,
+#      the frequency will be set to 200)
+#      default: 500
+MONITORING_PUSH_TIME 500
+#
+#
+#   End of file
+#
+

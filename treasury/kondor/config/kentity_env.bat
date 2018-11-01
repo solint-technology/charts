@@ -1,0 +1,41 @@
+@echo off
+
+set KPLUSHOME3_WINNT=C:\Program Files\Reuters\Kplus30
+set INSTITUTION_NAME=KONDOR SET
+set ENTITY=Standalone
+set ENTITY_SHORTNAME=STANDALONE
+set ENTITY_NAME=STANDALONE ENTITY
+set ENTITY_TYPE=Standalone Entity
+set MASTER_ENTITY=Standalone
+set ENTITY_LOCAL_CURRENCY_SHORTNAME=EUR
+set ENTITY_CITY_SHORTNAME=FRPA
+set KPLUS_HOST=kplus-front
+set ENTITY_DIR_WINNT=C:\Program Files\Reuters\Kplus30\entities\Standalone
+set ENTITY_CONFIG_DIR_WINNT=C:\Program Files\Reuters\Kplus30\entities\Standalone\config
+set ENTITY_LOG_DIRECTORY_WINNT=C:\Program Files\Reuters\Kplus30\entities\Standalone\log
+set ENTITY_LOG_REMOVE=15
+set ENTITY_LOG_LEVEL=1
+set ENTITY_KMS_RECONNECT=20
+set EMPTY=
+set ME_MASTER_CONFIG_WINNT=C:\Program Files\Reuters\Kplus30\entities\Standalone\config
+set DBMS_INTERFACE_WINNT=C:\sybase\INI\SQL.INI
+set SYBASE_ISQL_WINNT=$V(SYBASE_ISQL_WINNT)
+set DSQUERY=KPLUS
+set DATASERVER_HOST=kplus-db
+set DATASERVER_PORT=1433
+set KPLUSGLOBAL_DB_NAME=kplus
+set KPLUSLOCAL_DB_NAME=kplus
+set KPLUSVERSION_DB_NAME=KplusVersion
+set KPLUSARCHIVE_DB_NAME=KplusArchive
+set KUSTOM_DB_NAME=Kustom
+set INDEX_LOCATION=default
+set KPLUSGLOBAL_INDEX_LOCATION=default
+set KPLUSLOCAL_INDEX_LOCATION=default
+set KPLUSARCHIVE_INDEX_LOCATION=default
+set KPLUSVERSION_INDEX_LOCATION=default
+set KUSTOM_INDEX_LOCATION=default
+set DBMS_TYPE=SQL_SERVER
+set DBMS_JDBC_PROTOCOL=jdbc:sqlserver
+
+
+

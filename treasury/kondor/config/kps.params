@@ -1,0 +1,108 @@
+#
+#
+#   File : kps.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Defines the output directory for log files.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/servers
+LOGDIR "/opt/finastra/kplus-front/entities/Standalone/log/servers"
+#
+#
+#
+#      Number of days before the server log files are deleted. 
+#      If you do NOT want the log files to be deleted, set this parameter to -1. 
+#      Remove log after <n> days, -1 means never
+#      default: 15
+LOGREMOVE 15
+#
+#
+#
+#      Standard output log level
+#      default: LOGLEVEL_NONE
+KPSLOG_LEVEL_STDOUTPUT LOGLEVEL_NONE
+#
+#
+#
+#      Standard error log level
+#      default: LOGLEVEL_NONE
+KPSLOG_LEVEL_STDERROR LOGLEVEL_NONE
+#
+#
+#
+#      CSV file output log level
+#      default: LOGLEVEL_NONE
+KPSLOG_LEVEL_CSVFILE LOGLEVEL_NONE
+#
+#
+#
+#      Classic Kondor+ output (mix of console/file output) log level
+#      default: LOGLEVEL_NONE
+KPSLOG_LEVEL_KPLUS LOGLEVEL_NONE
+#
+#
+#
+#      JMS server hostname
+#      default: localhost
+JMS_SERVER_HOSTNAME localhost
+#
+#
+#
+#      JMS server port
+#      default: 9220
+JMS_SERVER_PORT 9220
+#
+#
+#
+#      JMS client Id. This is the KPS client Id needed by the JMS server.
+#      default: KpsServer-01
+JMS_CLIENT_ID KpsServer-01
+#
+#
+#
+#      JMS topic used for KPS requests. This is the topic KPS listen to. 
+#      KPS serve all clients that send a request to this topic. 
+#      If several KPS are running at the same time, each one should have a different topic name.
+#      default: KpsRequest
+JMS_REQUEST_TOPIC KpsRequest
+#
+#
+#
+#      Define, in seconds, the delay after which KPS retries to send unsent responses. 
+#      When a response is ready to be sent, KPS sends it to the JMS server. 
+#      If this sending fails (for example if the JMS server goes down), 
+#      this ready-to-be-sent response is temporarely stored to be sent later, 
+#      after a specific delay defined by JMS_RESPONSE_RETRY_DELAY.
+#      default: 10
+JMS_RESPONSE_RETRY_DELAY 10
+#
+#
+#
+#      Define, in seconds, the delay to wait to retry to reconnect to the ELS server if the first attempt fails. 
+#      At starting, KPS try to connect to the ELS server. 
+#      If this connection fails, it will wait a specific delay before to retry. 
+#      If it still fails, it will retry again and again until the connection is established. 
+#      ELS_CONNECTION_RETRY_DELAY defines the delay to wait for between each try.
+#      default: 10
+ELS_CONNECTION_RETRY_DELAY 10
+#
+#
+#
+#      Define if the XML requests input should be validated or not.
+#      default: FALSE
+XML_SCHEMA_VALIDATION FALSE
+#
+#
+#
+#      If XML_SCHEMA_VALIDATION is set to TRUE, define the directory where KPS will search for the XML validation schema files.
+#      In this directory, KPS expects to find the following file: kps_request.xsd.
+#      default: /opt/finastra/kplus-front/common/xmlschema
+XML_SCHEMA_VALIDATION_DIRECTORY "/opt/finastra/kplus-front/common/xmlschema"
+#
+#
+#   End of file
+#
+

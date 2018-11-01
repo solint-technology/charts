@@ -1,0 +1,59 @@
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: kplus-db
+  labels:
+    app: {{ template "treasury.fullname" . }}
+    chart: {{ template "treasury.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+subsets:
+  - addresses:
+      - ip: {{ .Values.database.hostIP }}
+    ports:
+      - port: {{ .Values.database.hostPort }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kplus-db
+  labels:
+    app: {{ template "treasury.name" . }}
+    chart: {{ template "treasury.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: ClusterIP
+  ports:
+    - port: 1433
+      protocol: TCP
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: frdb
+  labels:
+    app: {{ template "treasury.fullname" . }}
+    chart: {{ template "treasury.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+subsets:
+  - addresses:
+      - ip: {{ .Values.database.hostIP }}
+    ports:
+      - port: {{ .Values.database.hostPort }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frdb
+  labels:
+    app: {{ template "treasury.name" . }}
+    chart: {{ template "treasury.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: ClusterIP
+  ports:
+    - port: 1433
+      protocol: TCP

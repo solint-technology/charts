@@ -1,0 +1,62 @@
+#
+#
+#   File : kvers.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Defines the output directory for log files on Unix.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/servers
+LOGDIR "/opt/finastra/kplus-front/entities/Standalone/log/servers"
+#
+#
+#
+#      Defines the output directory for log files on Windows.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers
+LOGDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers"
+#
+#
+#
+#      Level of information stored in the log files.
+#      0=Critical Messages
+#      1=Warnings and Critical Messages
+#      2=Info Messages, Warnings and Critical Messages
+#      3=Debug Messages,Info Messages, Warnings and Critical Messages
+#      4=Trace Messages,Debug Messages,Info Messages, Warnings and Critical Messages
+#      default: 1
+LOG_LEVEL 1
+#
+#
+#
+#      Number of days before the server log files are deleted. 
+#      If you do NOT want the log files to be deleted, set this parameter to -1.
+#      Remove log after <n> days, -1 means never
+#      default: 15
+LOGREMOVE 15
+#
+#
+#
+#      Define in millisecond the frequency used to update the metrics for the monitoring
+#      The minimum value for the frequency is 200. (if a value inferior to 200 is specified,
+#      the frequency will be set to 200)
+#      default: 500
+MONITORING_PUSH_TIME 500
+#
+#
+#
+#      Description of K+ service (server, handler or peripheral).
+#      default: "Kondor Versioning Server. If this service is stopped deals versioning will not work properly"
+SERVICE_DESCRIPTION "Kondor Versioning Server. If this service is stopped deals versioning will not work properly"
+#
+#
+#
+#      Display name of K+ service (server, handler or peripheral).
+#      default: "Versioning Server (kvers)"
+SERVICE_DISPLAYNAME "Versioning Server (kvers)"
+#
+#
+#   End of file
+#
+

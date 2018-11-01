@@ -1,0 +1,5 @@
+# Name of the KSP database
+KSP_DB_NAME ksp
+# K+ config (KPLUSHOME3/entities/<name>/config/)
+KPLUS_CONFIG_DIR /opt/finastra/kplus-front/entities/Standalone/config
+KPLUS_CONFIG_DIR_WINNT C:\Program Files\Reuters\Kplus30\entities\Standalone\config

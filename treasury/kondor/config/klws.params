@@ -1,0 +1,45 @@
+#
+#
+#   File : klws.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Log directory on Unix
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/servers
+KSERVER_LOGDIR "/opt/finastra/kplus-front/entities/Standalone/log/servers"
+#
+#
+#
+#      Log directory on Windows
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers
+KSERVER_LOGDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers"
+#
+#
+#
+#      Log level of the application
+#       0 : error only
+#       1 : Error and warning
+#       2 : Error, warning and info
+#       4 : Error, warning, info and trace (maximum level)
+#      default: 1
+KSERVER_LOG_LEVEL 1
+#
+#
+#
+#      Description of K+ service (server, handler or peripheral).
+#      default: "Kondor Web Services Locator. If this service is stopped Kondor will not work properly"
+SERVICE_DESCRIPTION "Kondor Web Services Locator. If this service is stopped Kondor will not work properly"
+#
+#
+#
+#      Display name of K+ service (server, handler or peripheral).
+#      default: "Web Services Locator  (klws)"
+SERVICE_DISPLAYNAME "Web Services Locator  (klws)"
+#
+#
+#   End of file
+#
+

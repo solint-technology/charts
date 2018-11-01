@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "kondor-insight.name" . }}
+  labels:
+    app: {{ template "kondor-insight.name" . }}
+    chart: {{ template "kondor-insight.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ template "kondor-insight.name" . }}
+    release: {{ .Release.Name }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "kondor-insight.name" . }}-ext
+  labels:
+    app: {{ template "kondor-insight.name" . }}
+    chart: {{ template "kondor-insight.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: NodePort
+  ports:
+    - port: {{ .Values.service.port }}
+      nodePort: {{ .Values.service.extport }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ template "kondor-insight.name" . }}
+    release: {{ .Release.Name }}

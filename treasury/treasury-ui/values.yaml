@@ -1,0 +1,35 @@
+# Default values for treasury-ui.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  registry: registry.misys.global.ad
+  repository: treasury-optimisation/misysboard
+  tag: 3.0.0-SNAPSHOT-build-183
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+  port: 3002
+  extport: 32002
+
+ingress:
+  host: minikube
+  enabled: true
+
+insight:
+  service: kondor-insight
+  port: 8181
+
+fusionrisk:
+  service: frcargo
+  port: 8181
+
+## Liveness probe parameters
+livenessProbe:
+  initialDelaySeconds: 90
+  periodSeconds: 60
+  timeoutSeconds: 30
+  failureThreshold: 3

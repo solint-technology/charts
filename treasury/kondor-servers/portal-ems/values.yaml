@@ -1,0 +1,29 @@
+# Default values for portal-ems.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  registry: registry.misys.global.ad
+#  registry: registry-gdn.misys.global.ad
+  repository: treasury-optimisation/kplus-front
+  tag: 3.4.7.030.011-f2a37bc-20181018T010941
+  extraRepository: kondor/kplus-front-extra
+#  extraTag:
+  pullPolicy: IfNotPresent
+
+els:
+  host: elsd-1-2110
+  ip: 10.22.180.198
+
+service:
+  type: ClusterIP
+  port: 7610
+
+## Liveness probe parameters
+livenessProbe:
+  initialDelaySeconds: 90
+  periodSeconds: 60
+  timeoutSeconds: 30
+  failureThreshold: 3

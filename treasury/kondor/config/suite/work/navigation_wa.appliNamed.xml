@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?><application version="0.1" product="wa" language="en_US">
+<i18nDictionary appliName="wa" name="webaccessDealCapture" weight="0"/>
+<worksheetgroup appliName="wa" id="securities" label="Securities">
+<worksheet appliName="wa" id="securities.BondsDeals" label="Bonds" title="Bond Deal" href="worksheets/securities/bond.xml" securityId="WS.WA.DEAL.BOND" selected="true" securityAppliName="kplustp"/>
+<worksheet appliName="wa" id="securities.EquitiesDeals" label="Equity Deal" href="worksheets/securities/equity.xml" securityId="WS.WA.DEAL.EQUITY" securityAppliName="kplustp"/>
+<worksheet appliName="wa" id="securities.CommoditiesDeals" label="Commodity Deal" href="worksheets/securities/commodity.xml" securityId="WS.WA.DEAL.COMMODITY" securityAppliName="kplustp"/>
+<worksheetgroup appliName="wa" id="securities.warrantoperations" label="Warrant">
+<worksheet appliName="wa" id="securities.WarrantsDeals" label="Warrant Deal" href="worksheets/securities/warrant.xml" securityId="WS.WA.DEAL.WARRANT" securityAppliName="kplustp"/>
+<worksheet appliName="wa" id="securities.WarrantExerciseDeals" label="Warrant Exercise" href="worksheets/securities/warrant_exercise.xml" securityId="WS.WA.DEAL.WARRANT.EXERCISE" securityAppliName="kplustp"/>
+</worksheetgroup>
+<worksheet appliName="wa" id="securities.MbsAbsDeals" label="MBS/ABS" title="MBS/ABS Deal" href="worksheets/securities/mbsabsdeals.xml" securityId="WS.WA.DEAL.MBS.ABS" securityAppliName="kplustp"/>
+</worksheetgroup>
+<worksheetgroup appliName="wa" id="forex" label="Forex">
+<worksheet appliName="wa" id="forex.SpotDeals" label="Spot" href="worksheets/forex/spot.xml" securityId="WS.WA.DEAL.SPOT" selected="true" securityAppliName="kplustp"/>
+<worksheet appliName="wa" id="forex.FxSwapDeals" label="Fx Swaps" href="worksheets/forex/fxswap.xml" securityId="WS.WA.DEAL.FXSWAP" securityAppliName="kplustp"/>
+<worksheet appliName="wa" id="forex.ForwardDeals" label="Outright Forwards" href="worksheets/forex/forward.xml" securityId="WS.WA.DEAL.FORWARD" securityAppliName="kplustp"/>
+</worksheetgroup>
+<worksheetgroup appliName="wa" id="moneyMarket" label="Money Market">
+<worksheet appliName="wa" id="moneyMarket.IamDeals" label="IAM" href="worksheets/moneymarket/iam.xml" securityId="WS.WA.DEAL.IAM" securityAppliName="kplustp"/>
+<worksheet appliName="wa" id="moneyMarket.LoansDepositDeals" label="Periodic L&amp;D" href="worksheets/moneymarket/loandeposit.xml" securityId="WS.WA.DEAL.PERIODIC.LD" securityAppliName="kplustp"/>
+<worksheet appliName="wa" id="moneyMarket.RepoDeals" label="Repos" href="worksheets/moneymarket/repo.xml" securityId="WS.WA.DEAL.REPO" selected="true" securityAppliName="kplustp"/>
+<worksheet appliName="wa" id="moneyMarket.PaperDeals" label="Paper &amp; CDs" title="Paper &amp; CD Deal" href="worksheets/moneymarket/paper.xml" securityId="WS.WA.DEAL.PAPER.CDS" securityAppliName="kplustp"/>
+<worksheet appliName="wa" id="moneyMarket.SecurLoansDeals" label="Securities Lending" href="worksheets/moneymarket/seclenddeal.xml" securityId="WS.WA.DEAL.SEC.LEN" securityAppliName="kplustp"/>
+<worksheet appliName="wa" id="moneyMarket.CallAccountsDeals" label="Call Accounts" title="Call Account Deal" href="worksheets/moneymarket/callaccountdeal.xml" securityId="WS.WA.DEAL.CALL.ACCOUNTS" securityAppliName="kplustp"/>
+<worksheet appliName="wa" id="moneyMarket.CashFlowDeals" label="Cash Flow" href="worksheets/moneymarket/cashflowdeal.xml" securityId="WS.WA.DEAL.CASHFLOW" securityAppliName="kplustp"/>
+</worksheetgroup>
+<worksheetgroup appliName="wa" id="derivatives" label="Derivatives" selected="true">
+<worksheet appliName="wa" id="derivatives.CapFloorDeals" label="Caps &amp; Floors" href="worksheets/derivatives/capfloor.xml" securityId="WS.WA.DEAL.CAPS.FLOORS" securityAppliName="kplustp"/>
+<worksheet appliName="wa" id="derivatives.FraDeals" label="FRA" href="worksheets/derivatives/fra.xml" securityId="WS.WA.DEAL.FRA" securityAppliName="kplustp"/>
+<worksheet appliName="wa" id="derivatives.FuturesDeals" label="Futures" title="Futures Deal" href="worksheets/derivatives/future.xml" securityId="WS.WA.DEAL.FUTURES" securityAppliName="kplustp"/>
+<worksheetgroup appliName="wa" id="derivatives.OptionEntries" label="Options">
+<worksheet appliName="wa" id="derivatives.OptionsDeals" label="Options Deal" href="worksheets/derivatives/option.xml" securityId="WS.WA.DEAL.OPTIONS" securityAppliName="kplustp"/>
+<worksheet appliName="wa" id="derivatives.OptionExerciseDeals" label="Option Exercise" href="worksheets/derivatives/option_exercise.xml" securityId="WS.WA.DEAL.OPTION.EXERCISE" securityAppliName="kplustp"/>
+</worksheetgroup>
+<worksheet appliName="wa" id="derivatives.FxOptionsDeals" label="Fx OTC Options" href="worksheets/derivatives/fxotc.xml" securityId="WS.WA.DEAL.FXOTCOPT" securityAppliName="kplustp"/>
+<worksheet appliName="wa" id="derivatives.BondsOtcOptDeals" label="Bond OTC Options" href="worksheets/derivatives/bondotc.xml" securityId="WS.WA.DEAL.BONDS.OTC" securityAppliName="kplustp"/>
+<worksheet appliName="wa" id="derivatives.EqOtcOptDeals" label="OTC Options" href="worksheets/derivatives/equityotc.xml" securityId="WS.WA.DEAL.EQ.OTC.OPTIONS" securityAppliName="kplustp"/>
+<worksheet appliName="wa" id="derivatives.SwapDeals" label="IRS/CIRS" href="worksheets/derivatives/irscirs.xml" securityId="WS.WA.DEAL.IRS.CIRS" securityAppliName="kplustp"/>
+<worksheet appliName="wa" id="derivatives.SwaptionDeals" label="Swaptions" href="worksheets/derivatives/swaption.xml" securityId="WS.WA.DEAL.SWAPTIONS" securityAppliName="kplustp"/>
+<worksheet appliName="wa" id="derivatives.EquitySwapDeals" label="Swap Deal" href="worksheets/derivatives/equityswap.xml" securityId="WS.WA.DEAL.EQUITY.SWAP" securityAppliName="kplustp"/>
+<worksheetgroup appliName="wa" id="derivatives.CreditDerivativesEntries" label="Credit Derivatives">
+<worksheet appliName="wa" id="derivatives.CreditSwapDeals" label="Credit Derivatives" href="worksheets/derivatives/creditswap.xml" securityId="WS.WA.DEAL.CREDIT.DERIV" securityAppliName="kplustp"/>
+<worksheet appliName="wa" id="derivatives.CreditEventManagement" label="Credit Event Manager" href="worksheets/derivatives/crediteventmanager.xml" securityId="WS.WA.DEAL.CREDIT.DERIV.MNGT" selected="true" securityAppliName="kplustp"/>
+</worksheetgroup>
+<worksheet appliName="wa" id="derivatives.CompProductDeals" label="Compound Products" href="worksheets/derivatives/compproduct.xml" securityId="WS.WA.DEAL.COMPOUND.PROD" securityAppliName="kplustp"/>
+</worksheetgroup>
+<worksheetgroup appliName="wa" id="staticData" label="Static Data">
+<worksheetgroup appliName="wa" id="staticdatagen.TermsConditions" label="Terms &amp; Conditions">
+<worksheet appliName="wa" id="staticdata.Bonds" label="Bonds" href="worksheets/staticdata/bond.xml"/>
+<worksheet appliName="wa" id="staticdata.Papers" label="Paper &amp; CDs" href="worksheets/staticdata/paper.xml"/>
+<worksheet appliName="wa" id="staticdatagen.Equities" label="Equities" href="worksheets/staticdata/Equities.xml"/>
+<worksheet appliName="wa" id="staticdatagen.Warrants" label="Warrants" href="worksheets/staticdata/Warrants.xml" selected="true"/>
+<worksheet appliName="wa" id="staticdatagen.Futures" label="Futures" href="worksheets/staticdata/future.xml"/>
+<worksheet appliName="wa" id="staticdatagen.Options" label="Options" href="worksheets/staticdata/Options.xml"/>
+<worksheet appliName="wa" id="staticdata.CallAccounts" label="Call Accounts" href="worksheets/staticdata/callaccount.xml"/>
+<worksheet appliName="wa" id="staticdatagen.FloatingRates" label="Floating Rates" href="worksheets/staticdata/FloatingRates.xml"/>
+<worksheet appliName="wa" id="staticdata.MbsCmoAbs" label="MBS/ABS" href="worksheets/staticdata/mbsabsro.xml"/>
+<worksheet appliName="wa" id="securities.CmoAbsTranches" label="Cmo Abs Tranches" href="worksheets/staticdata/cmoabstranches.xml"/>
+<worksheet appliName="wa" id="staticdata.CDSIdxBkts" label="CDS Index Basket" href="worksheets/staticdata/cdsindexbasket.xml"/>
+<worksheet appliName="wa" id="staticdata.CommercialTerms" label="Commercial Terms" href="worksheets/staticdatagen/CommercialTerms.xml"/>
+<worksheetgroup appliName="wa" id="staticdata.commodities" label="Commodities">
+<worksheet appliName="wa" id="staticdatagen.Commodities" label="Commodities" href="worksheets/staticdata/Commodities.xml"/>
+<worksheet appliName="wa" id="staticdata.CmUnits" label="Commodities Units" href="worksheets/staticdata/cmUnits.xml"/>
+<worksheet appliName="wa" id="staticdata.Season" label="Seasons" href="worksheets/staticdata/season.xml"/>
+<worksheet appliName="wa" id="staticdata.HierarchyLevel" label="Hierarchy Level" href="worksheets/staticdata/hierarchyLevel.xml"/>
+</worksheetgroup>
+</worksheetgroup>
+<worksheetgroup appliName="wa" id="typologies" label="Typologies">
+<worksheet appliName="wa" id="typologies.Guarantees" label="Guarantees" href="worksheets/staticdatagen/typologies/Guarantees.xml"/>
+<worksheet appliName="wa" id="typologies.LegalStatus" label="Legal Status" href="worksheets/staticdatagen/typologies/LegalStatus.xml"/>
+<worksheet appliName="wa" id="typologies.RiskSector" label="Risk Sector" href="worksheets/staticdatagen/typologies/risksector/RiskSector.xml"/>
+<worksheet appliName="wa" id="typologies.IndustryGrp" label="Groups" href="worksheets/staticdatagen/typologies/risksector/IndustryGrp.xml"/>
+<worksheet appliName="wa" id="typologies.IndustryGrpElt" label="Elements in Group" href="worksheets/staticdatagen/typologies/risksector/IndustryGrpElt.xml"/>
+<worksheet appliName="wa" id="typologies.TypeOfInstr" label="Instruments" href="worksheets/staticdatagen/typologies/typeofinstruments/TypeOfInstr.xml" selected="true"/>
+<worksheet appliName="wa" id="typologies.ProductType" label="Product Type" href="worksheets/staticdatagen/typologies/ProductType.xml"/>
+<worksheet appliName="wa" id="typologies.DefaultTypeOfInstr" label="Default Type Of Instruments" href="worksheets/staticdatagen/typologies/typeofinstruments/TypeOfInstrDefault.xml"/>
+<worksheet appliName="wa" id="typologies.InstrumentGrp" label="Instruments Groups Elements" href="worksheets/staticdatagen/typologies/typeofinstruments/InstrumentGrp.xml"/>
+<worksheet appliName="wa" id="typologies.PoolTypes" label="Pool Types" href="worksheets/staticdatagen/typologies/PoolTypes.xml"/>
+<worksheet appliName="wa" id="typologies.Purposes" label="Deal Purpose" href="worksheets/staticdatagen/typologies/Purposes.xml"/>
+<worksheet appliName="wa" id="typologies.ExternalTypeOfDeals" label="External Type of Deals" href="worksheets/staticdatagen/typologies/ExternalTypeOfDeals.xml"/>
+<worksheet appliName="wa" id="typologies.OpenTradeAnalytics" label="Open Trade Analytics" href="worksheets/staticdatagen/typologies/OpenTradeAnalytics.xml"/>
+</worksheetgroup>
+<worksheetgroup appliName="wa" id="staticdatagen.HierarchyThirdParty" label="Hierarchy/Third Party">
+<worksheet appliName="wa" id="staticdatagen.Branches" label="Branches" href="worksheets/staticdatagen/Branches.xml"/>
+<worksheet appliName="wa" id="staticdatagen.Portfolios" label="Portfolios" href="worksheets/staticdatagen/Portfolios.xml"/>
+<worksheet appliName="wa" id="staticdatagen.Folders" label="Folders" href="worksheets/staticdatagen/Folders.xml"/>
+<worksheet appliName="wa" id="staticdatagen.FoldersGrp" label="Folders Group" href="worksheets/staticdatagen/FoldersGrp.xml"/>
+<worksheet appliName="wa" id="staticdata.Counterparty" label="Counterparties" href="worksheets/staticdata/counterparty.xml"/>
+<worksheet appliName="wa" id="staticdata.Corresp" label="Correspondents" href="worksheets/staticdata/correspondent.xml"/>
+<worksheet appliName="wa" id="staticdata.TransactionType" label="Transaction Type" href="worksheets/staticdata/transactiontype.xml"/>
+</worksheetgroup>
+<!--worksheet id="staticdata.ourcorresp" label="Our Corresp" href="worksheets/staticdata/thirdparties/ourcorresp.xml" / -->
+<!--worksheet id="staticdata.theircorresp" label="Their Corresp" href="worksheets/staticdata/thirdparties/theircorresp.xml"/ -->
+<worksheetgroup appliName="wa" id="staticdatagen.brokerage" label="Brokerage">
+<worksheet appliName="wa" id="staticdatagen.BondsBrok" label="Bonds" title="Bond Brokerage" href="worksheets/staticdatagen/brokerage/BondsBrok.xml"/>
+<worksheet appliName="wa" id="staticdatagen.EquitiesBrok" label="Equities" title="Equity Brokerage" href="worksheets/staticdatagen/brokerage/EquitiesBrok.xml"/>
+<worksheet appliName="wa" id="staticdatagen.WarrantsBrok" label="Warrants" title="Warrants Brokerage" href="worksheets/staticdatagen/brokerage/WarrantsBrok.xml"/>
+<worksheet appliName="wa" id="staticdatagen.FxSwapBrok" label="FXSwaps" title="FX Swap Brokerage" href="worksheets/staticdatagen/brokerage/FxSwapBrok.xml"/>
+<worksheet appliName="wa" id="staticdatagen.SpotBrok" label="Spot" title="Spot Brokerage" href="worksheets/staticdatagen/brokerage/SpotBrok.xml"/>
+<worksheet appliName="wa" id="staticdatagen.MoneyMarketBrok" label="Money Market" title="Money Market Brokerage" href="worksheets/staticdatagen/brokerage/MoneyMarketBrok.xml"/>
+<worksheet appliName="wa" id="staticdatagen.FraBrok" label="Forward Rate Agreements" title="FRA Brokerage" href="worksheets/staticdatagen/brokerage/FraBrok.xml"/>
+<worksheet appliName="wa" id="staticdatagen.FuturesBrok" label="Futures" title="Futures Brokerage" href="worksheets/staticdatagen/brokerage/FuturesBrok.xml"/>
+<worksheet appliName="wa" id="staticdatagen.OptionsBrok" label="Options" title="Options Brokerage" href="worksheets/staticdatagen/brokerage/OptionsBrok.xml"/>
+<worksheet appliName="wa" id="staticdatagen.SwapBrok" label="IRS/CIRS" title="IRS/CIRS Brokerage" href="worksheets/staticdatagen/brokerage/SwapBrok.xml"/>
+<worksheet appliName="wa" id="staticdatagen.EquitySwapBrok" label="Swap Deals" title="Swap Brokerage" href="worksheets/staticdatagen/brokerage/EquitySwapBrok.xml"/>
+<worksheet appliName="wa" id="staticdatagen.CreditSwapBrok" label="Credit Derivatives" title="Credit Swap Brokerage" href="worksheets/staticdatagen/brokerage/CreditSwapBrok.xml"/>
+</worksheetgroup>
+<worksheetgroup appliName="wa" id="staticdatagen.collat" label="Collateral Agreement">
+<worksheet appliName="wa" id="staticdatagen.CollatAgrt" label="Collateral Agreement Definition" href="worksheets/staticdatagen/CollatAgrt.xml" selected="true"/>
+<worksheet appliName="wa" id="staticdatagen.AnnexType" label="Annex Type Definition" href="worksheets/staticdatagen/AnnexType.xml"/>
+<worksheet appliName="wa" id="staticdatagen.CollatValuationDateForecast" label="Valuation Date Forecast" href="worksheets/staticdatagen/CollatAgrtValuationDateForecast.xml"/>
+</worksheetgroup>
+</worksheetgroup>
+<worksheetgroup appliName="wa" id="personallist" label="Personal">
+<worksheet appliName="wa" id="staticdata.PwdMngt" label="Password" href="worksheets/staticdata/pwdmngt.xml"/>
+<worksheetgroup appliName="wa" id="personallist.persodata" label="Personal Lists">
+<worksheet appliName="wa" id="personallist.CurrenciesRefList" label="Currencies" href="worksheets/staticdatagen/personallist/PersCurrencies.xml" selected="true"/>
+<worksheet appliName="wa" id="personallist.PairsRefList" label="Currency Pairs" href="worksheets/staticdatagen/personallist/PersPairs.xml"/>
+<worksheet appliName="wa" id="personallist.BondsRefList" label="Bonds" href="worksheets/staticdatagen/personallist/PersBonds.xml"/>
+<worksheet appliName="wa" id="personallist.PapersRefList" label="Papers" href="worksheets/staticdatagen/personallist/PersPapers.xml"/>
+<worksheet appliName="wa" id="personallist.MbsCmoAbsRefList" label="Mbs/Abs" href="worksheets/staticdatagen/personallist/PersMbsAbs.xml"/>
+<worksheet appliName="wa" id="personallist.CommoditiesRefList" label="Commodities" href="worksheets/staticdatagen/personallist/PersCommodities.xml"/>
+<worksheet appliName="wa" id="personallist.EquitiesRefList" label="Equities" href="worksheets/staticdatagen/personallist/PersEquities.xml"/>
+<worksheet appliName="wa" id="personallist.FuturesRefList" label="Futures" href="worksheets/staticdatagen/personallist/PersFutures.xml"/>
+<worksheet appliName="wa" id="personallist.OptionsRefList" label="Options" href="worksheets/staticdatagen/personallist/PersOptions.xml"/>
+<worksheet appliName="wa" id="personallist.WarrantsRefList" label="Warrants" href="worksheets/staticdatagen/personallist/PersWarrants.xml"/>
+<worksheet appliName="wa" id="personallist.CallAccountsRefList" label="Call Accounts" href="worksheets/staticdatagen/personallist/PersCallAccounts.xml"/>
+<worksheet appliName="wa" id="personallist.FoldersRefList" label="Folders" href="worksheets/staticdatagen/personallist/PersFolders.xml"/>
+<worksheet appliName="wa" id="personallist.CptyRefList" label="Counterparties" href="worksheets/staticdatagen/personallist/PersCpty.xml"/>
+<worksheet appliName="wa" id="personallist.BrokersRefList" label="Brokers" href="worksheets/staticdatagen/personallist/PersBrokers.xml"/>
+<worksheet appliName="wa" id="personallist.TypeOfInstrRefList" label="Type of Instruments" href="worksheets/staticdatagen/personallist/PersTypeOfInstr.xml"/>
+</worksheetgroup>
+<worksheet appliName="wa" id="deal.Organization" label="Organization" href="worksheets/deal/organization.xml"/>
+<worksheet appliName="wa" id="staticdata.PersConfig" label="Configuration" href="worksheets/staticdata/personalConfig.xml"/>
+</worksheetgroup>
+<worksheetgroup appliName="wa" id="strategies" label="Strategies">
+<worksheet appliName="wa" id="strategies.Strategies" label="Strategy" href="worksheets/strategies/strategies_create.xml" selected="true"/>
+<worksheet appliName="wa" id="strategies.StrategiesGrp" label="Groups" href="worksheets/strategies/strategies_groups.xml"/>
+</worksheetgroup>
+<worksheetgroup appliName="wa" id="report" label="Reporting">
+<worksheet appliName="wa" id="report.financial" label="Financial" href="worksheets/report/financial.xml"/>
+<worksheet appliName="wa" id="report.openreport" label="Open Report" href="worksheets/report/openreport.xml"/>
+<worksheet appliName="wa" id="webaccess.report.ketat.result" label="Ketat Report Result" href="worksheets/wfreporting/ketat_report_result.xml"/>
+</worksheetgroup>
+<worksheetgroup appliName="wa" id="ADS" label="Deals Search">
+<worksheet appliName="wa" id="DealsSearch.AllDS" label="Deals Search" href="worksheets/deals_search/all_deals_search_setup.xml" selected="true"/>
+<worksheet appliName="wa" id="DealsSearch.Versioning" label="Versioning" href="worksheets/deals_search/versioning.xml" selected="true"/>
+</worksheetgroup>
+<worksheetgroup appliName="wa" id="Administration" label="Administration" securityId="AccessAdmin">
+<worksheet appliName="wa" id="admin.1" label="Worksheet Builder" href="worksheets/admin/wsbuilder.xml" builderType="WorksheetBuilder"/>
+<worksheet appliName="wa" id="CustomWindowMigration" label="Custom Migration" href="worksheets/admin/customMigration.xml"/>
+<worksheet appliName="wa" id="admin.2" label="View Builder" href="worksheets/admin/viewbuilder.xml" builderType="ViewBuilder"/>
+<worksheet appliName="wa" id="admin.About" label="About" href="worksheets/admin/about.xml" img="images/icones/help-normal.gif" selected="true"/>
+<worksheet appliName="kplustp" id="admin.userConnection" label="User Connection" href="worksheets/wfsecurity/security_user_connection.xml"/>
+<worksheet appliName="wa" id="admin.WAAdminMask" label="Templates" href="worksheets/admin/templates.xml" securityId="AccessAdmin" securityAppliName="kplustp"/>
+</worksheetgroup>
+<worksheetgroup appliName="wa" id="WATest" label="WATest" securityId="AccessAdmin">
+<worksheet appliName="wa" id="watemplatetest" label="Template Test" href="worksheets/watest/watemplatetest.xml"/>
+</worksheetgroup>
+</application>

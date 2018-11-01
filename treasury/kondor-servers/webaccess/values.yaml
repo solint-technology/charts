@@ -1,0 +1,35 @@
+# Default values for kdews.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  registry: registry.misys.global.ad
+#  registry: registry-gdn.misys.global.ad
+  repository: treasury-optimisation/kplus-front
+  tag: 3.4.7.030.011-f2a37bc-20181018T010941
+  pullPolicy: IfNotPresent
+
+service:
+  port: 7600
+  extport: 30600
+
+ingress:
+  enabled: true
+  host: minikube
+
+els:
+  ip: 10.22.180.198
+  port: 2110
+
+## Liveness probe parameters
+livenessProbe:
+  initialDelaySeconds: 90
+  periodSeconds: 60
+  timeoutSeconds: 30
+  failureThreshold: 3
+
+
+
+

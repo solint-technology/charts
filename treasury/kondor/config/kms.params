@@ -1,0 +1,150 @@
+#
+#
+#   File : kms.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      LOGDIR is the output directory for the Kondor+ Message Server log files on Unix.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/servers
+LOGDIR  "/opt/finastra/kplus-front/entities/Standalone/log/servers"
+#
+#
+#
+#      LOGDIR_WINNT is the output directory for the Kondor+ Message Server log files on Windows.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers
+LOGDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers"
+#
+#
+#
+#      LOG_LEVEL is the level of information stored in the log files.
+#      The log levels are:
+#      0 = Errors
+#      1 = Kondor+ Message Server messages
+#      2 = Kondor+ Message Server and TIB/Rendezvous messages
+#      default: 1
+LOG_LEVEL  1
+#
+#
+#
+#      LOGREMOVE is the number of days before Kondor+ deletes
+#      the Kondor+ Message Server log files. If you do not
+#      want Kondor+ to delete the log files, set this parameter to -1.
+#      default: 15
+LOGREMOVE  15
+#
+#
+#
+#      The time of milliseconds between which TIBCO Rendezvous sends batches
+#      (or packets) of messages.
+#      
+#      default: 100
+PACKET_TIME_TRIGGER  100
+#
+#
+#
+#      The number of messages that triggers TIBCO Rendezvous to send a batch
+#      (or packet) of messages.
+#      
+#      default: 20
+PACKET_SIZE_TRIGGER  20
+#
+#
+#
+#      Boolean indicating if the message server log is purged log at startup.
+#      default: 1
+PURGE_LOG_AT_START  1
+#
+#
+#
+#      The time period in seconds after which KMS scans the message table to find lost messages.
+#      default: 0,5
+MESSAGE_SCAN_PERIOD  0,5
+#
+#
+#
+#      The timeout when KMS abort a select from the message table blocked by an open transaction - in minutes
+#      0 means this feature is off
+#      default: 10
+LOCK_CHECKING_PERIOD  10
+#
+#
+#
+#      CHECK_REPLICATION is a Boolean indicator of whether the
+#      Kondor+ Message Server checks the replication.
+#      default: 0
+CHECK_REPLICATION  0
+#
+#
+#
+#      REPLICATION_POOLING is the number of seconds for replication pooling.
+#      default: 30
+REPLICATION_POOLING  30
+#
+#
+#
+#      REPLICATION_ALERT is the number of seconds that the
+#      Kondor+ Message Server waits before sending an alert message
+#      if it does not receive a ping message from the replication
+#      server(s). This is a multiple of REPLICATION_POOLING.
+#      default: 300
+REPLICATION_ALERT  300
+#
+#
+#
+#      REPLICATION_STOP is the number of seconds that the
+#      Kondor+ Message Server waits before stopping the replication.
+#      This is a multiple of REPLICATION_ALERT: 12 times for the default
+#      default: 3600
+REPLICATION_STOP  3600
+#
+#
+#
+#      Number of seconds the KMS server must wait before sending a new kms.ping
+#      default: 30
+KMS_PING_INTERVAL  30
+#
+#
+#
+#      
+#      default: 5
+MAX_PARALLEL_OPERATIONS  5
+#
+#
+#
+#      
+#      default: 10
+EARLY_MSGSET_CHECK_INTERVAL  10
+#
+#
+#
+#      
+#      default: 20
+EARLY_MSGSET_SIZE_WARNING  20
+#
+#
+#
+#      Define in millisecond the frequency used to update the metrics for the monitoring
+#      The minimum value for the frequency is 200. (if a value inferior to 200 is specified,
+#      the frequency will be set to 200)
+#      default: 500
+MONITORING_PUSH_TIME 500
+#
+#
+#
+#      Description of K+ service (server, handler or peripheral).
+#      default: "Kondor Message Server. If this service is stopped Kondor will not work properly"
+SERVICE_DESCRIPTION "Kondor Message Server. If this service is stopped Kondor will not work properly"
+#
+#
+#
+#      Display name of K+ service (server, handler or peripheral).
+#      default: "Message Server  (kms)"
+SERVICE_DISPLAYNAME "Message Server  (kms)"
+#
+#
+#   End of file
+#
+

@@ -1,0 +1,18 @@
+#
+#
+#   File : KSPServer_master.params.default
+#   @(#) $Id: KSPServer_master.params.default $
+#
+#
+#
+#
+#
+#      Brief description of 'KSPServer Master Windows Service'.
+SERVICE_DESCRIPTION "Kondor Structured Products (KSP) Master Service. This service treats KSP main actions"
+
+#      Display name of 'KSPServer Master Windows Service'. Will be prefixed by global WINNT_SERVICE_DISPLAYNAME_PREFIX.
+SERVICE_DISPLAYNAME "KSP Server Master"
+#
+#
+#   End of file
+#

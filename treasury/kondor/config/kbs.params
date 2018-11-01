@@ -1,0 +1,207 @@
+#
+#
+#   File : kbs.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Indicates weither the server takes KVS, KBS, KCS or KOIS identity.
+#      -> Default: KBS
+#      default: KBS
+SERVER_PROFILE KBS
+#
+#
+#
+#      Name of the Kondor+ Bonds Server defined in the keyletters.cfm PIXL
+#      configuration file.
+#      default: KBSSTANDALONE
+SERVER_NAME  KBSSTANDALONE
+#
+#
+#
+#      Integer or String indicating the TCP/IP port used by the agent to connect
+#      to this server. A string is used to indicate the name of the service 
+#      (declared in the services file, usually using "ypcat -k services").
+#      default: kbs
+SERVER_PORT kplus_kbs
+#
+#
+#
+#      Defines the output directory for log files on Unix.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/servers
+LOGDIR  "/opt/finastra/kplus-front/entities/Standalone/log/servers"
+#
+#
+#
+#      Defines the output directory for log files on Windows.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers
+LOGDIR_WINNT  "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers"
+#
+#
+#
+#      Level of information stored in the log files.
+#      0=Errors, 1=Warnings, 2= Informational messages 3=Debug
+#      default: 1
+LOGLEVEL  1
+#
+#
+#
+#      Number of days before the server log files are deleted. 
+#      If you do NOT want the log files to be deleted, set this parameter to -1.
+#      Remove log after <n> days, -1 means never
+#      default: 15
+LOGREMOVE  15
+#
+#
+#
+#      Boolean indicates if the server run at midnight during the night batch.
+#      default: FALSE
+MIDNIGHT_RUN  FALSE
+#
+#
+#
+#      Number of seconds between break time and midnight
+#      Kbs must stop before midnight for log files management
+#      default: 10
+MIDNIGHT_BREAK  10
+#
+#
+#
+#      Integer, indicates the maximum number of snapshot record open
+#      at a given time. Snapshot record are used to handle record
+#      that use frequency or daily updates.
+#      default: 50
+MAX_CONCURRENT_SNAPSHOT  50
+#
+#
+#
+#      Boolean parameters indicates if server should save instruments values to
+#      the database.
+#      default: TRUE
+DATABASE_UPDATE  TRUE
+#
+#
+#
+#      Minimum number of seconds that must ellapse between two database storage
+#      of a given instrument value. If 0 then the instrument value is saved as
+#      soon as possible.
+#      default: 3
+DATABASE_UPDATE_INTERVAL  3
+#
+#
+#
+#      Interval in seconds between the integration of a KCS message
+#      concerning the same curve into the system.
+#      This value must be AT LEAST 1.
+#      default: 300
+KCS_MESSAGE_INTEGRATION_INTERVAL 300
+#
+#
+#
+#      Indicates if the server should recompute greeks for manual fixed bonds in real-time.
+#      default: TRUE
+COMPUTE_GREEKS_ON_MANUAL_FIXED_BONDS TRUE
+#
+#
+#
+#      Indicates if the server should recompute greeks for manual floating bonds in real-time.
+#      default: TRUE
+COMPUTE_GREEKS_ON_MANUAL_FLOATING_BONDS TRUE
+#
+#
+#
+#      Maximum number of pending real-time tasks processed by the agent on each iteration
+#      of the main loop.
+#      default: 16
+MAX_REALTIME_TASK_PER_LOOP 16
+#
+#
+#
+#      Maximum number of pending common tasks processed by the agent on each iteration
+#      of the main loop.
+#      default: 16
+MAX_COMMON_TASK_PER_LOOP 16
+#
+#
+#
+#      Maximum size of the common task queue of each agent. The server won't dispatch more than
+#      the specified number of task to each agent.
+#      This value must be AT LEAST 1.
+#      default: 16
+MAX_COMMON_TASK_PER_AGENT 16
+#
+#
+#
+#      Path of the log file for performance statistic on Unix. Must be fully qualified.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/servers/kbs-perf-statistic.csv
+PERFORMANCE_STATISTIC_PATH "/opt/finastra/kplus-front/entities/Standalone/log/servers/kbs-perf-statistic.csv"
+#
+#
+#
+#      Path of the log file for performance statistic on Windows. Must be fully qualified.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers\kbs-perf-statistic.csv
+PERFORMANCE_STATISTIC_PATH_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers\kbs-perf-statistic.csv"
+#
+#
+#
+#      Values separator in the log file for performance statistic.
+#      default: ;
+SEPARATOR ;
+#
+#
+#
+#      Frequency in minutes of log and reset of performance statistics.
+#      default: 15.0
+PERFORMANCE_STATISTIC_RESET_FREQUENCY 15.0
+#
+#
+#
+#      Enable log of performance statistics.
+#      default: FALSE
+PERFORMANCE_STATISTIC_ENABLE FALSE
+#
+#
+#
+#      A ratio between 0.0 and 0.99.
+#      A value of 0.0 indicates that no agent is dedicated to real-time task processing.
+#      A value of 0.1 indicates that floor(0.1 * number of agents) will be dedicated for real-time task processing.
+#      For example, with 5 agents and a value of 0.4, two agents will be dedicated.
+#      If the value is greater than 0.0 and there is more than one agent running then there will always be at least one agent dedicated to real-time task processing.
+#      
+#      Default meaning that for kbs and kois there is no dedicated agent, while for kcs there is at least one dedicated agent.
+#      default: 0
+DEDICATED_REALTIME_AGENTS_RATIO 0
+#
+#
+#
+#      Define in millisecond the frequency used to update the metrics for the monitoring
+#      The minimum value for the frequency is 200. (if a value inferior to 200 is specified,
+#      the frequency will be set to 200)
+#      default: 500
+MONITORING_PUSH_TIME 500
+#
+#
+#
+#      Ratio of agents dedicated for structured bonds (use KSP pricer) task processing
+#       A ratio between 0.0 and 0.99. A value of 0.0 indicates that no agent is dedicated to structured bonds task processing. A value of 0.1 indicates that floor(0.1 * number of agents) will be dedicated for structured bonds task processing. For example, with 5 agents and a value of 0.4, two agents will be dedicated. If the value is greater than 0.0 and there is more than one agent running then there will. Dedicated structured bonds agents can be created when in Admin apllication: Aplication Configuration=>Calculation Methods=>Structured bonds update frequency choice is not set to inactive
+#      default: 0.01
+DEDICATED_STRUCTURED_BONDS_AGENTS_RATIO 0.01
+#
+#
+#
+#      Description of K+ service (server, handler or peripheral).
+#      default: "Kondor Bonds Server. If this service is stopped Kondor RealTime will not work properly"
+SERVICE_DESCRIPTION "Kondor Bonds Server. If this service is stopped Kondor RealTime will not work properly"
+#
+#
+#
+#      Display name of K+ service (server, handler or peripheral).
+#      default: "Bonds Server  (kbs)"
+SERVICE_DISPLAYNAME "Bonds Server  (kbs)"
+#
+#
+#   End of file
+#
+

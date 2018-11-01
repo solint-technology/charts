@@ -1,0 +1,56 @@
+#
+#
+#   File : kfswin.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Name of KFSW server defined in the MS SQL SERVER instance, by @@SERVERNAME property.
+#      default: KFSW_SERVER\KFSW
+KFSWIN_SERVER_NAME KFSW_SERVER\KFSW
+#
+#
+#
+#      Number of days before Kondor+ deletes KFSWin log files.
+#      Set to -1 if you do not want Kondor+ to delete the log files.
+#      default: 15
+KFSWIN_LOGREMOVE 15
+#
+#
+#
+#      Output directory for the KFSWin log files.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\peripherals
+KFSWIN_LOGDIR "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\peripherals"
+#
+#
+#
+#      Define in millisecond the frequency used to update the metrics for the monitoring
+#      The minimum value for the frequency is 200. (if a value inferior to 200 is specified,
+#      the frequency will be set to 200)
+#      default: 500
+MONITORING_PUSH_TIME 500
+#
+#
+#
+#      Conversion used when receiving not ASCII text
+#      default: 1015
+KFSWIN_UTF_CONVERT_FROM 1015
+#
+#
+#
+#      Brief description of K+ service (server, handler or peripheral).
+#      default: "Kondor Financial Server for Microsoft SQL Server"
+SERVICE_DESCRIPTION "Kondor Financial Server for Microsoft SQL Server"
+#
+#
+#
+#      Brief display name of K+ service (server, handler or peripheral).
+#      default: "Financial Server  (kfsw)"
+SERVICE_DISPLAYNAME "Financial Server  (kfsw)"
+#
+#
+#   End of file
+#
+

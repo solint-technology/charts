@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:aop="http://www.springframework.org/schema/aop"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+ <bean id="configmanager" class="com.trmsys.mako.basis.ConfigManager">
+  <property name="filename" value="" />
+ </bean>
+
+ <bean id="workUnitManager" class="com.trmsys.integration.WorkUnitManager">
+  <property name="configmanager" ref="configmanager" />
+ </bean>
+
+ <bean id="kisInterface" class="com.trmsys.integration.kis.KisAdapter">
+  <property name="configmanager" ref="configmanager" />
+  <property name="workUnitManager" ref="workUnitManager" />
+  <property name="kisCallbackHandler" ref="kisCallbackHandler" />
+ </bean>
+
+ <bean id="markitInterface" class="com.trmsys.integration.markit.MarkitAdapter">
+  <property name="sessionManager" ref="sessionManager" />
+ <property name="dispatcher" ref="dispatcher" />	
+ <property name="configmanager" ref="configmanager" />
+ </bean>
+
+ <bean id="sessionManager" class="com.trmsys.integration.markit.MarkitSessionManager">
+  <property name="dispatcher" ref="dispatcher" />	 
+ </bean>
+
+  <bean id="dispatcher" class="com.trmsys.integration.markit.MarkitDispatcher">
+    <property name="workUnitManager" ref="workUnitManager" />
+  </bean>
+  
+	   
+ <bean id="transformationManager" class="com.trmsys.workflow.TransformationManager">
+  <property name="workUnitManager" ref="workUnitManager" />
+  <property name="configmanager" ref="configmanager" />
+ </bean>
+
+
+ <bean id="kisCallbackHandler" class="com.trmsys.integration.kis.KisCallbackHandler">
+  <property name="workUnitManager" ref="workUnitManager" />
+ </bean>
+
+ <bean id="reconciliationManager" class="com.trmsys.workflow.ReconciliationManager">
+   <property name="configmanager" ref="configmanager" />
+   <property name="markitAdapter" ref="markitInterface" />
+ </bean>
+
+ <bean id="recoveryManager" class="com.trmsys.workflow.RecoveryManager">
+   <property name="workUnitManager" ref="workUnitManager" />
+   <property name="configmanager" ref="configmanager" />
+   <property name="markitAdapter" ref="markitInterface" />
+ </bean>
+
+ <bean id="tradeStateManager" class="com.trmsys.workflow.TradeStateManager">
+  <property name="workUnitManager" ref="workUnitManager" />
+  <property name="markitAdapter" ref="markitInterface" />
+  <property name="configmanager" ref="configmanager" />
+ </bean>
+
+
+</beans>

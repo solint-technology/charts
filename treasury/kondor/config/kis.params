@@ -1,0 +1,190 @@
+#
+#
+#   File : kis.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Name of the Kondor+ Import Server port defined in the services file that allows communication 
+#      between the Kondor+ Import Server and the client servers.
+#      default: kis_port
+KIS_PORTNAME kplus_kis
+#
+#
+#
+#      Defines the output directory for Kondor+ Import Server log files on Unix.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/peripherals
+LOGDIR  "/opt/finastra/kplus-front/entities/Standalone/log/peripherals"
+#
+#
+#
+#      Defines the output directory for Kondor+ Import Server log files on Windows.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\peripherals
+LOGDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\peripherals"
+#
+#
+#
+#      Number of days before the Kondor+ Import Server log files are deleted.
+#      If you do NOT want the log files to be deleted, set this parameter to -1.
+#      default: 15
+LOGREMOVE  15
+#
+#
+#
+#      Allows KIS to communicate with clients either by means of TCP/IP or
+#      by means of Tib/Rendezvous
+#      default: TCP_IP_MODE
+COMM_MODE RENDEZVOUS_MODE
+#
+#
+#
+#      Is KIS allowed to add/modify users
+#      default: TRUE
+ALLOW_USER_MODIFICATION TRUE
+#
+#
+#
+#      Maximum time interval in seconds allowed without communication
+#      between the Kondor+ Import Server and the client servers. 
+#      That is, if the Kondor+ Import Server does not receive a ping response 
+#      from a client server within the specified time interval,
+#      the Kondor+ Import Server cuts communication with the client server.
+#      default: 60
+CLIENT_TIMEOUT 60
+#
+#
+#
+#      Time interval in seconds between each ping message between the Kondor+ Import Server and the client servers. 
+#      That is, the Kondor+ Import Server sends a ping message to the client servers every <number>
+#      of seconds, where <number> is the value specified for this parameter.
+#      default: 15
+CLIENT_PING_INTERVAL 15
+#
+#
+#
+#      Port number used for inter-daemon communication
+#      default: 8888
+RV_PORT 8889
+#
+#
+#
+#      Specifies the network interface and the multicast groups used to send and receive messages
+#             Example: lan0;224.1.1.1,224.1.1.2;224.1.1.1
+#      default: 
+RV_NETWORK eth0;;
+#
+#
+#
+#      Service, hostname, and port number used to connect to the daemon.
+#           Examples: tcp:1234 or tcp:hostname:1234
+#      default: 
+RV_DAEMON tcp:kplus-front-rvd-kis-tk-svc:8889
+#
+#
+#
+#      Boolean ( TRUE | FALSE ) - controls the import of Loan Deposit Deals.
+#      TRUE: import will generate movements for Loan Deposit Deals. Strongly recommended.
+#      FALSE: import will not generate movement for Loan Deposit Deals.
+#             kis will work as kiskirl available in previous versions.
+#      default: TRUE
+GENERATE_MOVEMENTS_FOR_LOANDEPOSIT TRUE
+#
+#
+#
+#      Define in millisecond the frequency used to update the metrics for the monitoring
+#      The minimum value for the frequency is 200. (if a value inferior to 200 is specified,
+#      the frequency will be set to 200)
+#      default: 500
+MONITORING_PUSH_TIME 500
+#
+#
+#
+#      Boolean parameter that indicates if the DownloadKey can be updated more than once.
+#      default: FALSE
+MODIFY_DOWNLOADKEY FALSE
+#
+#
+#
+#      Determines, if in semi-automatic mode deals' images will be always or only in case of error inserted into ImportDeals table
+#      default: TRUE
+SEMI_AUTOMATIC_ALWAYS_INSERT_INTO_IMPORTDEALS TRUE
+#
+#
+#
+#      Deals in the Fast Mode may be transfered to KFIS by
+#      TRUE: using database and ImportDeals table
+#      FALSE: using direct communication link between KIS and KFIS
+#      
+#      default: TRUE
+KFIS_USE_DATABASE TRUE
+#
+#
+#
+#      Type of responses for deals imported in the Fast Mode:
+#      SIMPLE: synchronous response with information that deal was received by KIS
+#      ASYNCHRONOUS: asynchronous response with full information about deal insertion
+#      FULL: both responses (best for KplusImport working in the Fast Mode)
+#      default: SIMPLE
+KFIS_RESPONSE_MODE SIMPLE
+#
+#
+#
+#      Name of the service that allows RDV communication between KIS and KFIS.
+#      default: KIS_KFIS_SERVICE
+KFIS_SERVICE_NAME KIS_KFIS_SERVICE
+#
+#
+#
+#      List of hosts where the KFIS master server can run.
+#      These names must be specified in the hosts file. Each name must be separated by the slash '/' character.
+#      For example "HOSTNAME1 / HOSTNAME2 / HOSTNAME3"
+#      
+#      default: kplus-front
+KFIS_HOST_NAME kplus-front
+#
+#
+#
+#      Disables DealsOperationsMvts in import.
+#      If it's set to TRUE:
+#      - MultiEntity features doesn't work.
+#      - TradeKast is not able to export deals without DealsOperationsMvts (please find NO_ME in tradekast.params).
+#      default: FALSE
+NO_ME FALSE
+#
+#
+#
+#      Specifies if the connection is established with rv secure daemon
+#      default: False
+IS_RVD_SECURE_DAEMON FALSE
+#
+#
+#
+#      This parameter is only applicable only if IS_RVD_SECURE_DAEMON parameter is set to TRUE. Specifies the username of the secure daemon client
+#      default: 
+RVD_SECURE_USERNAME 
+#
+#
+#
+#      This parameter is only applicable only if IS_RVD_SECURE_DAEMON parameter is set to TRUE. Specifies the crypted password to rvsd daemon
+#             Example: {Crypt2}c1rtjvRHE5t=
+#      default: 
+RVD_SECURE_PASSWORD {Crypt2}1r+mEDOTSIM=
+#
+#
+#
+#      Brief description of K+ service (server, handler or peripheral).
+#      default: "Kondor Import Server"
+SERVICE_DESCRIPTION "Kondor Import Server"
+#
+#
+#
+#      Brief display name of K+ service (server, handler or peripheral).
+#      default: "Import Server (kis)"
+SERVICE_DISPLAYNAME "Import Server (kis)"
+#
+#
+#   End of file
+#
+

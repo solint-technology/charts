@@ -1,0 +1,36 @@
+<Product id="WebAccess" name="STANDALONE ENTITY" shortname="STANDALONE" type="Standalone Entity">
+    <SpecificParameterList>
+        <Parameter id="KPLUSHOME" value="/opt/finastra/kplus-front"/>
+        <Parameter id="CONFIG_DIR" value="/opt/finastra/kplus-front/entities/Standalone/config"/>
+        <Parameter id="ENABLE_WEBACCESS" value="TRUE" />
+    </SpecificParameterList>
+	<LogicalGroupList>
+		<LogicalGroup id="WebAccess">
+			<Database name="WA">
+                <Owner automaticChange="allowed" />
+                <Indexes location="default" />
+                <UserConfigurationList />
+            </Database>
+		</LogicalGroup>
+		<LogicalGroup id="KplusGlobal">
+            <Database name="kplus">
+                <Owner automaticChange="refused"/>
+                <Indexes location="default"/>
+                <UserConfigurationList/>
+            </Database>
+        </LogicalGroup>
+        <LogicalGroup id="KplusLocal">
+            <Database name="kplus">
+                <Owner automaticChange="refused"/>
+                <Indexes location="default"/>
+                <UserConfigurationList/>
+            </Database>
+        </LogicalGroup>
+    </LogicalGroupList>
+	  <DataServer type="jdbc:sqlserver">
+        <host>kplus-db</host>
+        <port>1433</port>
+        <LoginList><!-- Put here logins and passwords for "kplus-db:1433" --></LoginList>       
+        <UserConfigurationList/>        
+    </DataServer>
+</Product>

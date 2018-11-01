@@ -1,0 +1,383 @@
+#
+#
+#   File : kglagent.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      The output directory for the kglagent log files on Unix
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/peripherals
+LOGDIR "/opt/finastra/kplus-front/entities/Standalone/log/peripherals"
+#
+#
+#
+#      The output directory for the kglagent log files on Windows
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\peripherals
+LOGDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\peripherals"
+#
+#
+#
+#      Number of days before the kglagent log files are deleted.
+#      If you do NOT want the log files to be deleted, set this parameter to -1
+#      default: 15
+LOGREMOVE 15
+#
+#
+#
+#      The SSL Network Management Station (NMS) watchdog interval in seconds.
+#      This parameter is only applicable if the NM_ACTIVATE parameter is set
+#      to TRUE.
+#      default: 90
+NM_WATCH_DOG 90
+#
+#
+#
+#      Application identification for the Reuters Triarch Network Management Agent 
+#      (NMA). This parameter is only applicable if NM is activated. The value must be between 256 and 512
+#      default: 256
+NM_APP_ID 256
+#
+#
+#
+#      Boolean parameter that indicates if the SSL Network Management Station
+#      (NMS) is activated.
+#      default: FALSE
+NM_ACTIVATE FALSE
+#
+#
+#
+#      Identification of the codifier dedicated to this KreditNet agent.
+#      Definition of its short name (up to 10 characters, no space)
+#      default: 
+CODIFIER_SHORT_NAME KGLAGENT
+#
+#
+#
+#      Definition of the codifier's long name (up to 32 characters, no space)
+#      default: 
+CODIFIER_NAME KGLAGENT
+#
+#
+#
+#      Boolean parameter that indicates whether an event is sent to the
+#      KreditNet Agent Blotter when a deal/request/sign is sent. You can use the KreditNet Agent Blotter (Communications -> Blotters -> Monitoring -> On-line Communication) for troubleshooting problems with communication only if this parameter is set to TRUE.
+#      default: FALSE
+FEED_KNET_AGENT_BLOTTER FALSE
+#
+#
+#
+#      On update action, if the agent does not found an object in Global KreditNet, the agent sends a warning and inserts the object, else it returns an error.
+#      default: TRUE
+ERROR_IF_ALIAS_NOT_FOUND TRUE
+#
+#
+#
+#      On insert action, if the agent found a similar object in Global KreditNet, the agent only sends a warning, else it returns an error.
+#      default: TRUE
+ERROR_IF_OBJECT_ALREADY_EXISTS TRUE
+#
+#
+#
+#      Agent wait for KNS connection
+#      default: TRUE
+WAIT_FOR_CONNECTION TRUE
+#
+#
+#
+#      Number of messages that the agent can send without waiting for acknowledgment. It used in batch mode. Maximum number is 100.
+#      
+#      default: 1
+WINDOW_SIZE 1
+#
+#
+#
+#      Number of times a data or deal should be sent if an error is returned from the KreditNet server.
+#      
+#      default: 2
+RETRY_NUMBER 2
+#
+#
+#
+#      Number of seconds to wait between two messages are sent in the retry.
+#      default: 15
+RETRY_INTERVAL 15
+#
+#
+#
+#      Boolean parameter that indicates whether this agent should run its
+#       batch task automatically after the Kondor+ batch is completed.
+#      default: TRUE
+RUN_BATCH_AFTER_KONDOR TRUE
+#
+#
+#
+#      Minimum number of hours that the agent must wait before automatically (after receiving the Kondor+ batch end message) running a batch task.
+#      
+#      default: 6
+BATCH_MINIMUM_INTERVAL 6
+#
+#
+#
+#      Imports deals from Reuters KreditNet during the market-to-market update process when the deals fail to update.
+#      default: FALSE
+BATCH_WITH_INSERT FALSE
+#
+#
+#
+#      Boolean parameter that indicates whether this agent needs to send
+#       Currency Pairs rates every day, before the revaluation batch.
+#      default: TRUE
+SEND_CURRENCY_PAIRS TRUE
+#
+#
+#
+#      Boolean parameter that indicates whether this agent should run its
+#       batch task automatically after the Kondor+ batch is completed.
+#      Note that if RUN_BATCH_AFTER_KONDOR is set to false RUN_KNET_BATCH_AFTER_SYNCHRO is useless.
+#      default: FALSE
+RUN_KNET_BATCH_AFTER_SYNCHRO FALSE
+#
+#
+#
+#      Specify the ShortName of a Codifier, whose codes should be used instead of the original ShortName during the replication of some static data.
+#      default: 
+USE_CODIFIER 
+#
+#
+#
+#      Specify whether replicated deals from K+Konnect should be sent to
+#       KreditNet.
+#      default: FALSE
+SEND_REPLICATED_DEALS FALSE
+#
+#
+#
+#      Specify whether this agent must exit after a failure occurs.
+#      default: TRUE
+STOP_ON_FAILURE FALSE
+#
+#
+#
+#      When activated, this flag will import the current principal amount
+#       instead of the original principal amount in the case of an amortization.
+#      default: FALSE
+USE_AMORTIZING FALSE
+#
+#
+#
+#      Specify wheter the agent must skip specific cash flow schedule (not imported).
+#      INFORMATION value means that compound cash flows, average cash flows will be skipped.
+#      NULL value indicate that only null cash flows payment & null custom flows will be skipped.
+#      USELESS value means that all useless cash flows as below will be skipped. 
+#      NONE indicates that all cash flow schedule will be imported.
+#      default: INFORMATION
+SKIP_NULL_CASH_FLOW_SCHEDULE INFORMATION
+#
+#
+#
+#      When activated, several agents can run.
+#      default: FALSE
+RUN_MANY_AGENTS FALSE
+#
+#
+#
+#      Name of the store procedure used to filter deals coming from Kondor.
+#      If SP name is defined, it will be called for each instrument before importing deals in KreditNet database.
+#      Store Procedure used must be stored in Kustom database of Kondor.
+#      It fits the folowing signature:
+#          ex: KGL_GenericDealsFilterSP(
+#        /* contains
+#        - 'B': batch mode
+#        - 'D': for deal update coming from cash flow update
+#        - 'L': Loading deals to init KreditNet
+#        - 'M': for realtime movement
+#        @mode char,
+#        /* deal table identifier */
+#        @kdbTables,
+#        /* Deal movement identifier */
+#        @transactionId int,
+#        /* deal identifier */
+#        @dealId,
+#        /* 'I': insert action, 'U' : update action, 'D': delete action */
+#        @action char,
+#                     /* Folder Id: set only in batch mode, Loadind deals else contains -1 */
+#        @folderId int,
+#        /* output parameter witch indicate
+#        wether deal must be imported and process by KreditNet */
+#        @importDeal int output
+#      
+#      Update Reuters KreditNet Agent rules to enable or disable store procedure calls for one instrument.
+#      default: NONE
+SP_DEALS_FILTER_NAME NONE
+#
+#
+#
+#      Name of the store procedure used to filter static data coming from Kondor.
+#      If SP name is defined, it will be called for each static data movment before importing static data in KreditNet database.
+#      Store Procedure used must be stored in Kustom database of Kondor.
+#      It fits the folowing signature:
+#          ex: KGL_StaticDataFilterSP(
+#        /* static data table identifier */
+#        @kdbTables,
+#        /* Data movement identifier */
+#        @transactionId int,
+#        /* Static data identifier */
+#        @DataId,
+#        /* 'I': insert action, 'U' : update action, 'D': delete action */
+#        @action char,
+#        /* output parameter witch indicate
+#        wether static data must be imported and process by KreditNet */
+#        @importDeal int output
+#      default: NONE
+SP_STATIC_DATA_FILTER_NAME NONE
+#
+#
+#
+#      The SP_DEALS_TRACE_NAME parameter designates the name of the store procedure used to trace deal status coming from Kondor. 
+#      If Stored Procedure name is defined, it will be called for each deal movement.
+#      
+#      This procedure is only called in RealTime mode, and only if this parameter is set. It does not require any trace mode to be activated.
+#      
+#      Store Procedure used must be stored in Kustom database of Kondor.
+#      It must fit the following signature:
+#      ex: KGL_TraceDealsSP(
+#        /* static data table identifier    */
+#        @kdbTables,
+#        /* Data movement identifier    */
+#        @transactionId int,
+#         /* Static data identifier     */
+#        @DataId,
+#        /* 'I': insert action, 'U' : update action,    */
+#        /* 'D': delete action      */
+#        @action char,
+#        /* Deal Status : 'W': watched, 'S' : skipped,         */
+#         /* 'A' : acknowledged by KGL server,   */
+#        /* 'F' : Failed, rejected by KGL       */
+#        @kglAgentStatus char,
+#        /* Comment returned by KGL Server to specify  */
+#        /* the reason of the reject   */
+#                      @comment varchar(512),
+#        /* Realtime (R) or Reload (L) */
+#        @Phase char(1)
+#      default: NONE
+SP_DEALS_TRACE_NAME NONE
+#
+#
+#
+#      Use underlying market value for Repo
+#      default: TRUE
+USE_UNDERLYING_MARKET_VALUE TRUE
+#
+#
+#
+#      Historic range of matured deals
+#      default: 365
+MAX_MATURITY_DEAL_HISTORIC 365
+#
+#
+#
+#      
+#      default: TRUE
+KREDITNET_DEAL_BATCH_UPDATE_ENABLE TRUE
+#
+#
+#
+#      Specify if the agent must skip the second settlement leg on bonds deals.
+#      The second settlement leg represents the issuer leg.
+#      When this parameter is set to TRUE, then the 2nd settl leg of bonds deals won't be sent
+#      default: FALSE
+SKIP_SETTL_LEG2_FOR_BOND_DEALS FALSE
+#
+#
+#
+#      Specify if the agent must skip the second settlement leg on repo deals.
+#      The second settlement leg represents the issuer leg.
+#      When this parameter is set to TRUE, then the 2nd settl leg of repo deals won't be sent
+#      default: FALSE
+SKIP_SETTL_LEG2_FOR_REPO_DEALS FALSE
+#
+#
+#
+#      
+#      default: 30
+KGL_API_VERSION 30
+#
+#
+#
+#      Specify if the agent in the MtM Batch Mode must use revaluation Curves Source.
+#      When this parameter is set to TRUE, the revaluation Curves are used.
+#      default: FALSE
+USE_CURVE_REVAL_PRICES FALSE
+#
+#
+#
+#      Specify if the agent in the MtM Batch Mode must use revaluation FX Rates Source.
+#      When this parameter is set to TRUE, the revaluation FX Rates are used.
+#      Default: FALSE
+#      default: FALSE
+USE_FX_RATES_REVAL_PRICES FALSE
+#
+#
+#
+#      Specify if the agent in the MtM Batch Mode must use revaluation Prices Source.
+#      When this parameter is set to TRUE, the revaluation Prices are used.
+#      default: FALSE
+USE_QUOTES_REVAL_PRICES FALSE
+#
+#
+#
+#      If you choose TRUE for USE_CURVE_REVAL_PRICES, USE_FX_RATES_REVAL_PRICES or USE_QUOTES_REVAL_PRICES, you can define the Revaluation Date Lag.
+#      0 - KGL Agent uses today?s date.
+#      1 - Kondor+ uses today?s date minus one business day, based on the holiday calendar associated with the local currency 
+#      2 - Kondor+ uses today?s date minus two business days, based on the holiday calendar associated with the deal currency 
+#      etc.
+#      Default: 1
+#      
+#      
+#      default: 1
+REVAL_SOURCE_DATE_LAG 1
+#
+#
+#
+#      Specify wheter agent in MtM Batch mode can run KSP analytic to price External Deal
+#      TRUE: agent follows the rules set in KGLAgent Export Rules
+#      FALSE: agent ommits computation and takes Market Value from database
+#      default: FALSE
+COMPUTE_NPV_KSP FALSE
+#
+#
+#
+#      Specify if agent should transfer user group on update.
+#      default: FALSE
+TRANSFER_USER_GROUP FALSE
+#
+#
+#
+#      Brief description of K+ service (server, handler or peripheral).
+#      default: "Kondor connector to the FusionRisk credit. When connection to Fusion Risk is active, service is used to transfer deals and static data from Kondor to CMR in order to calculate credit and settlement limits impact"
+SERVICE_DESCRIPTION "Kondor connector to the FusionRisk credit. When connection to Fusion Risk is active, service is used to transfer deals and static data from Kondor to CMR in order to calculate credit and settlement limits impact"
+#
+#
+#
+#      Brief display name of K+ service (server, handler or peripheral).
+#      default: "KGL Agent  (kglagent)"
+SERVICE_DISPLAYNAME "KGL Agent  (kglagent)"
+#
+#
+#
+#      Specify if issuer should be executed only for RepoDeals collateralized of Annex
+#      default: True
+REPO_MAP_ISSUER_LEG_COLLATERAL TRUE
+#
+#
+#
+#      Specify if issuer should be executed only for SecurLoansDeals collateralized of Annex
+#      default: True
+SECUR_LOANS_MAP_ISSUER_LEG_COLLATERAL TRUE
+#
+#
+#   End of file
+#
+

@@ -1,0 +1,631 @@
+#
+#
+#   File : kd3000.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      List of the hosts where the Kondor+ Import Server (kis) can run.
+#      These names must be specified in the hosts file. Each name must be
+#      separated by the slash '/' character.
+#      For example "HOSTNAME1 / HOSTNAME2 / HOSTNAME3"
+#      default: kis
+KIS_HOST_NAMES kis
+#
+#
+#
+#      Name of the Kondor+ Import Server port defined in the services file that
+#      allows communication between the kd3000 Server and the Kondor+ Import
+#      Server.
+#      default: kplus_kis
+KIS_PORT_NAME kplus_kis
+#
+#
+#
+#      Maximum time interval in seconds allowed without communication between
+#      the kd3000 Server and the Kondor+ Import Server. That is, if the kd3000
+#      Server does not receive a ping response from the Kondor+ Import Server
+#      within the specified time interval, the kd3000 Server cuts communication
+#      with the Kondor+ Import Server.
+#      default: 60
+KIS_TIMEOUT 60
+#
+#
+#
+#      Time interval (in seconds) after which the KD3000 Server tries to reconnect 
+#      to KIS. If KIS has shut down or is timed out, the KD3000 Server tries to
+#      reconnect to KIS every <number> of seconds, where <number> is the value 
+#      defined for this parameter.
+#      default: 20
+KIS_RECONNECT 20
+#
+#
+#
+#      Time interval in seconds between each ping message between the
+#      kd3000 Server and the Kondor+ Import Server. That is, the kd3000 Server
+#      sends a ping message to the Kondor+ Import Server every <number> of
+#      seconds, where <number> is the value specified for this parameter.
+#      default: 15
+KIS_PING_INTERVAL 15
+#
+#
+#
+#      Output directory for the KD3000 Server log files on Unix
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/peripherals
+LOGDIR "/opt/finastra/kplus-front/entities/Standalone/log/peripherals"
+#
+#
+#
+#      Output directory for the KD3000 Server log files on Windows
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\peripherals
+LOGDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\peripherals"
+#
+#
+#
+#      Number of days before Kondor+ deletes KD3000 log files.
+#      Set to -1 if you do not want Kondor+ to delete the log files.
+#      default: 15
+LOGREMOVE 15
+#
+#
+#
+#      Short name of the KIS client, the KD3000 Server. There is no default value for
+#      this parameter, however, you must use the same short name as you entered in
+#      Kondor+ Communications -> Configuration -> Import Server Clients (see Import
+#      Server (KIS) Clients). For example: DEALING_3000_<server_tcid>
+#      default: 
+CLIENT_NAME 
+#
+#
+#
+#      Boolean parameter that indicates if the KD3000 Server sends the conversation
+#      text for imported deals to KIS in order to save it in the Kplus database.
+#      default: FALSE
+SEND_CONVERSATION FALSE
+#
+#
+#
+#      Boolean parameter that indicates who the Kondor+ user is. If you set:
+#          * CONFIRMING_USER to FALSE, it is the user that entered the deal
+#          * CONFIRMING_USER to TRUE, it is the user that confirmed the deal
+#      
+#      Traders who share a Reuters Dealing 3000 terminal can send their deals to their 
+#      own Kondor+ user account without systematically having to log out and log back 
+#      in to Reuters Dealing 3000.
+#      default: FALSE
+CONFIRMING_USER FALSE
+#
+#
+#
+#      Override the folder used for all deals imported from Reuters Dealing 3000. You
+#      can either enter a folder code or a folder codifier. After the installation, 
+#      you must:
+#          * create the folder in Kondor+ Data Manager -> Reference Data -> Organization
+#            -> Folders -> Folders (see Folders Definition)
+#          * specify the folder code in Kondor+ Data Manager -> Reference Data 
+#            -> Organization -> Folders -> Folders -> More -> Codes (see Folder,
+#              Counterparty, Correspondent, Instrument, and Broker Codes Definition)
+#      
+#      By default if no folder is defined, Kondor+ uses the default folder of the user
+#      defined in Kondor+ Trade Manager -> Utilities -> Personal Setup -> Configuration
+#      default: 
+FOLDER_CODE 
+#
+#
+#
+#      The broker code used with deals from Reuters Dealing 3000-1 that have no broker
+#      code set. The broker code is optional. A broker code received with the Reuters
+#      Dealing 3000 deal overrides the broker code that you specify for this parameter.
+#      default: 
+D3000_1_BROKER_CODE 
+#
+#
+#
+#      The broker code used with deals from Reuters Dealing 3000-2 that have no broker
+#      code set. The broker code is optional. A broker code received with the Reuters
+#      Dealing 3000 deal overrides the broker code that you specify for this parameter.
+#      default: 
+D3000_2_BROKER_CODE 
+#
+#
+#
+#      The broker used with deals from Reuters Dealing 3000-1 that have no broker code
+#      set, and corresponds to the offline Reuters Dealing 3000 source. The broker 
+#      code is optional. A broker code received with the Reuters Dealing 3000 deal
+#      overrides the broker code that you specify for this parameter.
+#      default: 
+D3000_OFFLINE_BROKER_CODE 
+#
+#
+#
+#      Boolean parameter that allows you to specify if the correspondent string used
+#      during the validation of a deal is:
+#          ? the SWIFT code of the correspondent if USE_CORRESP_SWIFT_CODE is TRUE
+#          ? the correspondent name of the deal if USE_CORRESP_SWIFT_CODE is FALSE
+#      Note: The SWIFT code associated to a correspondent is only applicable to Reuters Dealing 3000-2 systems.
+#      default: FALSE
+USE_CORRESP_SWIFT_CODE FALSE
+#
+#
+#
+#      Boolean parameter that allows you to specify if the default correspondent is 
+#      used during the validation of a deal. If the correspondents set in the Reuters
+#      Dealing 3000 deal are not defined in Kondor+, the default correspondents
+#      associated with the payment instructions must be used during the automatic
+#      validation of a deal.
+#      You can specify a default correspondent for each currency and for forex and
+#      money market deals in the Kondor+ Data Manager ? Reference Data ? Third 
+#      Parties ? Correspondents ? Our Corresp or Their Corresp. 
+#      Set to FALSE if you do not want to use the default correspondent during the
+#      automatic validation of a deal.
+#      default: FALSE
+USE_DEFAULT_CORRESP FALSE
+#
+#
+#
+#      Boolean parameter that allows you to specify if some default values are to
+#      be used during the validation of a deal if they are not present in the original 
+#      deal. Set to FALSE if you do not want Kondor+ to use default values during the
+#      automatic validation of the deal.
+#      default: FALSE
+SET_DEFAULT_VALUES FALSE
+#
+#
+#
+#      Name of the table where the Reuters Dealing 3000 loan & deposit deals are 
+#      validated in Kondor+ (possible values are either INTEREST_AT_MATURITY or
+#      PERIODIC). If you set no value, Kondor+ validates the deals in the IamDeals 
+#      database table if the maturity date is less than or equal to one year. 
+#      Otherwise, Kondor+ validates the deals in the LoansDepositDeals database table.
+#      There is no default value for this parameter.
+#      default: 
+LOAN_DEPOSIT_DEALS_TABLE 
+#
+#
+#
+#      Allows you to specify if the quotation unit associated with the pair in a
+#      deal is 1 or the one used in the standard market. Between version 3.38 and 
+#      4.0 of Reuters Dealing 3000, the quotation unit for the received pair is 
+#      systematically set to 1. In version 4.0 and later of Reuters Dealing 3000, the
+#      quotation unit for the received pair is the one used in the market.
+#      default: TRUE
+SET_QUOTATION_UNIT_TO_1 TRUE
+#
+#
+#
+#      Allows the user to specify the short name of the codifier used when a reference 
+#      is searched for in the codes table during the validation of a deal by KIS. If
+#      you do not enter a default, no codifier is used to search for the code.
+#      default: 
+CODIFIER_ROOT 
+#
+#
+#
+#      Allows you to enter the name of a codifier to store payment instructions from 
+#      Reuters Dealing 3000. Before import you must:
+#          ? define a codifier in Kondor+ Data Manager ? Reference Data 
+#             ? Third Parties ? Codifiers
+#          ? define a Custom Window with fields CorrespPeriod1Cur1, CorrespPeriod1Cur2,
+#             CorrespPeriod2Cur1, CorrespPeriod2Cur2 and associate it with the codifier 
+#          ? define a user code for each user that you want to give access to the 
+#             Custom Window, and associate it with the codifier
+#      KIS checks that a Custom Window associated with the codifier specified in 
+#      PAYMENT_INSTRUCTION_CODIFIER exists, and that the user specified in the payment
+#      instructions has access to the Custom Window (that is, the codifier is 
+#      associated with a user code that is associated with this user). If so, KIS 
+#      stores the payment instruction data in either the foreign table you specified
+#      in the Custom Window definition, or KLSDealsInfo if you did not specify one.
+#      Note: If you do not specify a PAYMENT_INSTRUCTION_CODIFIER, KIS stores only 
+#      Correspondent information, and no payment instructions.
+#      default: 
+PAYMENT_INSTRUCTION_CODIFIER 
+#
+#
+#
+#      Maximum deal number allowed by Reuters Dealing 3000. Each confirmed deal is 
+#      allocated a deal number or ticket number by the Reuters Dealing 3000 Server. 
+#      Numbers are sequential from 1 to 999,999 (the maximum) and each server maintains 
+#      its own sequence. You can define the maximum deal number in the Reuters Dealing
+#      3000 Server. After deal number MAX_DEAL_NUMBER, the numbering restarts at 1 Default: 999999
+#      default: 999999
+MAX_DEAL_NUMBER 999999
+#
+#
+#
+#      Allows you to add time to or subtract time from the GMT time for the capture
+#      date and trade date of a deal processed by Reuters Dealing 3000. This allows 
+#      you to take into account the different time zones around the world. The delta
+#      time you add is included in the interval [-11.5, 11.5]. The unit is the hour 
+#      and you can specify half hours (.5). The decimal part is equal to 0 or 5 
+#      (no other values are accepted). 
+#      Important! If an incorrect value is given, the KD3000 Server does not start.
+#      default: 0.0
+D3000_DELTA_TIME 0.0
+#
+#
+#
+#      TCID name of the Reuters Dealing 3000 Server on the customer site. The TCID is
+#      the Terminal Controller Identifier (see the Reuters Dealing 3000 documentation).
+#      There is no default value.
+#      default: 
+TCID_NAME 
+#
+#
+#
+#      The time interval (in seconds) between each ping message from the KD3000 Server
+#      to the Reuters Dealing 3000 Server. The KD3000 Server sends a ping message to
+#      the Reuters Dealing 3000 Server every <number> of seconds, where <number> is 
+#      the value defined for this parameter.
+#      default: 5
+D3000_PING_INTERVAL 5
+#
+#
+#
+#      Relevant in CIF mode only and allow the KD3000 Server to access the relevant
+#      Kondor+ deal limit when the Reuters Dealing 3000 counterparty is known.
+#      default: FALSE
+D3000_TRIGGER_SPOTDEALS FALSE
+#
+#
+#
+#      Relevant in CIF mode only and allow the KD3000 Server to access the relevant
+#      Kondor+ deal limit when the Reuters Dealing 3000 counterparty is known.
+#      default: FALSE
+D3000_TRIGGER_IAMDEALS FALSE
+#
+#
+#
+#      Relevant in CIF mode only and allow the KD3000 Server to access the relevant
+#      Kondor+ deal limit when the Reuters Dealing 3000 counterparty is known.
+#      default: FALSE
+D3000_TRIGGER_LOANSDEPOSITDEALS FALSE
+#
+#
+#
+#      Relevant in CIF mode only and allow the KD3000 Server to access the relevant
+#      Kondor+ deal limit when the Reuters Dealing 3000 counterparty is known.
+#      default: FALSE
+D3000_TRIGGER_FORWARDDEALS FALSE
+#
+#
+#
+#      Relevant in CIF mode only and allow the KD3000 Server to access the relevant
+#      Kondor+ deal limit when the Reuters Dealing 3000 counterparty is known.
+#      default: FALSE
+D3000_TRIGGER_FXSWAPDEALS FALSE
+#
+#
+#
+#      Relevant in CIF mode only and allow the KD3000 Server to access the relevant
+#      Kondor+ deal limit when the Reuters Dealing 3000 counterparty is known.
+#      default: FALSE
+D3000_TRIGGER_FRADEALS FALSE
+#
+#
+#
+#      Allows you to modify the original KplusFeed messages by adding an automatic 
+#      suffix to the field contents. The KD3000 Server modifies the messages before 
+#      sending them to KIS. 
+#      D3000_TRANSFORM_FIELDS parameter identifies the keys of the fields to transform,
+#      separated by commas
+#      example: D3000_TRANSFORM_FIELDS TypeOfInstr_ShortName, Users_ShortName
+#      Note: You must link the corresponding modification to each field you modify.
+#      default: 
+D3000_TRANSFORM_FIELDS 
+#
+#
+#
+#      Identifies the suffix values of the fields to transform, beginning with %
+#      character and separated by commas.
+#      Example: D3000_OPERATION_FIELDS %TOI_CUSTOM, %USERS_CUSTOM
+#      
+#      default: 
+D3000_OPERATION_FIELDS 
+#
+#
+#
+#      Add the TypeOfInstr table in the message sent to Import Server. If nothing is 
+#      set, this new table is not added to the message.
+#      default: 
+D3000_TYPEOFINSTR_SPOTDEALS 
+#
+#
+#
+#      Add the TypeOfInstr table in the message sent to Import Server. If nothing is 
+#      set, this new table is not added to the message.
+#      default: 
+D3000_TYPEOFINSTR_IAMDEALS 
+#
+#
+#
+#      Add the TypeOfInstr table in the message sent to Import Server. If nothing is 
+#      set, this new table is not added to the message.
+#      default: 
+D3000_TYPEOFINSTR_LOANSDEPOSITDEALS 
+#
+#
+#
+#      Add the TypeOfInstr table in the message sent to Import Server. If nothing is 
+#      set, this new table is not added to the message.
+#      default: 
+D3000_TYPEOFINSTR_FORWARDDEALS 
+#
+#
+#
+#      Add the TypeOfInstr table in the message sent to Import Server. If nothing is 
+#      set, this new table is not added to the message.
+#      default: 
+D3000_TYPEOFINSTR_FXSWAPDEALS 
+#
+#
+#
+#      Add the TypeOfInstr table in the message sent to Import Server. If nothing is 
+#      set, this new table is not added to the message.
+#      default: 
+D3000_TYPEOFINSTR_FRADEALS 
+#
+#
+#
+#      Connection type to the Reuters Dealing 3000 Server. You must enter either:
+#          - NET_TOF (for a terminal server such as a 3Com box)
+#          - NET_DTF (for a terminal server such as a DTS)
+#          - TTY (for RS232).
+#      default: TTY
+D3000_CONNECTION_TYPE  TTY
+#
+#
+#
+#      Device name to access the serial line that is used for the serial connection to 
+#      the Reuters Dealing 3000 Server. 
+#      Default: /dev/ttya (/dev/tty0 on RS6000 machines)
+#      default: 
+D3000_LINE_TTY_NAME 
+#
+#
+#
+#      Device line speed.
+#      default: 9600
+D3000_LINE_TTY_SPEED 9600
+#
+#
+#
+#      Device Parity.
+#      default: NONE
+D3000_LINE_TTY_PAR NONE
+#
+#
+#
+#      Device bit size.
+#      default: 8
+D3000_LINE_TTY_BITS 8
+#
+#
+#
+#      Device Stop bit.
+#      default: 1
+D3000_LINE_TTY_STOP 1
+#
+#
+#
+#      Device Flow Control.
+#      default: NONE
+D3000_LINE_TTY_FLOW NONE
+#
+#
+#
+#      NET CONNECTION TYPE PARAMETERS
+#      These parameters are only used if the D3000_CONNECTION_TYPE parameter
+#      is set to NET_TOF or NET_DTF. These parameters are used for a connection
+#      with a terminal server such as a 3Com box. The communication with
+#      the Reuters Dealing 3000 server uses the TCP/IP protocol.
+#      
+#      The host name set for Reuters Dealing 3000 on the network and
+#      attributed to the terminal server. There is no default value.
+#      default: 
+D3000_LINE_NET_HOST 
+#
+#
+#
+#      The name of the terminal server socket to which the Reuters Dealing
+#      3000 Server is connected.
+#      default: 
+D3000_LINE_NET_SERVICE 
+#
+#
+#
+#      Communication mode
+#      possible values : TCP_IP_MODE RENDEZVOUS_MODE
+#      default: RENDEZVOUS_MODE
+COMM_MODE RENDEZVOUS_MODE
+#
+#
+#
+#      Time-out period in seconds between select calls in the socket system.
+#      default: 1
+SELECT_TIMEOUT 1
+#
+#
+#
+#      Allows you to choose the type of conversation that is used to view the
+#      Kondor+ limit while the deal is taking place. These values are available:
+#          ? NONE (default value)
+#          ? CIF (Current Interest Feed)
+#          ? IP_CIF (IP/CIF sent by DTF)
+#          ? DTF (Deal Tracker Feed)
+#      default: NONE
+D3000_CONVERSATION_TYPE NONE
+#
+#
+#
+#      D3000_CONVERSATION_CONNECTION_TYPE is the type of connection used for 
+#      conversations between the KD3000 Server and the Reuters Dealing 3000 Server.
+#      These values are available:
+#          ? TTY (for RS232): default value
+#          ? NET_TOF (Ticket Output Feed) which indicates that the format 
+#             to read is TOF
+#          ? NET_DTF (Deal Tracker Feed) which indicates that the format to read is DTF
+#      
+#      TOF is available for a terminal server. 
+#      DTF is available for a terminal server such as a Deal Tracker Server. 
+#      TTY is available for RS232.
+#      For TOF and DTF formats, you must specify the address of the server using
+#      KD3_CONV_NET_HOST and the number of the socket to connect using 
+#      KD3_CONV_NET_SERVICE
+#      default: TTY
+D3000_CONVERSATION_CONNECTION_TYPE TTY
+#
+#
+#
+#      the device name used to access the serial line. This is used for the serial
+#      connection to the Reuters Dealing 3000 server. 
+#      The default device name is /dev/ttya (/dev/tty0 on RS6000 machines).
+#      default: 
+D3000_CONVERSATION_TTY_NAME 
+#
+#
+#
+#      The host name set for the Reuters Dealing 3000 server (CIF) or the Deal Tracker 
+#      Feed (DTF) in the network. It is attributed to a terminal server.
+#      default: 
+D3000_CONVERSATION_NET_HOST 
+#
+#
+#
+#      The name of the terminal server socket to which the Reuters Dealing 3000 server
+#      (CIF) or Deal Tracker Feed (DTF) is connected.
+#      default: 
+D3000_CONVERSATION_NET_SERVICE 
+#
+#
+#
+#      This parameter allows the user to set the Codifier for the conversation
+#      trigger mode. If this Codifier is set, Kondor+ searches in the code string
+#      identified by User_Id and Codifier_Id if it must open the deal window
+#      linked to the instrument of the deal. 
+#      The following value must be in the code string :
+#          - SPO : for Spot Deals
+#          - IAM : for Iam Deals
+#          - L&D : for Loans & Deposit Deals
+#          - FWD : for Forward Deals
+#          - FXS : for Fx Swap Deals
+#          - FRA : for Fra Deals
+#      
+#      default: 
+CONV_TRIGGER_CODIFIER 
+#
+#
+#
+#      Rendezvous Service: Port number used for inter-daemon communication
+#      default: 8889
+RV_PORT 8889
+#
+#
+#
+#      TIB/Rendezvous Network: Specifies the network interface and the multicast
+#      groups used to send and receive messages
+#         Example: lan0;224.1.1.1,224.1.1.2;224.1.1.1
+#      default: eth0;;
+RV_NETWORK eth0;;
+#
+#
+#
+#      TIB/Rendezvous Daemon: Service, hostname, and port number used to connect
+#      to the daemon.
+#           Examples: tcp:1234 or tcp:hostname:1234
+#      default: tcp:kplus-front-rvd-kis-tk:8889
+RV_DAEMON tcp:kplus-front-rvd-kis-tk:8889
+#
+#
+#
+#      If TRUE, Kd3000 benefits from the time when KIS processes a message to prepare
+#      the following one for sending.
+#      default: TRUE
+ASYNCHRONOUS TRUE
+#
+#
+#
+#      Define in millisecond the frequency used to update the metrics for the monitoring
+#      The minimum value for the frequency is 200. (if a value inferior to 200 is specified,
+#      the frequency will be set to 200)
+#      default: 500
+MONITORING_PUSH_TIME 500
+#
+#
+#
+#      Comma separated list?(without spaces) of Codifiers' short name, whose Custom Windows procedures must be executed during the import of a deal. If this parameter is specified with at least one codifier short name, both flags "TradeKast Y" and "ExecuteCustomProcs Y" are added in the message?to kis with a specific block for each Codifier at the end of the message: "TBL TradeKast_Codifier EOT". All blocks are generated empty, for specifying that the procedures of the corresponding CW must be executed, but no fields are to be added in them. Procedures could be used to add fields and change values in the deal.
+#      default: 
+CW_CODIFIERS 
+#
+#
+#
+#      Comma separated list?(without spaces) of?field ids that should be ignored by kd3000 in the mapping, thus being defaulted by KIS during the import.
+#      default: 
+IGNORE_FIELDS 
+#
+#
+#
+#      Path to the KD3000 Custom Window mapping file containing the description of mapping between incomming deal tickets and Custom Windows on Unix
+#      default: /opt/finastra/kplus-front/common/kd3000/kd3000.mapping
+CW_MAPPING_FILE "/opt/finastra/kplus-front/common/kd3000/kd3000.mapping"
+#
+#
+#
+#      Path to the KD3000 Custom Window mapping file containing the description of mapping between incomming deal tickets and Custom Windows on Windows
+#      default: C:\Program Files\Reuters\Kplus30\common\kd3000\kd3000.mapping
+CW_MAPPING_FILE_WINNT "C:\Program Files\Reuters\Kplus30\common\kd3000\kd3000.mapping"
+#
+#
+#
+#      Procedure applying criteria to decide sending or not to KIS.
+#      The procedure must return a value and a message: 1, NULL is ok for sending; 0, 'Explanation' is for not sending.
+#      The parameter is the procedure name followed (with / separator) with the arguments (FID names or K+ mapped field names)
+#      Ex: Kustom..MyProcedure/FID1/FID2/Folders.Folders_ShortName
+#      default: 
+IGNORE_FILTER_PROC 
+#
+#
+#
+#      Indicates if filtered deals have to be detailed in the log file
+#      default: False
+LOG_FILTERED_DEALS FALSE
+#
+#
+#
+#      Procedure applying mapping rules to enrich the KIS message
+#      The procedure must return a list of 3 strings for table, field and value to be integrated in the mapping.
+#      Ex: SELECT 'IamDeals', 'FixedRate', '1.23'
+#      The parameter is the procedure name followed with the arguments (FID names or K+ mapped field names)
+#      Ex: Kustom..MyProcedure/FID1/FID2/Folders.Folders_ShortName
+#      default: 
+ENRICH_PROC 
+#
+#
+#
+#      This parameter allows the user to set alternative path for EnumBase and FieldBase files on Unix
+#      default: /opt/finastra/kplus-front/common/kd3000
+D3000_BASE_FILES_PATH "/opt/finastra/kplus-front/common/kd3000"
+#
+#
+#
+#      This parameter allows the user to set alternative path for EnumBase and FieldBase files on Windows
+#      default: C:\Program Files\Reuters\Kplus30\common\kd3000
+D3000_BASE_FILES_PATH_WINNT "C:\Program Files\Reuters\Kplus30\common\kd3000"
+#
+#
+#
+#      Brief description of K+ service (server, handler or peripheral).
+#      default: "Kondor connector importing data from Reuters Dealing 3000"
+SERVICE_DESCRIPTION "Kondor connector importing data from Reuters Dealing 3000"
+#
+#
+#
+#      Brief display name of K+ service (server, handler or peripheral).
+#      default: "D3000 Server (kd3000)"
+SERVICE_DISPLAYNAME "D3000 Server (kd3000)"
+#
+#
+#   End of file
+#
+

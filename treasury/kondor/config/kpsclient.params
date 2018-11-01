@@ -1,0 +1,29 @@
+#
+#
+#   File : kpsclient.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      JMS server hostname
+#      default: localhost
+JMS_SERVER_HOSTNAME localhost
+#
+#
+#
+#      JMS server port
+#      default: 9220
+JMS_SERVER_PORT 9220
+#
+#
+#
+#      JMS topic used for KPS requests. This is the topic KPS listen to. KPS serve all clients that send a request to this topic. If several KPS are running at the same time, each one should have a different topic name.
+#      default: KpsRequest
+JMS_REQUEST_TOPIC KpsRequest
+#
+#
+#   End of file
+#
+

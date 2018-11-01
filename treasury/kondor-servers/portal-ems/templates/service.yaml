@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "portal-ems.name" . }}
+  labels:
+    app: {{ template "portal-ems.name" . }}
+    chart: {{ template "portal-ems.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ template "portal-ems.name" . }}
+    release: {{ .Release.Name }}

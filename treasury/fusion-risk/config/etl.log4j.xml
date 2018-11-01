@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration>
+
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out"/>
+		<param name="Threshold" value="INFO"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p %c{1} - %m%n"/>
+		</layout>
+	</appender>
+
+	<!-- A time/date based rolling appender for the main KGRETL log -->
+    <appender name="LOGFILE" class="org.apache.log4j.DailyRollingFileAppender">
+      <param name="File" value="${kgr.log.dir}/KGRETL.log"/>
+      <param name="Append" value="true"/>
+	  <param name="Threshold" value="DEBUG"/>
+      <!-- Rollover at midnight each day -->
+      <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+
+      <layout class="org.apache.log4j.PatternLayout">
+         <!-- The default pattern: Date Priority [Category] Message\n -->
+         <param name="ConversionPattern" value="%d %-5p [%c] %m%n"/>
+
+         <!-- The full pattern: Date MS Priority [Category] (Thread:NDC) Message\n
+         <param name="ConversionPattern" value="%d %-5r %-5p [%c] (%t:%x) %m%n"/>
+          -->
+      </layout>
+	</appender>
+
+	<appender name="LOGSTASH" class="org.apache.log4j.net.SocketAppender">
+		<param name="RemoteHost" value="localhost" />
+		<param name="ReconnectionDelay" value="60000" />
+		<param name="Threshold" value="DEBUG" />
+	</appender>
+
+    <!-- silence the webservice  connection errors -->
+	<logger name="org.apache.cxf.phase">
+		<level value="ERROR" />
+    </logger>
+
+	<!-- silence the webservice  frames dump -->
+	<logger name="org.apache.cxf.interceptor.LoggingInInterceptor" >
+			<level value="WARN" />
+	</logger>
+
+	<!-- silence the webservice  frames dump -->
+	<logger name="org.apache.cxf.interceptor.LoggingOutInterceptor">
+			<level value="WARN" />
+	</logger>
+
+	<!-- silence the heartbeats  -->
+	<logger name="com.reuters.kgl.communication.async.heartbeats">
+			<level value="INFO" />
+	</logger>
+
+	<!-- silence the logsandstatusbridge  -->
+	<logger name="com.reuters.kgr.logsandstatusbridge">
+			<level value="INFO" />
+	</logger>
+
+	<!-- silence the logsandstatus  -->
+	<logger name="com.reuters.kgr.logsandstatus">
+			<level value="INFO" />
+	</logger>
+
+    <logger name="org.apache.cxf">
+        <level value="WARN" />
+    </logger>
+
+    <logger name="org.springframework">
+        <level value="WARN" />
+    </logger>
+
+    <logger name="net.sf.ehcache">
+        <level value="WARN" />
+    </logger>
+
+	<category name="org.apache.catalina.loader.WebappClassLoader">
+		<level value="INFO" />
+	</category>
+
+	<category name="org.apache">
+		<level value="WARN" />
+	</category>
+
+	<logger name="com.trmsys.kgr">
+		<appender-ref ref="CONSOLE" />
+	</logger>
+
+    <root>
+		<appender-ref ref="LOGFILE" />
+    </root>
+
+</log4j:configuration>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><application version="1.0">
+<i18nDictionary appliName="ksp" name="navigation"/>
+<worksheetgroup appliName="ksp" id="Designer" label="WorksheetGroup.Designer" securityId="KSPDesigner_SecurityId">
+<worksheet appliName="ksp" id="ProductsDesigner" label="Worksheets.Designer.ProductsDesigner" href="worksheets/designer/ProductsDesigner.xml"/>
+<worksheet appliName="ksp" id="ExternalFunctionsDesigner" label="Worksheets.Designer.ExternalFunctionsDesigner" href="worksheets/designer/ExternalFunctionsDesigner.xml" securityId="KSPExternalFunction_SecurityId" selected="true"/>
+<worksheet appliName="ksp" id="GenericDataDesigner" label="Worksheets.Designer.GenericDataDesigner" href="worksheets/designer/GenericDataDesigner.xml"/>
+</worksheetgroup>
+<worksheetgroup appliName="ksp" id="DealCapture" label="WorksheetGroup.DealCapture">
+<worksheet appliName="ksp" id="DealCapture" label="Worksheets.DealCapture.DealCapture" href="worksheets/dealcapture/DealCapture.xml" selected="true"/>
+</worksheetgroup>
+<worksheetgroup appliName="ksp" id="Report" label="WorksheetGroup.Report" securityId="KSPReport_SecurityId">
+<worksheet appliName="ksp" id="Reporting" label="Worksheets.Report.Reporting" href="worksheets/report/Reporting.xml"/>
+</worksheetgroup>
+<worksheetgroup appliName="ksp" id="Configuration" label="WorksheetGroup.Configuration">
+<worksheet appliName="ksp" id="PricingAssignment" label="Worksheets.Configuration.PricingAssignment" href="worksheets/configuration/PricingAssignment.xml"/>
+<worksheet appliName="ksp" id="Calibration" label="Worksheets.Configuration.Calibration" href="worksheets/configuration/CalibrationInstruments.xml"/>
+<worksheet appliName="ksp" id="UserProfile" label="Worksheets.Configuration.UserProfile" href="worksheets/configuration/UserProfile.xml"/>
+<worksheet appliName="ksp" id="Greeks" label="Worksheets.Configuration.Greeks" href="worksheets/configuration/GreeksConfig.xml"/>
+<worksheet appliName="ksp" id="Categories" label="Worksheets.Configuration.Categories" href="worksheets/configuration/CategoriesConfig.xml"/>
+</worksheetgroup>
+<worksheetgroup appliName="ksp" id="Administration" label="WorksheetGroup.Administration" securityId="KSPAdmin_SecurityId">
+<worksheet appliName="ksp" id="UserManagement" label="Worksheets.Administration.UsersManagement" href="worksheets/admin/UserManagement.xml" securityId="KSPAdmin_SecurityId"/>
+<worksheet appliName="ksp" id="Tools" label="Worksheets.Administration.Tools" href="worksheets/admin/Tools.xml" securityId="KSPAdmin_SecurityId"/>
+<worksheet appliName="ksp" id="Maintenance" label="Worksheets.Administration.Maintenance" href="worksheets/admin/Maintenance.xml" securityId="KSPAdmin_SecurityId"/>
+</worksheetgroup>
+<worksheetgroup appliName="ksp" id="Help" label="WorksheetGroup.Help">
+<worksheet appliName="ksp" id="DevTools" label="Worksheets.Help.DevTools" href="worksheets/help/DevTools.xml" securityId="KSPDevTools_SecurityId"/>
+<worksheet appliName="ksp" id="About" label="Worksheets.Help.About" href="worksheets/help/About.xml" img="help"/>
+</worksheetgroup>
+<globalWindowContainers href="views/GlobalWindows.xml"/>
+</application>

@@ -1,0 +1,175 @@
+#
+#
+#   File : kfis.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Sets the server profile and server name. Parameter should always be set to KFIS. Together with local database name it is used as unique identifier in server/agent "discovery" process.
+#      default: KFIS
+SERVER_PROFILE KFIS
+#
+#
+#
+#      Name of the Kondor+ Fast Import Server defined in the keyletters.cfm PIXL
+#      configuration file.
+#      default: KFIS
+SERVER_NAME  KFIS
+#
+#
+#
+#      Defines the port number/name on which server listen for TCP/IP connection. A string is used to indciate the name of the service.
+#      default: kfis
+SERVER_PORT kplus_kfis
+#
+#
+#
+#      The size of the network socket's buffer. It's a low level setting used by networking.
+#      default: 256
+SOCKET_BUFFER_SIZE 256
+#
+#
+#
+#      Indicates if the log information should be printed to standard error output.
+#      default: FALSE
+LOG_TO_STDERR FALSE
+#
+#
+#
+#      Location of directory where log file would be kept on Unix.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/servers
+LOGDIR "/opt/finastra/kplus-front/entities/Standalone/log/servers"
+#
+#
+#
+#      Location of directory where log file would be kept on Windows.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers
+LOGDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers"
+#
+#
+#
+#      Level of information written to the log files.
+#      default: 1
+LOGLEVEL  1
+#
+#
+#
+#      Number of days before the server log files are deleted. If you do not want log files to be deleted, set this parameter to -1. Remove log after <n> days, -1 mean never.
+#      default: 15
+LOGREMOVE 15
+#
+#
+#
+#      Number of seconds between each server attempt to synchronize task list with database.
+#      default: 2
+SYNCHRONIZATION_INTERVAL 2
+#
+#
+#
+#      Maximum number of pending common tasks processed by the agent on during each iteration of main loop.
+#      default: 16
+MAX_COMMON_TASK_PER_LOOP 16
+#
+#
+#
+#      Maximum size of the common task queue of each agent. The server won't dispatch more than
+#      the specified number of task to each agent.
+#      This value must be AT LEAST 1.
+#      default: 16
+MAX_COMMON_TASK_PER_AGENT 16
+#
+#
+#
+#      Path of the log file for performance statistic on Unix. Must be fully qualified.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/servers/kfis-perf-statistic.csv
+PERFORMANCE_STATISTIC_PATH "/opt/finastra/kplus-front/entities/Standalone/log/servers/kfis-perf-statistic.csv"
+#
+#
+#
+#      Path of the log file for performance statistic on Windows. Must be fully qualified.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers\kfis-perf-statistic.csv
+PERFORMANCE_STATISTIC_PATH_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers\kfis-perf-statistic.csv"
+#
+#
+#
+#      Separator character in log file for performance statistic.
+#      default: ;
+SEPARATOR ;
+#
+#
+#
+#      The number of seconds between each dump to log file.
+#      default: 0
+TASK_QUEUE_DUMP_INTERVAL 0
+#
+#
+#
+#      Frequency in minutes of log and reset of performance statistics.
+#      default: 15.0
+PERFORMANCE_STATISTIC_RESET_FREQUENCY 15.0
+#
+#
+#
+#      Enable log of performance statistics.
+#      default: FALSE
+PERFORMANCE_STATISTIC_ENABLE FALSE
+#
+#
+#
+#      Define in millisecond the frequency used to update the metrics for the monitoring
+#      The minimum value for the frequency is 200. (if a value inferior to 200 is specified,
+#      the frequency will be set to 200)
+#      default: 500
+MONITORING_PUSH_TIME 500
+#
+#
+#
+#      Number of import deals to retrieve during single synchronization attempt.
+#      default: 500
+SYNCHRONIZATION_TASK_LIMIT 500
+#
+#
+#
+#      Enable conflict handling.
+#      default: FALSE
+HANDLE_CONFLICTS FALSE
+#
+#
+#
+#      Name of the service that allows RDV communication between KIS and KFIS
+#      default: KIS_KFIS_SERVICE
+KFIS_SERVICE_NAME KIS_KFIS_SERVICE
+#
+#
+#
+#      Determines, if in semi-automatic mode deals' images will be always or only in case of error inserted into ImportDeals table
+#      default: TRUE
+SEMI_AUTOMATIC_ALWAYS_INSERT_INTO_IMPORTDEALS TRUE
+#
+#
+#
+#      Disables DealsOperationsMvts in import.
+#      If it's set to TRUE:
+#      - MultiEntity features doesn't work.
+#      - TradeKast is not able to export deals without DealsOperationsMvts (please find NO_ME in tradekast.params).
+#      default: FALSE
+NO_ME FALSE
+#
+#
+#
+#      Description of K+ service (server, handler or peripheral).
+#      default: "Kondor Fast Import Server"
+SERVICE_DESCRIPTION "Kondor Fast Import Server"
+#
+#
+#
+#      Display name of K+ service (server, handler or peripheral).
+#      default: "Fast Import Server (kfis)"
+SERVICE_DISPLAYNAME "Fast Import Server (kfis)"
+#
+#
+#   End of file
+#
+

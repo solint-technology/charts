@@ -1,0 +1,191 @@
+#
+#
+#   File : RevalQuotes.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Import quotes from
+#      default: Market
+IMPORT_FROM Market
+#
+#
+#
+#      This selection is common for Bond, Equity, Future, Option and Warrant Quotes
+#      default: BidAsk
+IMPORT_DATA BidAsk
+#
+#
+#
+#      This selection is common for Bonds Otc, Equity Otc, Fx Otc and Index Otc
+#      default: CompositePositionsHistorical
+IMPORT_OTC_DATA CompositePositionsHistorical
+#
+#
+#
+#      Include prices of OTC Options Underlyings
+#      default: FALSE
+INCLUDE_PRICES_OF_OTC_OPTIONS_UNDERLYINGS FALSE
+#
+#
+#
+#      Recompute Zero Coupon Rates and Discount Factors
+#      default: FALSE
+RECOMPUTE_ZC_AND_DF FALSE
+#
+#
+#
+#      Save null Swap points
+#      default: FALSE
+SAVE_NULL_SWAP_POINTS FALSE
+#
+#
+#
+#      Include Futures Maturities
+#      default: TRUE
+INCLUDE_FUTURES_MATURITIES TRUE
+#
+#
+#
+#      Retrieve last stored price
+#      default: FALSE
+RETRIEVE_LAST_STORED_PRICE FALSE
+#
+#
+#
+#      How long KplusTask should wait to retrieve quotes from real time
+#      default: 10
+REALTIME_TIMEOUT 10
+#
+#
+#
+#      Run KplusTask without revaluation
+#      default: FALSE
+IMPORT_AND_SAVE_ONLY FALSE
+#
+#
+#
+#      Skip quotes that were already saved today
+#      default: FALSE
+OVERWRITE_QUOTES FALSE
+#
+#
+#
+#      Use curves from revaluation
+#      default: FALSE
+USE_CURVES_FROM_REVALUATION FALSE
+#
+#
+#
+#      Recompute theoretical price
+#      default: FALSE
+RECOMPUTE_THEORETICAL_PRICE FALSE
+#
+#
+#
+#      Use fixing insertion
+#      default: FALSE
+USE_FIXING_INSERTION FALSE
+#
+#
+#
+#      Path for CSV file with SwapPoints Quotes. If empty then Quotes for SwapPoints are loaded from MARKET
+#      default: 
+SWAP_POINT_QUOTES_FILE_PATH 
+#
+#
+#
+#      Path for CSV file with Curves Quotes. If empty then Quotes for Curves are loaded from MARKET
+#      default: 
+CURVE_QUOTES_FILE_PATH 
+#
+#
+#
+#      Import Curve Quotes from file
+#      default: FALSE
+IMPORT_CURVE_QUOTES_FROM_FILE FALSE
+#
+#
+#
+#      Import Swap Points Quotes from file
+#      default: FALSE
+IMPORT_SWAP_POINT_QUOTES_FROM_FILE FALSE
+#
+#
+#
+#      Specifies Market Data Sets for spot quotes
+#      default: MARKET
+IMPORT_MDS_SPOTQUOTES MARKET
+#
+#
+#
+#      Specifies Market Data Sets for fx points
+#      default: MARKET
+IMPORT_MDS_FXPOINTS MARKET
+#
+#
+#
+#      Imports curves if KplusBatch has not been run
+#      default: FALSE
+IMPORT_CURVES_WITHOUT_BATCH FALSE
+#
+#
+#
+#      Import of matured Bonds
+#      default: TODAY
+INCLUDE_MATURED_BONDS TODAY
+#
+#
+#
+#      Import of matured Futures
+#      default: TODAY
+INCLUDE_MATURED_FUTURES TODAY
+#
+#
+#
+#      Import of matured Options
+#      default: TODAY
+INCLUDE_MATURED_OPTIONS TODAY
+#
+#
+#
+#      Import of matured Bonds Otc Options
+#      default: TODAY
+INCLUDE_MATURED_BONDS_OTC_OPT TODAY
+#
+#
+#
+#      Import of matured Commodity Otc Options
+#      default: TODAY
+INCLUDE_MATURED_CM_OTC_OPT TODAY
+#
+#
+#
+#      Import of matured Equity Otc Options
+#      default: TODAY
+INCLUDE_MATURED_EQ_OTC_OPT TODAY
+#
+#
+#
+#      Import of matured Forex Otc Options
+#      default: TODAY
+INCLUDE_MATURED_FX_OTC_OPT TODAY
+#
+#
+#
+#      Import of matured Index Otc Options
+#      default: TODAY
+INCLUDE_MATURED_INDEX_OTC_OPT TODAY
+#
+#
+#
+#      Import Of matured Warrants
+#      default: TODAY
+INCLUDE_MATURED_WARRANTS TODAY
+#
+#
+#   End of file
+#
+

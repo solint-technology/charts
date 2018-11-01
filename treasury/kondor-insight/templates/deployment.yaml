@@ -1,0 +1,59 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ template "kondor-insight.fullname" . }}
+  labels:
+    app: {{ template "kondor-insight.name" . }}
+    chart: {{ template "kondor-insight.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "kondor-insight.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "kondor-insight.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      hostAliases:
+      - ip : "{{ .Values.els.ip }}"
+        hostnames:
+        - "{{ .Values.els.host }}"
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+              protocol: TCP
+          hostAliases:
+          - ip : "{{ .Values.els.ip }}"
+            hostnames:
+            - "{{ .Values.els.host }}"
+          env:
+#          - name: SERVER_OPTS
+#            value: -Dlocal.config=/opt/finastra/fc-kondor-insight/app/customConfig/server.conf
+          - name: JAVA_OPTS
+            value: "{{ .Values.cargo.java_opts }}"
+          volumeMounts:
+          - name: config-volume
+            mountPath: /opt/finastra/fc-kondor-insight/app/customConfig/
+          command: ["/bin/sh", "-c"]
+          args: ["sed -i '/^els_port/d' /etc/services && echo -e \"els_port\t{{ .Values.els.port }}/tcp\" >> /etc/services && rm ./etc/server.conf && cp ./customConfig/server.conf ./etc/server.conf && exec ./bin/server.sh run && tail -f ./data/log/server.log"]
+          livenessProbe:
+            httpGet:
+              port: {{ .Values.service.port }}
+              path: /doc
+            initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
+            failureThreshold: {{ .Values.livenessProbe.failureThreshold }}
+      volumes:
+        - name: config-volume
+          configMap:
+            name: {{ template "kondor-insight.fullname" . }}

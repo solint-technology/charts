@@ -1,0 +1,111 @@
+#
+#
+#   File : keds.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Indicates the number of days to keep log files
+#      default: 10
+KEDS_LOGREMOVE 10
+#
+#
+#
+#      Defines the output directory for Kondor+ Value Server log files
+#      All platform except WINNT
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/servers
+KEDS_LOGDIR_UNIX "/opt/finastra/kplus-front/entities/Standalone/log/servers"
+#
+#
+#
+#      Defines the output directory for Kondor+ Value Server log files
+#      Platform WINNT
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers
+KEDS_LOGDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers"
+#
+#
+#
+#      Defines the output directory for Kondor+ Value Server performance log files
+#      All platform except WINNT
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/servers
+KEDS_PERFLOGDIR_UNIX "/opt/finastra/kplus-front/entities/Standalone/log/servers"
+#
+#
+#
+#      Defines the output directory for Kondor+ Value Server performance log files
+#      Platform WINNT
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers
+KEDS_PERFLOGDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers"
+#
+#
+#
+#      Configures KEDS to use compression when sending tasks over the network
+#      default: TRUE
+KEDS_COMPRESSION TRUE
+#
+#
+#
+#      Configures the Tibco Rendezvous service used by KEDS
+#      default: 7500
+KEDS_RDV_SERVICE 7500
+#
+#
+#
+#      Configures the Tibco Rendezvous network used by KEDS
+#      default: eth0;;
+KEDS_RDV_NETWORK eth0;;
+#
+#
+#
+#      Configures the Tibco Rendezvous daemon used by KEDS
+#      default: tcp:kplus-front-rvd:7500
+KEDS_RDV_DAEMON tcp:kplus-front-rvd-svc:7500
+#
+#
+#
+#      Configures the Tibco Rendezvous distributed queue name used by KEDS
+#      default: "KEDS"
+KEDS_RDV_QUEUE_NAME "KEDS"
+#
+#
+#
+#      Specify which dynamic pricing library should be launched at the start of the server (ex : KSP_ANALYTIC) (separator ; ex: libA;libB)
+#      default: KSP
+KEDS_LIB_PRELOAD KSP
+#
+#
+#
+#      Sets the KEDS parallelisation level
+#      default: 0
+KEDS_PARALLEL_TASKS 0
+#
+#
+#
+#      Specify low bound time for use RisKatcher Multithreading
+#      default: 5
+KEDS_PRICING_TIME 5
+#
+#
+#
+#      Specify if RisKatcher should use Dry Run mode
+#      default: FALSE
+KEDS_USE_DRYRUN FALSE
+#
+#
+#
+#      Description of K+ service (server, handler or peripheral).
+#      default: "Kondor External Deals Servers"
+SERVICE_DESCRIPTION "Kondor External Deals Servers"
+#
+#
+#
+#      Display name of K+ service (server, handler or peripheral).
+#      default: "External Deals Servers (keds)"
+SERVICE_DISPLAYNAME "External Deals Servers (keds)"
+#
+#
+#   End of file
+#
+

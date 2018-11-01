@@ -1,0 +1,473 @@
+# Default values for configuration.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+#  registry: registry-gdn.misys.global.ad
+  registry: registry.misys.global.ad
+  repository: treasury-optimisation/kplus-front
+  tag: 3.4.7.020.011-25731f3-20180913T021020
+  pullPolicy: IfNotPresent
+
+kplus-db:
+  service:
+    extport: 30433
+
+kplus-front-rvd:
+  rvdService:
+    type: ClusterIP
+    port: 7500
+    nodePort: 30500
+
+  httpService:
+    type: NodePort
+    port: 7501
+    nodePort: 30100
+
+kplus-front-rvd-kis-tk:
+  rvdService:
+    type: ClusterIP
+    port: 8889
+    nodePort: 30589
+
+  httpService:
+    type: NodePort
+    port: 8890
+    nodePort: 30590
+
+
+#Kondor core servers values:
+
+kms:
+  livenessProbe:
+    exec:
+      programName: KMS
+
+klws:
+  container:
+    forceHostname: klws
+  service:
+    extport: 30090
+    port: 8090
+  livenessProbe:
+    http:
+      path: /services/LocatorService
+      port: 8090
+
+kdews:
+  container:
+    forceHostname: kdews
+  service:
+    extport: 30025
+    port: 1025
+  livenessProbe:
+    http:
+      path: /Service/AuthenticationServer
+      port: 1025
+
+krs:
+  container:
+    forceHostname: krs
+  livenessProbe:
+    exec:
+      programName: KRS
+
+kvs:
+  livenessProbe:
+    exec:
+      programName: KVS_Stand
+
+krth:
+  image:
+    extraTag: 1.5.0
+  livenessProbe:
+    exec:
+      programName: KRTH
+
+kis:
+  livenessProbe:
+    exec:
+      programName: KIS
+
+tradekast:
+  livenessProbe:
+    exec:
+      programName: TradeKast
+
+kvers:
+  livenessProbe:
+    exec:
+      programName: KVersioning
+
+kois-server:
+  command:
+    alternate: "kois --server"
+  livenessProbe:
+    exec:
+      programName: KOIS_Server
+
+kois-agent:
+  command:
+    alternate: "kois --agent"
+  livenessProbe:
+    exec:
+      programName: KOIS_Agent
+
+keds:
+  livenessProbe:
+    exec:
+      programName: KEDS
+
+kctds:
+  livenessProbe:
+    exec:
+      programName: KCTDS
+
+kcfs:
+  livenessProbe:
+    exec:
+      programName: KCFS
+
+kbs-server:
+  command:
+    alternate: "kbs --server"
+  livenessProbe:
+    exec:
+      programName: KBS_Server
+
+kbs-agent:
+  command:
+    alternate: "kbs --agent"
+  livenessProbe:
+    exec:
+      programName: KBS_Agent
+
+kcs-server:
+  command:
+    alternate: "kcs --server"
+  livenessProbe:
+    exec:
+      programName: KCS_Server
+
+kcs-agent:
+  command:
+    alternate: "kcs --agent"
+  livenessProbe:
+    exec:
+      programName: KCS_Agent
+
+dealflow:
+  livenessProbe:
+    exec:
+      programName: DealFlow
+
+kplusdaemon:
+  livenessProbe:
+    exec:
+      programName: K+Daemon
+
+# KXLS
+kxls-basis:
+  command:
+    alternate: "kxls Basis -vSERV"
+  livenessProbe:
+    exec:
+      programName: KXLS_PackBasis
+
+kxls-limits:
+  command:
+    alternate: "kxls Limits -vSERV"
+  livenessProbe:
+    exec:
+      programName: KXLS_PackLimits
+
+kxls-report:
+  command:
+    alternate: "1 kxls Report -vSERV"
+  livenessProbe:
+    exec:
+      programName: KXLS_PackReport
+
+kxls-setup:
+  command:
+    alternate: "kxls Setup -vSERV"
+  livenessProbe:
+    exec:
+      programName: KXLS_PackSetup
+
+kxls-realtime:
+  replicaCount: 1
+  command:
+    alternate: "kxls RealTime -vSERV"
+  livenessProbe:
+    exec:
+      programName: KXLS_PackRealTime
+
+
+#Kondor core Handlers values (31 handlers)
+kdeposithdl:
+  command:
+    addArgs: Region=D_REGION
+  livenessProbe:
+    exec:
+      programName: KdepositHdl
+
+kfxswaphdl:
+  command:
+    addArgs: Region=D_REGION
+  livenessProbe:
+    exec:
+      programName: KfxswapHdl
+
+kspothdl:
+  command:
+    addArgs: Region=D_REGION
+  livenessProbe:
+    exec:
+      programName: KspotHdl
+
+
+kbondcf-master-hdl:
+  command:
+    alternate: "kbondcf_master_hdl"
+  livenessProbe:
+    exec:
+      programName: Kbondcf_M_Hdl
+
+kbondcf-slave-hdl:
+  command:
+    alternate: "kbondcf_slave_hdl"
+  livenessProbe:
+    exec:
+      programName: Kbondcf_S_Hdl
+
+kbondotc-master-hdl:
+  command:
+    alternate: "kbondotc_master_hdl"
+  livenessProbe:
+    exec:
+      programName: KBondOtc_M_Hdl
+
+kbondotc-slave-hdl:
+  command:
+    alternate: "kbondotc_slave_hdl"
+  livenessProbe:
+    exec:
+      programName: KBondOtc_S_Hdl
+
+kcommofutotc-master-hdl:
+  command:
+    alternate: "kcommofutotc_master_hdl"
+  livenessProbe:
+    exec:
+      programName: KCommoFOtc_M_Hdl
+
+kcommofutotc-slave-hdl:
+  command:
+    alternate: "kcommofutotc_slave_hdl"
+  livenessProbe:
+    exec:
+      programName: KCommoFOtc_S_Hdl
+
+kcommootc-master-hdl:
+  command:
+    alternate: "kcommootc_master_hdl"
+  livenessProbe:
+    exec:
+      programName: KCommoOtc_M_Hdl
+
+kcommootc-slave-hdl:
+  command:
+    alternate: "kcommootc_slave_hdl"
+  livenessProbe:
+    exec:
+      programName: KCommoOtc_S_Hdl
+
+keqotc-master-hdl:
+  command:
+    alternate: "keqotc_master_hdl"
+  livenessProbe:
+    exec:
+      programName: KEqOtc_M_Hdl
+
+keqotc-slave-hdl:
+  command:
+    alternate: "keqotc_slave_hdl"
+  livenessProbe:
+    exec:
+      programName: KEqOtc_S_Hdl
+
+kfxotc-master-hdl:
+  command:
+    alternate: "kfxotc_master_hdl"
+  livenessProbe:
+    exec:
+      programName: KFxOtc_M_Hdl
+
+kfxotc-slave-hdl:
+  command:
+    alternate: "kfxotc_slave_hdl"
+  livenessProbe:
+    exec:
+      programName: KFxOtc_S_Hdl
+
+kindexotc-master-hdl:
+  command:
+    alternate: "kindexotc_master_hdl"
+  livenessProbe:
+    exec:
+      programName: KIndexOtc_M_Hdl
+
+kindexotc-slave-hdl:
+  command:
+    alternate: "kindexotc_slave_hdl"
+  livenessProbe:
+    exec:
+      programName: KIndexOtc_S_Hdl
+
+kmmcf-master-hdl:
+  command:
+    alternate: "kmmcf_master_hdl"
+  livenessProbe:
+    exec:
+      programName: Kmmcf_M_Hdl
+
+kmmcf-slave-hdl:
+  command:
+    alternate: "kmmcf_slave_hdl"
+  livenessProbe:
+    exec:
+      programName: Kmmcf_S_Hdl
+
+krepocf-master-hdl:
+  command:
+    alternate: "krepocf_master_hdl"
+  livenessProbe:
+    exec:
+      programName: Krepocf_M_Hdl
+
+krepocf-slave-hdl:
+  command:
+    alternate: "krepocf_slave_hdl"
+  livenessProbe:
+    exec:
+      programName: Krepocf_S_Hdl
+
+kbondhdl:
+  livenessProbe:
+      exec:
+        programName: KbondHdl
+
+kbondsdepohdl:
+  livenessProbe:
+      exec:
+        programName: KbondsdepoHdl
+
+kcustodyhdl:
+  livenessProbe:
+      exec:
+        programName: KCustodyHdl
+
+kequityhdl:
+  livenessProbe:
+      exec:
+        programName: KequityHdl
+
+kfuturehdl:
+  livenessProbe:
+      exec:
+        programName: KfutureHdl
+
+kfxmmcarrycfhdl:
+  livenessProbe:
+      exec:
+        programName: KfxmmcarrycfHdl
+
+kmbsabshdl:
+  livenessProbe:
+      exec:
+        programName: KmbsabsHdl
+
+koptionhdl:
+  livenessProbe:
+      exec:
+        programName: KoptionHdl
+
+kpaperhdl:
+  livenessProbe:
+      exec:
+        programName: KpaperHdl
+
+kwarranthdl:
+  livenessProbe:
+      exec:
+        programName: KwarrantHdl
+
+
+# Insight services values
+kgrs-server:
+  command:
+    alternate: "kgrs --server"
+  livenessProbe:
+    exec:
+      programName: KInsightRepoServer_Server
+
+kgrs-agent:
+  command:
+    alternate: "kgrs --agent"
+  livenessProbe:
+    exec:
+      programName: KInsightRepoServer_Agent
+
+kes:
+  livenessProbe:
+    exec:
+      programName: KES
+
+kts:
+  livenessProbe:
+    exec:
+      programName: KTS-KTS
+
+kmdcs:
+  livenessProbe:
+    exec:
+      programName: KMDCS
+
+#KGL service values
+kglagent:
+  kreditnet: true
+  livenessProbe:
+    exec:
+      programName: KGL Agent
+
+
+#Webaccess services values
+krfsws:
+  service:
+    extport: 30026
+    port: 1026
+  livenessProbe:
+    http:
+      path: /get_wsdl/KfsServer.wsdl
+      port: 1026
+
+kfinws:
+  livenessProbe:
+    exec:
+      programName: KFinancialWebServices
+
+webaccess:
+  service:
+    extport: 30600
+  livenessProbe:
+    http:
+      path: /webaccess/signon.screen
+      port: 7600
+
+portal-ems:
+  livenessProbe:
+    http:
+      port: 7610

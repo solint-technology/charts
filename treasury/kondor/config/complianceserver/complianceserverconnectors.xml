@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<compliance>
+    <!--
+    Provides jdbc configuration to retrieve datas from tables:
+        * ComplianceFrontOfficeUser(ComplianceWindowUserName, FrontOfficeName, FrontOfficeUserId)
+        * ComplianceUserPlugin(ComplianceWindowUserName, PluginName)
+    -->
+    <database>
+        <driverClassName>com.microsoft.sqlserver.jdbc.SQLServerDriver</driverClassName>
+        <url>jdbc:sqlserver://kplus-db:1433;databaseName=Kustom</url>
+        <username>printreport</username>
+        <password>{Crypt2}OOMoqEGsC1GT0oQ0wvi+wQ==</password>
+    </database>
+	<connectors>
+		<connector>
+			<sourceName>Kondor</sourceName>
+			<class>com.trmsys.compliance.connector.kondor.KondorConnector</class>
+			<connectorConfiguration>
+				<rvService>7500</rvService>
+				<rvNetwork>eth0;;</rvNetwork>
+				<rvDaemon>tcp:kplus-front-rvd:7500</rvDaemon>
+				<listenSubject>KPLUS_kplus.KComp-Req</listenSubject>
+				<sendSubject>KPLUS_kplus.KComp-Ans</sendSubject>
+				<heartbeatSubject>KPLUS_kplus.ComplianceHeartBeat</heartbeatSubject>
+			</connectorConfiguration>
+		</connector>
+	</connectors>
+</compliance>

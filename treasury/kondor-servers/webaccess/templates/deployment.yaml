@@ -1,0 +1,59 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ template "wa.fullname" . }}
+  labels:
+    app: {{ template "wa.name" . }}
+    chart: {{ template "wa.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "wa.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "wa.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        command: ["/bin/sh", "-c"]
+        args: ["JKonfigure -s -D /opt/finastra/kplus-front//entities/Standalone/config -f /opt/finastra/kplus-front/config_wa/kondor.active
+                        && sed -i 's/-Xms2G -Xmx10G/-Xms${KFO_WA_MEM_MIN} -Xmx${KFO_WA_MEM_MAX}/g' $${WA_HOME}/bin/startup.sh
+                        && $${WA_HOME}/bin/startup.sh -addjavaopts $${ADDITIONAL_JAVA_OPTS} $${WA_START_OPTS}
+                        && tail -f $${WA_HOME}/logs/catalina.out --pid $$(cat $${WA_HOME}/bin/tomcat-webaccess.pid)"]
+
+        # KPL-51810 - Dirty sed replace on webaccess java opts as it is currently hardcoded in start script.
+        # To remove when implemented.
+        env:
+        - name: KFO_WA_MEM_MIN
+          value: "512m"
+        - name: KFO_WA_MEM_MAX
+          value: "4g"
+        - name: WA_HOME
+          value: "/opt/finastra/kplus-front/entities/Standalone/config/webaccess/WebaccessDomainTomcat"
+        - name: ADDITIONAL_JAVA_OPTS
+          value: "-Dstandalone=true" # should not be delivered to client
+        - name: WA_START_OPTS
+          value: ""
+        livenessProbe:
+          httpGet:
+            path: {{ .Values.livenessProbe.http.path }}
+            port: {{ .Values.livenessProbe.http.port }}
+          initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
+          periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+          timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
+          failureThreshold: {{ .Values.livenessProbe.failureThreshold }}
+        volumeMounts:
+        - mountPath: /opt/finastra/kplus-front/config_wa
+          name: config-volume
+      volumes:
+        - name: config-volume
+          configMap:
+            name: {{ .Release.Name }}-kondor

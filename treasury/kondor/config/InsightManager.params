@@ -1,0 +1,65 @@
+#
+#
+#   File : InsightManager.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Defines what database is used by Insight to get dataset configurations, workspaces and repositories definitions. It can take one of two values: INSIGHT_DB_BRAND_SYBASE or INSIGHT_DB_BRAND_SQLITE.
+#      default: INSIGHT_DB_BRAND_SYBASE
+INSIGHT_DATABASE_BRAND INSIGHT_DB_BRAND_SYBASE
+#
+#
+#
+#      Defines SQLite file path for Insight if INSIGHT_DATABASE_BRAND is set to INSIGHT_DB_BRAND_SQLITE. If the file does not exist, it will be created automatically.
+#      default: ./config.db
+INSIGHT_SQLITE_FILE_PATH "./config.db"
+#
+#
+#
+#      Defines period of Insight real-time updates in seconds.
+#      default: 5
+INSIGHT_REALTIME_UPDATES_INTERVAL 5
+#
+#
+#
+#      Defines time of fading update notification in seconds
+#      default: 5
+INSIGHT_UPDATES_FADING_TIME 5
+#
+#
+#
+#      Defines path of temporary directory where Insight keeps its runtime SQLite database files on unixlike systems.
+#      default: /tmp
+INSIGHT_TEMP_DIR_PATH_UNIX "/tmp"
+#
+#
+#
+#      Defines path of temporary directory where Insight keeps its runtime SQLite database files on Wondows.
+#      default: C:\tmp
+INSIGHT_TEMP_DIR_PATH_WIN "C:\tmp"
+#
+#
+#
+#      Maximum number of SQLite WHERE clause conditions
+#      default: 500
+INSIGHT_DATABASE_CONDITONS_NUMBER 500
+#
+#
+#
+#      Maximum number of connection to data server from one instance of InsightManager. Must be more than 5.
+#      default: 30
+INSIGHT_DB_CONNECTIONS_LIMIT 30
+#
+#
+#
+#      character encoding for the application default value "", available values : Apple Roman, Big5, Big5-HKSCS, CP949, EUC-JP, EUC-KR, GB18030-0, IBM 850, IBM 866, IBM 874, ISO 2022-JP, ISO 8859-1 to 10, ISO 8859-13 to 16, Iscii-Bng, Dev, Gjr, Knd, Mlm, Ori, Pnj, Tlg, and Tml, JIS X 0201, JIS X 0208, KOI8-R, KOI8-U, MuleLao-1, ROMAN8, Shift-JIS, TIS-620, TSCII, UTF-8, UTF-16, UTF-16BE, UTF-16LE, UTF-32, UTF-32BE, UTF-32LE, Windows-1250 to 1258, WINSAMI2
+#      default: DEFAULT
+INSIGHT_CHARACTER_ENCODING DEFAULT
+#
+#
+#   End of file
+#
+

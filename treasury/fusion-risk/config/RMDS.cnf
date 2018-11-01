@@ -1,0 +1,91 @@
+! SFC Configuration for connecting to RV daemon
+! -----------------------------------------
+! Most of the examples have optional command line arguments
+! for specifying RV service, daemon and network configuration values.
+! The command line arguments are passed into the record service
+! constructors, so they will override any configuration.  If the
+! command line arguments are not specified, the values configured here
+! will be used. 
+!
+!    replace 'hostname' with the hostname of the daemon
+!*daemon : tcp:ptxivmds05:7500
+*daemon : tcp:ptxsrtic01:7500
+!
+!    service port
+*service : 6575
+!
+!    replace '#.#.#.#' with your network card's IP address if your machine
+!    has multiple network cards.
+*network : 150.151;230.230.10.3
+
+! SFC Configuration for connecting to TMF daemon
+! -----------------------------------------
+!    replace 'hostname' with the hostname of the daemon
+!*updateDaemon : tcp:ptximds02:7500
+!
+!    service port
+!*updateService : 6475
+!
+!    replace '#.#.#.#' with your network card's IP address if your machine
+!    has multiple network cards.
+!*updateNetwork : 150.151;230.230.10.3
+
+!FidDb Loading Timer
+!-----------------------------
+!This parameter sets the amount of time to wait if fidDb download fails.
+!*fidDbInterval: 
+!
+! SFC Event Logger configuration
+! --------------------------
+!
+! The selector parameter is used by descendants of RTRLogActionImp to
+! determine, by severity level, the log events that are logged. Note
+! that when the RTRDefaultLogger is created, it always creates a File
+! Log action that logs events with any severity except "debug".
+!
+!*selector : *.info
+!*selector : *.debug
+
+! The install_stderr_action parameter is used by instances of
+! RTRDefaultLogger to determine whether to install a log action that
+! prints log messages to the standard error device. The default value 
+! is False.
+!*install_stderr_action : True
+
+! SFC Debug tracing to log file
+! --------------------------
+! For SSL consumers only.
+!*item_debug : true
+
+! For TIB consumer and TIB & SSL publishers
+! Integer value sets various levels of 
+! tracing as follows by adding together
+! the different trace levels:
+! 1 = Service level only
+! 2 = basic item level
+! 4 = all item level (basic + queuing & notifications)
+! 8 = item data tracing
+!
+! 1 = Service level only
+!*traceLevel : 1
+
+! 3 = Service + basic item level
+!*traceLevel : 3
+
+! 7 = Service + all item level
+!*traceLevel : 7
+
+! 15 = Service + all item + item data 
+!*traceLevel : 15
+
+!
+! Entitlements
+!--------------
+! 
+! The enableEntitlements variable can be used to enable or disable entitlements.
+! The default value depends on the protocol.
+! The default value is true for SASS3 but it is false for SASS2.
+! For SSL publication the default value is true but for SSL subscription the default value is false.
+
+*enableEntitlements : False
+*logger.defaultFileAction.file : /home/fusionrisk/CMR/log/RMDSExtractionTools.log

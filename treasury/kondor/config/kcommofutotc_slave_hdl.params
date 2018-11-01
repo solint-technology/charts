@@ -1,0 +1,95 @@
+#
+#
+#   File : kcommofutotc_slave_hdl.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Specifies the identity of the khandler
+#      default: kcommofutotc_slave_hdl
+HANDLER_PROFILE kcommofutotc_slave_hdl
+#
+#
+#
+#      Kondor+ Record Server reconnect time interval in seconds. That is, if the
+#      Kondor+ Record Server is down the Handler tries to reconnect to the Kondor+
+#      Record Server every <number> of seconds, where <number> is the value
+#      specified for this parameter.
+#      default: 20
+RECORDSERVER_RECONNECT  20
+#
+#
+#
+#      Time interval in seconds between each ping message. That is, the Handler
+#      sends a ping message to the Kondor+ Record Server every <number> of
+#      seconds, where <number> is the value specified for this parameter.
+#      default: 45
+RECORDSERVER_PING_INTERVAL  45
+#
+#
+#
+#      Defines the output directory for log files in Unix.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/servers
+LOGDIR  "/opt/finastra/kplus-front/entities/Standalone/log/servers"
+#
+#
+#
+#      Defines the output directory for log files on Windows.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers
+LOGDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers"
+#
+#
+#
+#      Number of days before the Handler log files are deleted.
+#      If you do NOT want the log files to be deleted, set this parameter to -1.
+#      default: 15
+LOGREMOVE  15
+#
+#
+#
+#      TIB/Rendezvous Service: Port number used for inter-daemon communication
+#      default: 
+RDV_SERVICE 
+#
+#
+#
+#      TIB/Rendezvous Network: Specifies the network interface and the multicast groups used to send and receive messages Example: lan0;224.1.1.1,224.1.1.2;224.1.1.1
+#      default: 
+RDV_NETWORK  
+#
+#
+#
+#      TIB/Rendezvous Daemon: Service, hostname, and port number used to connect to the daemon. Examples: tcp:1234 or tcp:hostname:1234
+#      default: 
+RDV_DAEMON 
+#
+#
+#
+#       Is the certified delivery mode used for RDV messaging ?
+#      default: 
+RDV_CM_USED 
+#
+#
+#
+#      Global time limit for certfied delivery mode : RDV continue attempts at delivery until this time limit expires Recommended to be higher than 60 0 means no time limit
+#      default: 
+RDV_CM_TIME_LIMIT 
+#
+#
+#
+#      Brief description of K+ service (server, handler or peripheral).
+#      default: "Kondor Commodity OTC future options slave position keeping handler"
+SERVICE_DESCRIPTION "Kondor Commodity OTC future options slave position keeping handler"
+#
+#
+#
+#      Brief display name of K+ service (server, handler or peripheral).
+#      default: "Commodity OTC future options slave handler (kcommofutotc_slave_hdl)"
+SERVICE_DISPLAYNAME "Commodity OTC future options slave handler (kcommofutotc_slave_hdl)"
+#
+#
+#   End of file
+#
+

@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "activeMQ.name" . }}
+  labels:
+    app: {{ template "activeMQ.name" . }}
+    chart: {{ template "activeMQ.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ template "activeMQ.name" . }}
+    release: {{ .Release.Name }}

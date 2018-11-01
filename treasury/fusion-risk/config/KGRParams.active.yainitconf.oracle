@@ -1,0 +1,101 @@
+{
+//
+//  CMR Core
+//
+  "install_dir": "/home/fusionrisk",
+  "java_home": "/usr/java/latest",
+  "fusionrisk_home":"{{install_dir}}",
+  "cmr_hostname": "frcmr",
+  "app_server_preport": 190,
+  "app_server_protocol": "https",
+  "base_currency": "EUR",
+  "krms_username": "kgr",
+  "krms_password": "_GNs7uK8$QDwdqNPuwjLnFEgCzlBOCTiyvgoug29i_",
+  "use_fast_import": "True",
+  "keystore_password": "password",
+  "keystore_encrypted_password": "_m0I$0Y3787bOFe66gBZosz#pbQ4yOX0nHTn3d1J0_",
+  "truststore_password": "password",
+  "kis_username": "kgr",
+  "kis_password": "_GNs7uK8$QDwdqNPuwjLnFEgCzlBOCTiyvgoug29i_",
+//
+//  database_type = oracle
+//
+  "database_type": "oracle",
+  "database_datasource": "ORCL",
+  "rate_database_datasource": "ORCL",
+  // service_name shoudl be only when performing upgrade from Install.sh and when SID is different than service name
+  "database_service": "$V(EMPTY)",
+  "database_hostname": "kplus-db",
+  "database_port": 1521,
+  "database_username": "KGR",
+  "database_password": "OOMoqEGsC1GT0oQ0wvi+wQ==",
+  "rknet_database_name": "RKNET",
+  "rate_database_name": "RATE",
+  "custom_database_name": "rknetCustom",
+  "dba_username": "SYS",
+//
+//  Kondor + section
+//
+  "kplus_database_type": "sybase",
+  "kplus_database_hostname": "kenvng",
+  "kplus_database_port": 6000,
+  "kplus_database_name": "kplus",
+  "kplus_database_username": "kplus",
+  "kplus_database_user_password": "Kondor_123",
+  "kplus_home_dir": "/usr/kplushome",
+  "kplus_username": "kplus",
+  "kplus_password": "Kondor_123",
+//
+//  RDV
+//
+  "rdv_daemon": "tcp:fusion-risk-rvd-svc:7500",
+  "rdv_network": "localhost",
+//
+//  JMS (Active MQ)
+//
+  "cmr_jms_port": 61616,
+  "amq_hostname": "framq",
+  "jms_admin_port": 8162,
+  "jms_username": "admin",
+  "jms_password": "_m0I$0Y3787bOFe66gBZosz#pbQ4yOX0nHTn3d1J0_",
+//
+//  RDV Adapter
+//
+  "rdv_adapter_service_port": 5583,
+  "rdv_adapter_subscribe_port": 5583,
+  "rdv_adapter_loginname": "rknet",
+  "rdv_import_port": 5582,
+//
+//  RTM
+//
+  "rtmserver_hostname": "{{cmr_hostname}}",
+  "rtmserver_protocol": "https",
+  "rtm_max_directmem": "8g",
+  "rtm_max_mem": "8g",
+//
+//  FPP server
+//
+  "pricer_server_hostname": "frpricer",
+  "pricer_server_port": 31545,
+//
+//  FFC
+//
+  "ffc_port": 8072,
+  "ffc_hostname": "frffc",
+  "ffc_ws_port": 8839,
+  "ffc_ws_protocol": "https",
+  "ffc_ws_username": "kgr",
+  "ffc_ws_password": "df5cd27e7a6fd470beabe817abe86ee9b876be300222c27e1e6d48f65605a3be",
+//
+//  Cargo
+//
+  "cargo_protocol": "https",
+  "cargo_hostname": "frcargo",
+  "cargo_port": 8444,
+//
+//  ARC
+//
+  "arc_protocol": "https",
+  "arc_hostname": "frarc",
+  "arc_port": 8090,
+}

@@ -1,0 +1,93 @@
+#
+#
+#   File : krth.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Defines the output directory for log files on Unix.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/servers
+LOGDIR "/opt/finastra/kplus-front/entities/Standalone/log/servers"
+#
+#
+#
+#      Defines the output directory for log files on Windows.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers
+LOGDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers"
+#
+#
+#
+#      Number of days before the server log files are deleted.
+#      If you do not want log files to be deleted, set this parameter to -1. 
+#      Remove log after <n> days, -1 mean never.
+#      default: 15
+LOGREMOVE 15
+#
+#
+#
+#      DRT Channel name of the Server
+#      default: coherency
+DRT_SERVER_CHANNEL coherency
+#
+#
+#
+#      DRT Server URL
+#      Example: tcp://150.151.140.239:7222
+#      default: 
+DRT_SERVER_URL 
+#
+#
+#
+#      DRT Channel name of the Realtime Server
+#      default: quotation
+DRT_REALTIMESERVER_CHANNEL quotation
+#
+#
+#
+#      DRT Realtime Server URL
+#      Example: tcp://150.151.140.239:7222
+#      default: 
+DRT_REALTIMESERVER_URL 
+#
+#
+#
+#      Fields in this list (comma separated) will not cause an update on Realtime even if they change (usefull for timestamps fields for example)
+#      default: 
+DRT_FIELD_IGNORE_LIST 
+#
+#
+#
+#      UserName to use while connecting to DRT MOM (EMS or AMQ). Required only if MOM security is activated
+#      default: 
+DRT_MOM_USERNAME 
+#
+#
+#
+#      UserPassword to use while connecting to DRT MOM (EMS or AMQ). Required only if MOM security is activated. UserName/UserPassword will ensure that only authorized softwares will be able to connect to MOM. This UserName/UserPassword must be configured on the MOM and in Global DRT.
+#      default: 
+DRT_MOM_USERPASSWORD {Crypt2}1r+mEDOTSIM=
+#
+#
+#
+#      Choose message server to handle communication between Kondor Realtime Hub and DRT server
+#      default: AMQ
+DRT_SERVER_CONNECTION_TYPE AMQ
+#
+#
+#
+#      Description of K+ service (server, handler or peripheral).
+#      default: "Kondor Realtime Hub Server. If this service is stopped Kondor RealTime will not work properly"
+SERVICE_DESCRIPTION "Kondor Realtime Hub Server. If this service is stopped Kondor RealTime will not work properly"
+#
+#
+#
+#      Display name of K+ service (server, handler or peripheral).
+#      default: "Realtime Hub Server (krth)"
+SERVICE_DISPLAYNAME "Realtime Hub Server (krth)"
+#
+#
+#   End of file
+#
+

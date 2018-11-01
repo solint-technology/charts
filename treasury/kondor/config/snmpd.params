@@ -1,0 +1,50 @@
+#
+#
+#   File : snmpd.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Configuration file for the SNMP master agentX
+#      
+#      url for the manual of snmpd parameters : http://net-snmp.sourceforge.net/docs/man/snmpd.html
+#      url for the manual of snmpd configuration file : http://net-snmp.sourceforge.net/docs/man/snmpd.conf.html
+#      
+#      Define the community which can access the daemon in read-only
+#      Mandatory
+#      default: public
+rocommunity public
+#
+#
+#
+#      The Daemon must run as a master agentX
+#      Mandatory
+#      By default, the master agent runs as a standalone agent
+#      default: agentx
+master agentx
+#
+#
+#
+#      Define the address for communication between the master and the subagent (using AgentX)
+#      In a configuration with one centralized master agent for all entities, specify a unique address
+#      for the master agent and in each kplus.params (parameter MONITORING_MASTER_AGENT_ADDRESS in
+#      kplus.params)
+#      Mandatory and must be coherent with kplus.params (parameter MONITORING_MASTER_AGENT_ADDRESS)
+#      Example : tcp:<hostname>:<port>
+#      default: 
+agentxsocket 
+#
+#
+#
+#      Define the port number to listen for snmpget...
+#      If no port is specified, the default value is 161
+#      Mandatory and must be coherent with kplus.params (parameter MONITORING_PORT_NUMBER)
+#      default: 161
+agentaddress 161
+#
+#
+#   End of file
+#
+

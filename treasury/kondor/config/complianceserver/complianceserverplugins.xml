@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<compliance>
+    <!-- Refer to complianceservercustomplugins_EXAMPLE.xml for custom plugin file format -->
+    <customPluginFile>/opt/finastra/kplus-front/entities/Standalone/config/complianceserver/complianceserverplugin.cvamgrlimit.xml</customPluginFile>
+    <customPluginFileWinnt>C:\Program Files\Reuters\Kplus30\entities\Standalone\config\complianceserver\complianceserverplugin.cvamgrlimit.xml</customPluginFileWinnt>
+    <plugins>
+        <plugin>
+            <id>1</id>
+            <displayName>CVA Hardcoded</displayName>
+            <displayOrder>1</displayOrder>
+            <pluginClass>com.trmsys.compliance.plugin.cvabuiltin.PluginCVABuiltIn</pluginClass>
+            <panelClass>com.trmsys.compliance.plugin.cvabuiltin.PanelCVABuiltIn</panelClass>
+            <pluginConfiguration>
+                <pluginClass>com.trmsys.compliance.plugin.cvahardcoded.PluginCVAHardcoded</pluginClass>
+                <panelClass>com.trmsys.compliance.plugin.cvahardcoded.PanelCVAHardcoded</panelClass>
+            </pluginConfiguration>
+            <enabled>TRUE</enabled>
+        </plugin>
+    </plugins>
+</compliance>

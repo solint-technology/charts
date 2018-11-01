@@ -1,0 +1,79 @@
+#
+#
+#   File : dealflow.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Output directory for the Kondor+ DealFlow server log files on Unix.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/peripherals
+LOGDIR "/opt/finastra/kplus-front/entities/Standalone/log/peripherals"
+#
+#
+#
+#      Output directory for the Kondor+ DealFlow server log files on Windows.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\peripherals
+LOGDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\peripherals"
+#
+#
+#
+#      Number of days before the Kondor+ DealFlow server log files are deleted by Kondor+. 
+#      If you do not want the log files to be deleted, set this parameter to -1.
+#      default: 15
+LOGREMOVE 15
+#
+#
+#
+#      Indicates if the Kondor+ DealFlow server sends messages to Kondor+ Communications 
+#      -> Blotters -> Monitors -> DealFlow each time a procedure is called.
+#      default: FALSE
+FEED_MONITOR_BLOTTER FALSE
+#
+#
+#
+#      The SSL Network Management Station (NMS) watchdog interval in seconds.
+#      This parameter is only applicable if the NM_ACTIVATE parameter is set
+#      to TRUE.
+#      default: 90
+NM_WATCH_DOG 90
+#
+#
+#
+#      Application identification for the Reuters Triarch Network Management Agent 
+#      (NMA). This parameter is only applicable if NM is activated. The value must be between 256 and 512
+#      default: 256
+NM_APP_ID 256
+#
+#
+#
+#      Boolean parameter that indicates if the SSL Network Management Station
+#      (NMS) is activated.
+#      default: FALSE
+NM_ACTIVATE FALSE
+#
+#
+#
+#      Time of day when the clean-up task must be run automatically.
+#      Format is hh:mm
+#      When no value is specified, the task is not run automatically.
+#      default: 
+CLEANUP_TIME 
+#
+#
+#
+#      Brief description of K+ service (server, handler or peripheral).
+#      default: "Kondor Deal Flow Server. This server listens to all deal transactions and can generate new transaction movements according to predefined rules."
+SERVICE_DESCRIPTION "Kondor Deal Flow Server. This server listens to all deal transactions and can generate new transaction movements according to predefined rules."
+#
+#
+#
+#      Brief display name of K+ service (server, handler or peripheral).
+#      default: "DealFlow Server (dealflow)"
+SERVICE_DISPLAYNAME "DealFlow Server (dealflow)"
+#
+#
+#   End of file
+#
+

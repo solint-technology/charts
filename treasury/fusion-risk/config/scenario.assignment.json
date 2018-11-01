@@ -1,0 +1,71 @@
+{
+  "riskTypes": [
+    {
+      "type": "SPREAD_RATE",
+      "model": "HW2F"
+    },
+    {
+      "type": "INTEREST_RATE",
+      "model": "HW2F"
+    },
+    {
+      "type": "INFLATION_RATE",
+      "model": "HW2F"
+    },
+    {
+      "type": "COMMODITYFORWARD_RATE",
+      "model": "HW2F"
+    },
+    {
+      "type": "OTHER_RATE",
+      "model": "HW2F"
+    },
+    {
+      "type": "FX_RATE",
+      "model": "LOGNORMAL"
+    },
+    {
+      "type": "ASSET",
+      "model": "LOGNORMAL"
+    },
+    {
+      "type": "COMMODITY",
+      "model": "LOGNORMAL"
+    },
+    {
+      "type": "ASSET_VOLATILITY",
+      "model": "ORNSTEIN_UHLENBECK"
+    },
+    {
+      "type": "FX_VOLATILITY",
+      "model": "ORNSTEIN_UHLENBECK"
+    },
+    {
+      "type": "COMMODITY_VOLATILITY",
+      "model": "ORNSTEIN_UHLENBECK"
+    },
+    {
+      "type": "IR_VOLATILITY",
+      "model": "ORNSTEIN_UHLENBECK"
+    },
+    {
+      "type": "LGD",
+      "model": "BETA_DISTRIBUTION"
+    }
+  ],
+  "oneFactorModel": [
+    "STANDARD",
+    "LOGNORMAL",
+    "ORNSTEIN_UHLENBECK"
+  ],
+  "twoFactorsModel": [
+    "HW2F"
+  ],
+  "parametricModel": [],
+  "twoFactorWithJumpModel": [
+    "HW2FJUMPS"
+  ],
+  "otherModel": [
+    "BETA_DISTRIBUTION"
+  ]
+}

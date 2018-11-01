@@ -1,0 +1,81 @@
+# Directory where is installed KSP
+KspHomeDir                 /opt/finastra/kplus-front
+KspHomeDirWinnt            C:\Program Files\Reuters\Kplus30
+KspLogDir                  /opt/finastra/kplus-front/entities/Standalone/log/ksp
+KspLogDirWinnt             C:\Program Files\Reuters\Kplus30\entities\Standalone\log\ksp
+
+# Analytic configuration
+Analytic_ShortName         KSP
+
+# MessagingMode (Tibco or Jms)
+MessagingMode              Jms
+HeartbeatTopic             ksp.heartbeat
+
+# Fork settings
+ProcessMaximumSonNB        3
+
+# Use this parameter to set the maximum number of threads 
+# instanciated by KSP when processing a task.
+# This does not concern the threads created by 3rd-parties
+ProcessThreadsMaximumNB    4
+
+# Threads engine to use (OpenMP|Posix|NoMT)
+# If set to NoMT, KSP multi-threading is disabled
+ProcessThreadsEngine       OpenMP
+ProcessThreadsEngineMassSelect     NoMT
+
+CommandOnError             
+
+# Jms configuration
+Jms_ConnectionUrl          tcp://ksp-ems:7232
+Jms_InputQueue             ksp.RequestQueue
+Jms_OutputQueue            ksp.ResponseQueue
+Jms_CacheTopic             ksp.ehcache.topic
+Jms_TimeToLive             300000
+ 
+# directory containing provided ExternalFunction
+EF_BasePathUnix            /opt/finastra/kplus-front/api/external_functions
+EF_BasePathWinnt           C:\Program Files\Reuters\Kplus30\api\external_functions
+
+# Double Validation Events
+ValidationLiquidation      FALSE
+ValidationCancellation     FALSE
+ValidationExercise         FALSE
+ 
+# directory containing xsd
+KspXsdDir                  /opt/finastra/kplus-front/common/ksp/xsd
+KspXsdDirWinnt             C:\Program Files\Reuters\Kplus30/common/ksp/xsd
+
+# Numerix
+NumerixLicenseBaseDir	   /opt/finastra/kplus-front-extra/ksp/licenses
+NumerixLicenseBaseDirWinnt 
+HandleNumerixArbitrageableFXVolat       NEVER
+
+CrashHandlerDumpPath       /opt/finastra/kplus-front/entities/Standalone/log/CrashHandler
+CrashHandlerDumpPathWinnt  C:\Program Files\Reuters\Kplus30\entities\Standalone\log\CrashHandler
+ActivateCrashHandler       TRUE
+
+# Enable or disable computation of calibration instruments swapdates (only applies to external pricers)
+ComputeCalibInstrumentsSwapDates TRUE
+
+# Cargo config
+CargoHost                  localhost
+CargoHttpPort              8181
+CargoRequestTimeout        30
+UseCargoAuthentication     FALSE
+
+# FPP Library
+FppLibraryName             FPPKSPLibrary
+FppLibraryVersion          1.0.1.RELEASE
+
+# FPP Execution Mode (Workflow or Script)
+FppWorkflowExecutionMode   TRUE
+
+# RV Config for KSP RVWrapper
+KspWrapperRdvService        6659
+KspWrapperRdvNetwork        eth0;;
+KspWrapperRdvDaemon         tcp:kplus-front-rvd:7500
+#KspWrapperRdvDebug
+KspWrapperRdvHelloTimeout   5
+KspWrapperRdvPriceTimeout   300
+

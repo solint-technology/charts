@@ -1,0 +1,117 @@
+#
+#
+#   File : kbondcf_slave_hdl.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Specifies the identity of the khandler
+#      default: kbondcf_slave_hdl
+HANDLER_PROFILE kbondcf_slave_hdl
+#
+#
+#
+#      Open Server reconnect time interval in seconds. That is, if OpenKplus is
+#      down the Handler tries to reconnect to OpenKplus every <number> of seconds,
+#      where <number> is the value specified for this parameter.
+#      default: 20
+OPENSERVER_RECONNECT  20
+#
+#
+#
+#      Maximum time interval in seconds allowed without communication. That is,
+#      if the Handler does not receive a ping response from the Kondor+ Record
+#      Server (krs) within the specified time interval the Handler cuts
+#      communication with the Kondor+ Record Server.
+#      default: 60
+RECORDSERVER_TIMEOUT  60
+#
+#
+#
+#      Kondor+ Record Server reconnect time interval in seconds. That is, if the
+#      Kondor+ Record Server is down the Handler tries to reconnect to the Kondor+
+#      Record Server every <number> of seconds, where <number> is the value
+#      specified for this parameter.
+#      default: 20
+RECORDSERVER_RECONNECT  20
+#
+#
+#
+#      Time interval in seconds between each ping message. That is, the Handler
+#      sends a ping message to the Kondor+ Record Server every <number> of
+#      seconds, where <number> is the value specified for this parameter.
+#      default: 45
+RECORDSERVER_PING_INTERVAL  45
+#
+#
+#
+#      Defines the output directory for log files in Unix.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/servers
+LOGDIR  "/opt/finastra/kplus-front/entities/Standalone/log/servers"
+#
+#
+#
+#      Defines the output directory for log files on Windows.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers
+LOGDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers"
+#
+#
+#
+#      Number of days before the Handler log files are deleted.
+#      If you do NOT want the log files to be deleted, set this parameter to -1.
+#      default: 15
+LOGREMOVE  15
+#
+#
+#
+#      Time parameter that indicates the time in seconds between two saves
+#      of floating positions.
+#      default: 3000
+TIME_BETWEEN_SAVE  3000
+#
+#
+#
+#      parameter that indicates the maximal number of floating positions to saved in the queue.
+#      default: 10000
+MAX_POS_QUEUE  10000
+#
+#
+#
+#      It is the time delay in seconds before recalculating floating
+#      position curve values.
+#      default: 300
+TIME_BETWEEN_COMPUTE  300
+#
+#
+#
+#      If USE_REAL_TIME_CURVE is TRUE then the hanlder recalculates
+#      floating position curve values.	
+#      default: FALSE
+USE_REAL_TIME_CURVE  FALSE
+#
+#
+#
+#      Define in millisecond the frequency used to update the metrics for the monitoring
+#      The minimum value for the frequency is 200. (if a value inferior to 200 is specified,
+#      the frequency will be set to 200)
+#      default: 500
+MONITORING_PUSH_TIME 500
+#
+#
+#
+#      Brief description of K+ service (server, handler or peripheral).
+#      default: "Kondor Bond cash flow slave position keeping handler"
+SERVICE_DESCRIPTION "Kondor Bond cash flow slave position keeping handler"
+#
+#
+#
+#      Brief display name of K+ service (server, handler or peripheral).
+#      default: "Bond cash flow slave handler (kbondcf_slave_hdl)"
+SERVICE_DISPLAYNAME "Bond cash flow slave handler (kbondcf_slave_hdl)"
+#
+#
+#   End of file
+#
+

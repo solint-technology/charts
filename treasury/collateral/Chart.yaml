@@ -1,0 +1,14 @@
+name: collateral
+version: 0.1.0
+appVersion: 0.1.0
+description: collateral service
+keywords:
+- collateral
+home: https://
+icon: https://
+sources:
+- https://
+- https://
+maintainers:
+- name: Hasan Mohamadally
+  email: hasan.mohamadally@misys.com

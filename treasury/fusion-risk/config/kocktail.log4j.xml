@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p %c{1} - %m%n"/>
+			<!-- OLD <param name="ConversionPattern" value="LATEST %d{ABSOLUTE} %-5p[%c] %m%n"/>-->
+		</layout>
+	</appender>
+
+    <!-- OLD appender to be removed
+    <appender name="FILEKOCKTAIL" class="org.apache.log4j.RollingFileAppender">
+        <param name="MaxFileSize" value="1Mb"/>
+        <param name="MaxBackupIndex" value="3"/>
+        <param name="file" value="${kgr.log.dir}/KGRKocktail.log"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%7r]%x %6p - %30.30c - %m%n"/>
+        </layout>
+    </appender>
+    -->
+	<!-- A time/date based rolling appender for the main KGRKocktail log -->
+    <appender name="LOGFILE" class="org.apache.log4j.DailyRollingFileAppender">
+      <param name="File" value="${kgr.log.dir}/KGRKocktail.log"/>
+      <param name="Append" value="true"/>
+
+
+      <!-- Rollover at midnight each day -->
+      <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+
+      <!-- Rollover at the top of each hour
+      <param name="DatePattern" value="'.'yyyy-MM-dd-HH"/>
+      -->
+
+      <layout class="org.apache.log4j.PatternLayout">
+         <!-- The default pattern: Date Priority [Category] Message\n -->
+         <param name="ConversionPattern" value="%d %-5p [%c] %m%n"/>
+
+         <!-- The full pattern: Date MS Priority [Category] (Thread:NDC) Message\n
+         <param name="ConversionPattern" value="%d %-5r %-5p [%c] (%t:%x) %m%n"/>
+          -->
+      </layout>
+	</appender>
+
+	<appender name="LOGSTASH" class="org.apache.log4j.net.SocketAppender">
+		<param name="RemoteHost" value="localhost" />
+		<param name="ReconnectionDelay" value="60000" />
+		<param name="Threshold" value="DEBUG" />
+	</appender>
+
+	<root>
+		<priority value="INFO"/>
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="LOGFILE" />
+		<!--<appender-ref ref="LOGSTASH"/>-->
+	</root>
+
+</log4j:configuration>
+

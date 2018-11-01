@@ -1,0 +1,55 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "rendezVous.name" . }}-svc
+  labels:
+    app: {{ template "rendezVous.name" . }}
+    chart: {{ template "rendezVous.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.rvdService.type }}
+  ports:
+    - port: {{ .Values.rvdService.port }}
+      protocol: TCP
+  selector:
+    app: {{ template "rendezVous.name" . }}
+    release: {{ .Release.Name }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "rendezVous.name" . }}-svcext
+  labels:
+    app: {{ template "rendezVous.name" . }}
+    chart: {{ template "rendezVous.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: NodePort
+  ports:
+    - port: {{ .Values.rvdService.port }}
+      nodePort: {{ .Values.rvdService.nodePort }}
+      protocol: TCP
+  selector:
+    app: {{ template "rendezVous.name" . }}
+    release: {{ .Release.Name }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "rendezVous.name" . }}-http
+  labels:
+    app: {{ template "rendezVous.name" . }}
+    chart: {{ template "rendezVous.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.httpService.type }}
+  ports:
+    - port: {{ .Values.httpService.port }}
+      protocol: TCP
+      nodePort: {{ .Values.httpService.nodePort }}
+  selector:
+    app: {{ template "rendezVous.name" . }}
+    release: {{ .Release.Name }}

@@ -1,0 +1,63 @@
+#
+#
+#   File : kfinws.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Log directory
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/servers
+KSERVER_LOGDIR "/opt/finastra/kplus-front/entities/Standalone/log/servers"
+#
+#
+#
+#      Log level of the application
+#       0 : error only
+#       1 : Error and warning
+#       2 : Error, warning and info
+#       4 : Error, warning, info and trace (maximum level)
+#      default: 1
+KSERVER_LOG_LEVEL 1
+#
+#
+#
+#      Number of thread to allocate for each entity in the entity specific cache
+#      Only has any effects if ENABLE_ENTITY_SPECIFIC_CACHE is true.
+#      default: 2
+CACHE_THREAD_PER_ENTITY 2
+#
+#
+#
+#      The entity specific cache is refreshed at the specific interval (in minutes)
+#      default: 2
+ENTITY_CACHE_REFRESH_PERIOD 2
+#
+#
+#
+#      Define in millisecond the frequency used to update the metrics for the monitoring
+#      The minimum value for the frequency is 200. (if a value inferior to 200 is specified,
+#      the frequency will be set to 200)
+#      default: 500
+MONITORING_PUSH_TIME 500
+#
+#
+#
+#      Indicates if a detailed performance report should be generated for batch operations.
+#      default: FALSE
+ENABLE_DETAILED_PERFORMANCE_REPORTING FALSE
+#
+#
+#
+#      Defines the path of the generated performance report.
+#      Special string replacement will occur:
+#      %instrument%  => replaced by the actual instrument name
+#      %transaction% => replaced by the transaction id [unique during the lifetime of the server]
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/servers/kfinws-perf-%instrument%-%transaction%.csv
+PERFORMANCE_REPORT_PATH "/opt/finastra/kplus-front/entities/Standalone/log/servers/kfinws-perf-%instrument%-%transaction%.csv"
+#
+#
+#   End of file
+#
+

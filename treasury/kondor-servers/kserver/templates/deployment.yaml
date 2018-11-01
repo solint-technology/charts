@@ -1,0 +1,109 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ template "kserver.fullname" . }}
+  labels:
+    app: {{ template "kserver.name" . }}
+    chart: {{ template "kserver.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "kserver.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "kserver.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+{{- if .Values.container.forceHostname }}
+      hostname: {{ .Values.container.forceHostname }}
+{{- end }}
+      hostAliases:
+      - ip : "{{ .Values.els.ip }}"
+        hostnames:
+        - "{{ .Values.els.host }}"
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        command: ["/bin/sh", "-c"]
+{{- if .Values.command.alternate }}
+        args: ["exec startksrv fg Standalone {{ .Values.command.alternate }} -Xconsole "]
+{{- else }}
+        args: ["exec startksrv fg Standalone {{ template "kserver.name" . }} {{ .Values.command.addArgs }} -Xconsole "]
+{{- end }}
+{{- if .Values.livenessProbe.exec }}
+        livenessProbe:
+          exec:
+            command:
+            - /bin/sh
+            - -c
+            - "db_service_check.py --program-name {{ .Values.livenessProbe.exec.programName }} --hostname container"
+          initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
+          periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+          timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
+          failureThreshold: {{ .Values.livenessProbe.failureThreshold }}
+{{- end }}
+{{- if .Values.livenessProbe.http }}
+        livenessProbe:
+          httpGet:
+            path: {{ .Values.livenessProbe.http.path }}
+            port: {{ .Values.livenessProbe.http.port }}
+          initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
+          periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+          timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
+          failureThreshold: {{ .Values.livenessProbe.failureThreshold }}
+{{- end }}
+        volumeMounts:
+        - mountPath: /opt/finastra/kplus-front/entities/Standalone/config
+          name: config-volume
+{{- if .Values.image.extraTag }}
+        - mountPath: /opt/finastra/kplus-front-extra
+          name: extra-volume
+{{- end }}
+{{- if .Values.kreditnet }}
+        - mountPath: /opt/finastra/cmr/config
+          name: fusion-risk-config
+{{- end }}
+        env:
+{{- if .Values.kreditnet }}
+        - name: LD_LIBRARY_PATH
+          value: "/opt/finastra/kplus-front/lib64/ext/lin/:/opt/finastra/kplus-front/lib64/int/lin/:/opt/finastra/fusion-risk/cmr/kles/P1/lib/lin/"
+        - name: KREDITNETHOME
+          value: "/opt/finastra/fusion-risk/cmr"
+        - name: KREDITNET_CONFIG_FILE
+          value: "source.cfm"
+        - name: KREDITNET_CONFIG_PATH
+          value: "/opt/finastra/fusion-risk/cmr/config"
+{{- end }}
+{{- if .Values.image.extraTag }}
+        - name: KRTH_SIMU
+          value: "/opt/finastra/kplus-front-extra/data/krth_simu_to_2.0_light.params"
+
+      initContainers:
+      - name: {{ .Chart.Name }}-extra
+        image: "{{ .Values.image.registry }}/{{ .Values.image.extraRepository }}:{{ .Values.image.extraTag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        volumeMounts:
+        - mountPath: /extraData/
+          name: extra-volume
+        command: ["/bin/sh", "-c"]
+        args: ["cp -r /opt/finastra/kplus-front-extra/* /extraData && ls /extraData"]
+{{- end }}
+      volumes:
+        - name: config-volume
+          configMap:
+            name: {{ .Release.Name }}-kondor
+{{- if .Values.image.extraTag }}
+        - name: extra-volume
+          emptyDir: {}
+{{- end }}
+{{- if .Values.kreditnet }}
+        - name: fusion-risk-config
+          configMap:
+            name: {{ .Release.Name }}-fusion-risk
+{{- end }}

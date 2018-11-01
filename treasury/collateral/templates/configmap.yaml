@@ -1,0 +1,10 @@
+{{- if .Values.configMap.enabled -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "collateral.fullname" . }}
+  {{- template "collateral.labels" . }}
+data:
+  server.conf: |
+{{ include "collateral_server.conf" . | indent 4 }}
+{{- end -}}

@@ -1,0 +1,21 @@
+# Default values for frcargo.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  registry: registry.misys.global.ad
+  repository: fusion-risk/cargo
+  tag: release-1.7-e12b81e-sqlserver
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8181
+
+ingress:
+  enabled: false
+  path: /frcargo
+  hosts:
+    - minikube

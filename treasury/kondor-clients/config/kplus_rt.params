@@ -1,0 +1,104 @@
+#
+#
+#   File : kplus_rt.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Absolute path name of the DLL used for encoding / decoding messages 
+#      on Unix systems.
+#      This DLL must use the Krypton API prototypes and conventions.
+#      default: 
+ENCODE_DLL_UNIX 
+#
+#
+#
+#      Absolute path name of the DLL used for encoding / decoding messages 
+#      on Windows
+#      default: 
+ENCODE_DLL_WINNT ""
+#
+#
+#
+#      List of Source Kinds for the DRT; each kind will be associated 
+#      to a Codifier for authentication
+#      default: BBS,REUTERS,SIX
+DRT_SOURCE_KINDS BBS,REUTERS,SIX
+#
+#
+#
+#      Codifier for associating Bloomberg User code
+#      default: BBS
+CODIFIER_BBS BBS
+#
+#
+#
+#      Codifier for associating Reuters User code
+#      default: REUTERS
+CODIFIER_REUTERS REUTERS
+#
+#
+#
+#      Codifier for associating SIX User code
+#      default: SIX
+CODIFIER_SIX SIX
+#
+#
+#
+#      Suffix added to the User code for authentication in the BBS Source
+#      default: ;0-0;0-0
+BBS_USER_SUFFIX ;0-0;0-0
+#
+#
+#
+#      Realtime Hub Service Name
+#      default: KRTH
+KRTH_SERVICE KRTH
+#
+#
+#
+#      TIB/Rendezvous Service: Port number used for inter-daemon communication
+#      default: 7500
+RDV_SERVICE 7500
+#
+#
+#
+#      TIB/Rendezvous Network: Specifies the network interface and the multicast
+#      groups used to send and receive messages
+#      Example: lan0;224.1.1.1,224.1.1.2;224.1.1.1
+#      default: eth0;;
+RDV_NETWORK  eth0;;
+#
+#
+#
+#      TIB/Rendezvous Daemon: Service, hostname, and port number used to connect
+#      to the daemon.
+#      Examples: tcp:1234 or tcp:hostname:1234
+#      default: tcp:kplus-front-rvd:7500
+RDV_DAEMON tcp:fr1pslbmc04:32500
+#
+#
+#
+#      Publisher Heartbeat in seconds
+#      default: 10
+PUBLISHER_HEARTBEAT_INTERVAL 10
+#
+#
+#
+#      Subscriber Heartbeat in seconds
+#      default: 10
+SUBSCRIBER_HEARTBEAT_INTERVAL 10
+#
+#
+#
+#      Maximum interval in seconds to receive an answer for any realtime 
+#      subscription.
+#      default: 10
+SUBSCRIPTION_TIMEOUT 10
+#
+#
+#   End of file
+#
+

@@ -1,0 +1,838 @@
+#
+#
+#   File : kplus.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Absolute path to the config directory of the global entity. Used to starts
+#      applications (DataManager, Admin, ...) on the global entity.
+#      There is no default value for this parameter
+#      You do not have to set this parameter if you do not use Multi-Entities functionnalities.
+#      default: /opt/finastra/kplus-front/entities/Standalone/config
+MULTIENTITY_GLOBAL_CONFIG_PATH_UNIX "/opt/finastra/kplus-front/entities/Standalone/config"
+#
+#
+#
+#      Absolute path to the config directory of the global entity. Used to starts
+#      applications (DataManager, Admin, ...) on the global entity.
+#      There is no default value for this parameter
+#      You do not have to set this parameter if you do not use Multi-Entities functionnalities.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\config
+MULTIENTITY_GLOBAL_CONFIG_PATH_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\config"
+#
+#
+#
+#      
+#      default: /usr/sybase/interfaces
+DBMS_INTERFACE_SUN4SOL  "/usr/sybase/interfaces"
+#
+#
+#
+#      
+#      default: /usr/sybase/interfaces
+DBMS_INTERFACE_X86SOL  "/usr/sybase/interfaces"
+#
+#
+#
+#      
+#      default: /usr/sybase/interfaces
+DBMS_INTERFACE_X86LINUX  "/opt/finastra/kplus-front/entities/Standalone/config/freetds.conf"
+#
+#
+#
+#      
+#      default: C:\sybase\INI\SQL.INI
+DBMS_INTERFACE_WINNT  "C:\sybase\INI\SQL.INI"
+#
+#
+#
+#      
+#      default: /usr/sybase/OCS-15_0/bin/isql
+ISQL_SUN4SOL_PATH  "/usr/sybase/OCS-15_0/bin/isql"
+#
+#
+#
+#      
+#      default: /usr/sybase/OCS-15_0/bin/isql
+ISQL_X86SOL_PATH  "/usr/sybase/OCS-15_0/bin/isql"
+#
+#
+#
+#      
+#      default: /usr/sybase/OCS-15_0/bin/isql
+ISQL_X86LINUX_PATH  "/opt/finastra/kplus-front/3rdparties/lin/fisql"
+#
+#
+#
+#      
+#      default: C:\sybase\OCS-12_5\bin\isql.exe
+ISQL_WINNT_PATH  "C:\sybase\OCS-12_5\bin\isql.exe"
+#
+#
+#
+#      Name of the Kondor+ Sybase Adaptive Server, as specified in the Sybase
+#      interfaces file. Do NOT use hyphens.
+#      Kondor+ only recognizes characters up to the hyphen for names of servers.
+#      default: SYBASE
+SERVER_NAME  KPLUS
+#
+#
+#
+#      Machine that hosts the dataserver
+#      default: localhost
+DATASERVER_HOST fr1pslbmc04
+#
+#
+#
+#      Port number used to connect the dataserver
+#      default: 4000
+DATASERVER_PORT 31433
+#
+#
+#
+#      Name of the Kondor+ Global database.
+#      default: KplusGlobal
+GLOBAL_DATABASE_NAME kplus
+#
+#
+#
+#      Name of the Kondor+ Local database.
+#      default: KplusLocalSTANDALONE
+LOCAL_DATABASE_NAME kplus
+#
+#
+#
+#      Name of the Kondor+ Version database.
+#      default: KplusVersionSTANDALONE
+VERSION_DATABASE_NAME KplusVersion
+#
+#
+#
+#      Name of the Kondor+ Archive database.
+#      default: KplusArchiveSTANDALONE
+ARCHIVE_DATABASE_NAME  KplusArchive
+#
+#
+#
+#      Name of the Kondor+ Kustom database.
+#      default: KustomSTANDALONE
+KUSTOM_DATABASE_NAME  Kustom
+#
+#
+#
+#      Name of the Kondor+ Kustom Version database (optional).
+#      It should be a database with the same permission and ownership schema as the Kustom database.
+#      default: 
+KUSTOM_VERSION_DATABASE_NAME Kustom
+#
+#
+#
+#      Path of the optional dump of ALL of the databases (Kondor+, Kustom, Archive
+#      and master database) on Unix.
+#      default: /opt/finastra/kplus-front/entities/Standalone/dump
+DATABASE_DUMP_PATH  "/opt/finastra/kplus-front/entities/Standalone/dump"
+#
+#
+#
+#      Path of the optional dump of ALL of the databases (Kondor+, Kustom, Archive
+#      and master database) on Windows.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\dump
+DATABASE_DUMP_PATH_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\dump"
+#
+#
+#
+#      Compress level (0-9) of the optional dump of ALL of the databases (Kondor+, Kustom, Archive
+#      and master database). KplusBatch uses the compress level specified here
+#      to dump the databases. Compress level must be set to 0 to have no compression.
+#      default: 0
+DATABASE_DUMP_COMPRESS_LEVEL 0
+#
+#
+#
+#      List of the hosts where the Kondor+ Record Server (krs) can run.
+#      These names must be specified in the hosts file. Each name must be
+#      separated by a / character, for example: krs_1/krs_2
+#      default: kplus-front
+KRS_HOST_NAMES  krs
+#
+#
+#
+#      Service name of the Kondor+ Record Server (krs) as defined on the
+#      realtime infrastructure.
+#      default: KRS
+KRS_SERVER_NAME  KRS
+#
+#
+#
+#      Name of the Kondor+ Record Server (krs) TCP/IP port.
+#      default: kp_pos_tcp
+KRS_PORTNAME  kplus_kp_pos_tcp
+#
+#
+#
+#      Service name of the Kondor+ Value Server (kvs) as defined on the
+#      realtime infrastructure.
+#      default: KVSSTANDALONE
+KVS_SERVER_NAME  KVSSTANDALONE
+#
+#
+#
+#      Service name of the Kondor+ Bonds Server (kbs) as defined on the
+#      realtime infrastructure.
+#      default: KBSSTANDALONE
+KBS_SERVER_NAME  KBSSTANDALONE
+#
+#
+#
+#      Service name of the Bond Otc Options Handler (kboh) as defined on the
+#      realtime infrastructure.
+#      default: KBOHSTANDALONE
+KBOH_HANDLER_NAME  KBOHSTANDALONE
+#
+#
+#
+#      Service name of the Fx Otc Options Handler (kfoh) as defined on the
+#      realtime infrastructure.
+#      default: KFOHSTANDALONE
+KFOH_HANDLER_NAME  KFOHSTANDALONE
+#
+#
+#
+#      Service name of the Equity Otc Options Handler (keoh) as defined on the
+#      realtime infrastructure.
+#      default: KEOHSTANDALONE
+KEOH_HANDLER_NAME  KEOHSTANDALONE
+#
+#
+#
+#      Service name of the Commodity Otc Options Handler (kcoh) as defined on the
+#      realtime infrastructure.
+#      default: KCOHSTANDALONE
+KCOH_HANDLER_NAME  KCOHSTANDALONE
+#
+#
+#
+#      Service name of the Commodity Futures Otc Options Handler (kcoh) as defined on the
+#      realtime infrastructure.
+#      default: KCFOHSTANDALONE
+KCFOH_HANDLER_NAME  KCFOHSTANDALONE
+#
+#
+#
+#      Service name of the Index Otc Options Handler (kioh) as defined on the
+#      realtime infrastructure.
+#      default: KIOHSTANDALONE
+KIOH_HANDLER_NAME  KIOHSTANDALONE
+#
+#
+#
+#      Service name of the Kondor+ Cash Flow Server (kcfs) as defined on the
+#      realtime infrastructure.
+#      default: KCFSSTANDALONE
+KCFS_SERVER_NAME  KCFSSTANDALONE
+#
+#
+#
+#      Frequency (in seconds) of the Kondor+ Task Servers heartbeat
+#      default: 5
+KTS_PING_INTERVAL  5
+#
+#
+#
+#      KTS_PING_TIMEOUT is the maximum number of seconds between pings
+#      from the Kondor+ Task Server that a client of the server must receive
+#      before exiting.
+#      default: 60
+KTS_PING_TIMEOUT  60
+#
+#
+#
+#      TIB/Rendezvous Service: Port number used for inter-daemon communication
+#      default: 7500
+RDV_SERVICE  7500
+#
+#
+#
+#      TIB/Rendezvous Network: Specifies the network interface and the multicast
+#      groups used to send and receive messages
+#      Example: lan0;224.1.1.1,224.1.1.2;224.1.1.1
+#      default: 
+RDV_NETWORK  eth0;;
+#
+#
+#
+#      TIB/Rendezvous Daemon: Service, hostname, and port number used to connect
+#      to the daemon.
+#      Examples: tcp:1234 or tcp:hostname:1234
+#      default: tcp:7500
+RDV_DAEMON  tcp:fr1pslbmc04:32500
+#
+#
+#
+#      Boolean specifying if the certified delivery mode is used for
+#      Rendezvous messaging.
+#      default: 0
+RDV_CM_USED  0
+#
+#
+#
+#      Global time limit for certfied delivery mode (in seconds): Rendezvous
+#      daemons continue attempts at delivery until this time limit expires.
+#      Recommended to be higher than 60 seconds.
+#      0 means no time limit.
+#      default: 0
+RDV_CM_TIME_LIMIT  0
+#
+#
+#
+#      Period used by Kondor+ applications to check that KMS is still alive.
+#      Note: the KMS ping interval is configured in kms.params
+#      default: 60
+RDV_MUTEX_TIMER  60
+#
+#
+#
+#      The number of seconds that a Reuters Kondor+ application must send a ping
+#      message to the Kondor+ Message Server after it takes a mutex.If the
+#      Reuters Kondor+ application does not send a ping message to the Kondor+
+#      Message Server the Kondor+ Message Server releases the mutex after
+#      MUTEX_TIME seconds
+#      default: 0
+RDV_PTP_SERVICE_OFFSET  0
+#
+#
+#
+#      The Amount of time added to the standard service port when a message is
+#      sent to one specific process (point to point mode).
+#      default: 7501
+RDV_PACKET_SERVICE  7501
+#
+#
+#
+#      The service port of the first message group
+#      default: 0
+RDV_PACKET_INCREMENTAL  0
+#
+#
+#
+#      Allows you to specify whether TIBCO Rendez-vous uses the same service
+#      port for each message group or uses a different one
+#      Per 100 seconds
+#      default: 10
+RDV_PACKET_TIME_TRIGGER  10
+#
+#
+#
+#      The packet time trigger for all of the message groups in hundredths of
+#      a second
+#      default: 1
+RDV_PACKET_SIZE_TRIGGER  1
+#
+#
+#
+#      The packet size trigger for all of the message groups	
+#      default: 0
+RDV_PACKET_USED  0
+#
+#
+#
+#      This is the interval in seconds between two KMS heartbeats that applications will accept.
+#      They will stop if they don't receive periodically the KMS heartbeats.
+#      default: 120
+KMS_CHECK  120
+#
+#
+#
+#      Allows you to specify whether the DealManager and the RealTimeManager can run without KMS
+#          0 : process stops if KMS stops
+#          1 : process doesn't stop
+#      default: 0
+KMS_FREE 0
+#
+#
+#
+#      Default maximum number of historical reports that can be stored.
+#      default: 5
+HISTORICAL_REPORTS  5
+#
+#
+#
+#      Directory for KplusBatch logfiles on Solaris Intel, Solaris Sparc, Linux machines. See also: LOG_KPLUSBATCH_WINNT
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/KplusBatch
+KPLUS_BATCH_LOGDIR_PATH_UNIX  "/opt/finastra/kplus-front/entities/Standalone/log/KplusBatch"
+#
+#
+#
+#      Directory for KplusBatch logfiles on Windows machines. See also: LOG_KPLUSBATCH_UNIX
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\KplusBatch
+KPLUS_BATCH_LOGDIR_PATH_WINNT  "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\KplusBatch"
+#
+#
+#
+#      Directory for KplusTask logfiles on Solaris Intel, Solaris Sparc, Linux machines.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/KplusTask
+KPLUS_TASK_LOGDIR_PATH_UNIX  "/opt/finastra/kplus-front/entities/Standalone/log/KplusTask"
+#
+#
+#
+#      Directory for KplusTask logfiles on Windows machines.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\KplusTask
+KPLUS_TASK_LOGDIR_PATH_WINNT  "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\KplusTask"
+#
+#
+#
+#      Directory for KplusRecompute logfiles on Solaris Intel, Solaris Sparc, Linux machines.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/KplusRecompute
+KPLUS_RECOMPUTE_LOGDIR_PATH "/opt/finastra/kplus-front/entities/Standalone/log/KplusRecompute"
+#
+#
+#
+#      Directory for KplusRecompute logfiles on Windows
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\KplusRecompute
+KPLUS_RECOMPUTE_LOGDIR_PATH_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\KplusRecompute"
+#
+#
+#
+#      Directory where files generated by the CrashHandler will be stored on UNIX-like systems
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/CrashHandler
+CRASH_HANDLER_DUMP_PATH_UNIX "/opt/finastra/kplus-front/entities/Standalone/log/CrashHandler"
+#
+#
+#
+#      Directory where files generated by the CrashHandler will be stored on Windows
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\CrashHandler
+CRASH_HANDLER_DUMP_PATH_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\CrashHandler"
+#
+#
+#
+#      Service name for ELS server
+#      default: els_port
+ELS_SERVICE_NAME  kplus_els
+#
+#
+#
+#      Heartbeat interval for ELS server (in seconds)
+#      Minimum : 15 seconds
+#      Maximum : 900 seconds (15 minutes)
+#      default: 300
+ELS_HEARTBEAT_INTERVAL  300
+#
+#
+#
+#      Communication with ELS server can be ensured either by means of TCP sockets
+#      or UDP sockets
+#      Possible values : TCP, UDP, BOTH
+#      default: TCP
+ELS_COMMUNICATION_MODE  TCP
+#
+#
+#
+#      Optional global reservation key for this Kondor+ configuration.
+#      default: reservation_key
+ELS_RESERVATION_KEY  reservation_key
+#
+#
+#
+#      define the path of wsdl files
+#      There is no default value for this parameter
+#      You do not have to set this parameter if you do not use the Web Service functionnalities
+#      default: /opt/finastra/kplus-front/common/wsdl
+WS_WSDL_PATH_UNIX "/opt/finastra/kplus-front/common/wsdl"
+#
+#
+#
+#      define the path of wsdl files
+#      There is no default value for this parameter
+#      You do not have to set this parameter if you do not use the Web Service functionnalities
+#      default: C:\Program Files\Reuters\Kplus30\common\wsdl
+WS_WSDL_PATH_WINNT "C:\Program Files\Reuters\Kplus30\common\wsdl"
+#
+#
+#
+#      Define the level of multithreading capabilities of the Web Server
+#      This is a technical parameter that you should not change without Reuters recommendation.
+#      Possible values: 0 No guard, server is full multithreaded
+#               1 Medium guard. Only access to basic operation is guarded on server
+#             2 Full guard. All access to underlying Kondor API is guarded
+#      You do not have to set this parameter if you do not use the Web Service functionnalities
+#      If used, default is 0
+#      default: 0
+WS_MULTITHREAD_LOCK_LEVEL 0
+#
+#
+#
+#      Define if the web service will register in the klws for the clients or if it
+#      will listen at a fixed address (see WS_KDEWS_FIXED_ADDRESS)
+#      Possible values: 0: doesn't use klws, fixed address is used, WS_KDEWS_FIXED_ADDRESS is required
+#        1: use klws
+#      You do not have to set this parameter if you do not use the Web Service functionnalities
+#      default: 1
+WS_KDEWS_USE_KLWS 0
+#
+#
+#
+#      Define the fixed port and server address that web service should use to communicate with clients.
+#      Warning, if a port is already used on the specified server, the process kdews would not start.
+#      You do not have to set this parameter if you do not use the Web Service functionnalities
+#      Expected format: <hostname>:<port number>
+#      If empty the adress will be genereted.
+#      default: 
+WS_KDEWS_FIXED_ADDRESS fr1pslbmc04:32025
+#
+#
+#
+#      Define the list of Web Service that will be launched by the server.
+#      Each service should be separated by a semicolon ';'
+#      
+#      Possible values: All, Authentication, StaticData, BondDeals, BondsOtcOptDeals, CallAccountDeals, CapFloorDeals, CashFlowDeals, CompProductDeals, CreditSwapDeals, EqOtcOptDeals, EquityDeals, EquitySwapDeals, ExternalDeals, ForwardDeals, FraDeals, FutureDeals, FxOptionDeals, FxSwapDeals, IamDeals, LoanDepositDeals, MbsAbsDeals, OptionDeals, PaperDeals, RepoDeals, SecurLoanDeals, SpotDeals, SwapDeals, SwaptionDeals, WarrantDeals
+#      The 'All' value means that all type of Web Service supported will be launched at the same time.
+#      
+#      You do not have to set this parameter if you do not use the Web Service functionnalities
+#      default: All
+WS_KDEWS_SUPPORTED_DEALS_LIST All
+#
+#
+#
+#      Interval in second between 2 pooling of the server in asynchronous operations.
+#      The unity of this interval is second.
+#      default: 300
+WS_POOLING_INTERVAL 300
+#
+#
+#
+#      Identifies a K+Konnect site.
+#      This value is stored in the Sites table of the Kondor+ database,
+#      with the Sites_Id equal to 1.
+#      WARNING !!! K+Konnect will not start if this value is empty and
+#      no row with Sites_Id  equal to 1 exists
+#      Maximum: 12 characters.
+#      default: 
+SITES_ID_NAME  
+#
+#
+#
+#      Specify whether Kondor+ should connect to Kondor+ Global Limits.
+#      default: FALSE
+GLOBAL_KREDITNET_ACTIVE  TRUE
+#
+#
+#
+#      Specify whether Kondor+ should consolidate all folders in the
+#      dialog with Kondor+ Global Limits.
+#      default: FALSE
+GLOBAL_KREDITNET_FOLDER_CONSOLIDATION  FALSE
+#
+#
+#
+#      Specify the Codifier of the TK client for connecting to Fusion Risk
+#      default: 
+FUSION_RISK_CODIFIER BRCCMR
+#
+#
+#
+#      Corba Open Trade access. Arguments that would be provided in the command
+#      line of a corba client. It must particularly  provide a way to locate
+#      the naming service.
+#      default: 
+CORBA_OPEN_TRADE_INIT  
+#
+#
+#
+#      Flag indicating that the monitoring of K+ servers is active or not
+#      If monitoring is active, K+ Servers expose metrics via the protocol SNMP
+#      default: FALSE
+MONITORING_IS_ACTIVE FALSE
+#
+#
+#
+#      Define the address used by K+ servers to communicate with master agentX daemon (snmpd)
+#      This address must be identical than the parameter agentXSocket in the configuration file
+#      snmpd.params (Configuration file of the master agentX daemon)
+#      The address must be a tcp address if K+ servers are launched on distributed machines
+#      Example : tcp:<hostname>:<port>
+#      default: 
+MONITORING_MASTER_AGENT_ADDRESS 
+#
+#
+#
+#      Define the port number used by K+ Servers to listen to SNMP polling (snmpget, snmpget-next...)
+#      This port number must be identical than the parameter agentaddress in the configuration file
+#      snmpd.conf (Configuration file of the master agentX daemon)
+#      default: 161
+MONITORING_PORT_NUMBER 161
+#
+#
+#
+#      Absolute path where to look for the KplusGrid.params file
+#      default: /opt/finastra/kplus-front/entities/Standalone/config
+GRID_CONFIG_PATH_UNIX "/opt/finastra/kplus-front/entities/Standalone/config"
+#
+#
+#
+#      Absolute path where to look for the KplusGrid.params file
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\config
+GRID_CONFIG_PATH_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\config"
+#
+#
+#
+#      Define the port number used by the locator
+#      default: 8090
+WS_LOCATOR_PORT 8090
+#
+#
+#
+#      Define the Host used by the locator
+#      default: kplus-front
+WS_LOCATOR_HOST klws
+#
+#
+#
+#      Absolute path to the directory of the current entity. 
+#      Used to define shell before (etc\KplusBatch_Before.bat) and after (etc\KplusBatch_After.bat) batch 
+#      location on Windows machines.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\share
+ENTITY_SHARE_PATH_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\share"
+#
+#
+#
+#      Absolute path to the directory of the current entity. 
+#      Used to define shell before (etc\KplusBatch_Before.bat) and after (etc\KplusBatch_After.bat) batch 
+#      location on Unix machines.
+#      default: /opt/finastra/kplus-front/entities/Standalone/share
+ENTITY_SHARE_PATH_UNIX "/opt/finastra/kplus-front/entities/Standalone/share"
+#
+#
+#
+#      Name of the binary file containing the translation of field labels and dialog captions as provided on site.
+#      default: kondor_tr.qm
+STATIC_TRANSLATION_FILE kondor_tr.qm
+#
+#
+#
+#      Name of the xml file translation of field labels and dialog captions that are dynamically changes by the application depending on contextual run-time values such as pair label. The content of this file is provided on site.
+#      default: kondor_tr.xml
+DYNAMIC_TRANSLATION_FILE  kondor_tr.xml
+#
+#
+#
+#      Name of the xml file translation of column headers on position and report result tables. The content of this file is provided on site.
+#      default: kondor_tr_fl.xml
+DYNAMIC_FL_TRANSLATION_FILE  kondor_tr_fl.xml
+#
+#
+#
+#      Absolute path where to look for the Keds.params file
+#      default: /opt/finastra/kplus-front/entities/Standalone/config
+KEDS_CONFIG_PATH_UNIX "/opt/finastra/kplus-front/entities/Standalone/config"
+#
+#
+#
+#      Absolute path where to look for the Keds.params file
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\config
+KEDS_CONFIG_PATH_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\config"
+#
+#
+#
+#      The path for filesystem snapshots on Unix.
+#      default: /opt/finastra/kplus-front/kplus/share/insight/snapshot
+KMDCS_ARCHIVE_PATH "/opt/finastra/kplus-front/kplus/share/insight/snapshot"
+#
+#
+#
+#      The path for filesystem snapshots on Windows.
+#      default: C:\Program Files\Reuters\Kplus30\kplus\share\insight\snapshot
+KMDCS_ARCHIVE_PATH_WINNT "C:\Program Files\Reuters\Kplus30\kplus\share\insight\snapshot"
+#
+#
+#
+#      Name of the EMS server which handle KSP messages (Please refer to the KSP active file for field JMS_HOSTNAME)
+#      default: kplus-front
+OPENNESS_SERVER_NAME kplus-front
+#
+#
+#
+#      Port of the EMS server which handle KSP messages (Please refer to the KSP active file for field JMS_PORT)
+#      default: 7232
+OPENNESS_SERVER_PORT 7232
+#
+#
+#
+#      Client Id for the connection of the EMS server which handle KSP messages (Not mandatory)
+#      default: 
+OPENNESS_CLIENT_ID 
+#
+#
+#
+#      Wait no longer than this interval (in milliseconds) for a response to arrive. Zero is a special value, which specifies no timeout (block indefinitely if no response).
+#      default: 60000
+OPENNESS_TIMEOUT 60000
+#
+#
+#
+#      EMS topic where KSP listens the request (Please refer to the KSP active file for field JMS_REQUEST_QUEUE)
+#      default: ksp.RequestQueue
+OPENNESS_EMS_REQUEST_TOPIC ksp.RequestQueue
+#
+#
+#
+#      EMS topic where KSP send the response to request (Please refer to the KSP active file for field JMS_RESPONSE_QUEUE)
+#      default: ksp.ResponseQueue
+OPENNESS_EMS_RESPONSE_TOPIC ksp.ResponseQueue
+#
+#
+#
+#      Determines if static data cache should be filled in for AllDealSearch
+#      default: FALSE
+FILL_SEARCH_CACHE_AT_START FALSE
+#
+#
+#
+#      SYBASE or SQL_SERVER database
+#      default: SYBASE
+DBMS_TYPE  SQL_SERVER
+#
+#
+#
+#      Dataserver jdbc protocol
+#      default: sybase:Tds
+DBMS_JDBC_PROTOCOL  jdbc:sqlserver
+#
+#
+#
+#      EntitySetup sub path corresponding to dataserver type
+#      default: sybase
+ENTITY_SETUP_RDBMS_TYPE mssql
+#
+#
+#
+#      Path to the entity setup description file /opt/finastra/kplus-front/databases/Install/XmlDesc/KplusCoreProductDesc.xml for sybase, /opt/finastra/kplus-front/databases/mssql/Install/XmlDesc/KplusCoreProductDesc.xml for MS Sql Server
+#      default: /opt/finastra/kplus-front/databases/Install/XmlDesc/mssql/KplusCoreProductDesc.xml
+ENTITY_SETUP_DESC_PATH "/opt/finastra/kplus-front/databases/Install/XmlDesc/mssql/KplusCoreProductDesc.xml"
+#
+#
+#
+#      Path to the entity setup description file C:\Program Files\Reuters\Kplus30/?/KplusCoreProductDesc.xml for sybase, C:\Program Files\Reuters\Kplus30/ ? /mssql/Install/XmlDesc/KplusCoreProductDesc.xml for MS Sql Server
+#      default: C:\Program Files\Reuters\Kplus30\databases\Install\XmlDesc\mssql\KplusCoreProductDesc.xml
+ENTITY_SETUP_DESC_PATH_WINNT "C:\Program Files\Reuters\Kplus30\databases\Install\XmlDesc\mssql\KplusCoreProductDesc.xml"
+#
+#
+#
+#      Path to the entity setup description file C:\Program Files\Reuters\Kplus30/?/KplusCoreProductDesc.xml for sybase, C:\Program Files\Reuters\Kplus30/ ? /mssql/Install/XmlDesc/KplusCoreProductDesc.xml for MS Sql Server (for .properties)
+#      default: 
+ENTITY_SETUP_DESC_PATH_WINNT_PROPS C:/Program Files/Reuters/Kplus30/databases/Install/XmlDesc/mssql/KplusCoreProductDesc.xml
+#
+#
+#
+#      Specifies whether the Realtime is configured
+#      default: True
+REALTIME_ENABLED TRUE
+#
+#
+#
+#      Specifies how much seconds max to wait for a RT session ID creation
+#      default: 5000
+REALTIME_SESSIONID_INIT_TIMEOUT 5000
+#
+#
+#
+#      Specifies how much seconds max to wait for a fully initialized RT session
+#      default: 20000
+REALTIME_SESSION_INIT_TIMEOUT 20000
+#
+#
+#
+#      Specifies a Codifier to associate to Users having access to the features for sending K+ mail.
+#      No Codifier specified (default) means that all users have access to the feature.
+#      default: 
+SENDMAIL_CODIFIER 
+#
+#
+#
+#      Number of thread that Webservices will use.
+#      This value is used to calculate the number of database connection.
+#      You do not have to set this parameter if you do not use the Web Service functionnalities
+#      default: 10
+WS_MAX_SIZE_THREAD_POOL 10
+#
+#
+#
+#      Interval in seconds between web service locator registration messages.
+#      default: 10
+WS_SERVICES_RENEW_INTERVAL 10
+#
+#
+#
+#      Specifies whether the Configuration "files" must be stored and managed
+#      centrally in the database
+#      default: False
+STORE_CONFIG_IN_DB FALSE
+#
+#
+#
+#      Specifies prefix for K+ service names on Windows. Please avoid any space character.
+#      The name of the Windows service is composed of
+#      <WINNT_SERVICE_NAME_PREFIX ><K+ server or peripheral name>[<additional info>]
+#      where <additional info> could be counter of agent,  package name (in case of kxls)
+#      or region name (in case of regionalized handlers).
+#      E.g. kplus_kms, kplus_kbs_server, kplus_kbs_agent_0, kplus_kfxswaphdl_D_REGION (for kplus_ prefix).
+#      default: kplus_
+WINNT_SERVICE_NAME_PREFIX kplus_
+#
+#
+#
+#      Specifies prefix for K+ service displaynames on Windows. Space characters are authorized except at the begin and end of the prefix.
+#      Displaynames are the names displayed in the Windows Services tool.
+#      default: Kondor
+WINNT_SERVICE_DISPLAYNAME_PREFIX "Kondor"
+#
+#
+#
+#      File containing list of all of trusted CA's together (in PEM format)
+#      If not defined, it will try to use Unix system one 
+#      Must be defined on Windows platform
+#      default: 
+FUSION_CA_PEM_FILE ""
+#
+#
+#
+#      Fusion server base address used for Fusion Pricing Engine related request
+#      default: http://FusionServer:8080/
+FUSION_PRICING_URL http://FusionServer:8080/
+#
+#
+#
+#      Dasel Kondor object alias
+#      default: Kplus1
+FUSION_KONDOR_ALIAS Kplus1
+#
+#
+#
+#      Fusion server base address used for Fusion Curves related request
+#      default: http://FusionServer:8080/
+FUSION_CURVES_URL http://FusionServer:8080/
+#
+#
+#
+#      Example: http://<server>:<port>/ You do not have to set this parameter if you do not use FCEC.
+#      default: 
+FCEC_URL http://collateral-cargo:8181
+#
+#
+#
+#      File specifying risk weights for FRTB
+#      default: /opt/finastra/kplus-front/kplus/share/frtb/risk_weights.json
+FRTB_RISK_WEIGHTS_FILE_UNIX "/opt/finastra/kplus-front/kplus/share/frtb/risk_weights.json"
+#
+#
+#
+#      File specifying risk weights for FRTB
+#      default: C:\Program Files\Reuters\Kplus30\kplus\share\frtb\risk_weights.json
+FRTB_RISK_WEIGHTS_FILE_WINNT "C:\Program Files\Reuters\Kplus30\kplus\share\frtb\risk_weights.json"
+#
+#
+#   End of file
+#
+

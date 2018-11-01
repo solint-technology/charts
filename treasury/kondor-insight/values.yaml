@@ -1,0 +1,32 @@
+# Default values for kondor-insight.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  registry: registry.misys.global.ad
+#  registry: registry-gdn.misys.global.ad
+  repository: fusion-capital-kondor-insight/app
+  tag: 2.4.0-build-166
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8181
+  extport: 32082
+
+els:
+  host: elsd-1-2110
+  ip: 10.22.180.198
+  port: 2110
+
+cargo:
+  java_opts: -d64 -Xms2g -Xmx4g -XX:+UseG1GC -XX:+UnlockCommercialFeatures -XX:+FlightRecorder
+
+## Liveness probe parameters
+livenessProbe:
+  initialDelaySeconds: 90
+  periodSeconds: 60
+  timeoutSeconds: 30
+  failureThreshold: 3

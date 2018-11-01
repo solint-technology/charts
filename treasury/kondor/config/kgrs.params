@@ -1,0 +1,139 @@
+#
+#
+#   File : kgrs.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Name of the Kondor+ Insight Repository Server
+#      default: KGRS
+REPOSITORY_NAME KGRS
+#
+#
+#
+#      Defines the port number/name on which server listen for TCP/IP connection. A string is used to indciate the name of the service.
+#      default: kgrs
+SERVER_PORT kplus_kgrs
+#
+#
+#
+#      Defines the output directory for log files on Unix.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/servers
+LOGDIR "/opt/finastra/kplus-front/entities/Standalone/log/servers"
+#
+#
+#
+#      Defines the output directory for log files on Windows.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers
+LOGDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers"
+#
+#
+#
+#      Level of information stored in the log files.
+#      0=Errors, 1=Warnings, 2= Informational messages 3=Debug
+#      default: 1
+LOGLEVEL 1
+#
+#
+#
+#      Number of days before the server log files are deleted.
+#      If you do not want log files to be deleted, set this parameter to -1. 
+#      Remove log after <n> days, -1 mean never.
+#      default: 15
+LOGREMOVE 15
+#
+#
+#
+#      Maximum number of pending common tasks processed by the agent on during each iteration of main loop.
+#      default: 16
+MAX_COMMON_TASK_PER_LOOP 16
+#
+#
+#
+#      Maximum size of the common task queue of each agent. The server won't dispatch more than
+#      the specified number of task to each agent.
+#      This value must be AT LEAST 1.
+#      default: 16
+MAX_COMMON_TASK_PER_AGENT 16
+#
+#
+#
+#      Path of the log file for performance statistic on Unix. Must be fully qualified.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/servers/kgrs-perf-statistic.csv
+PERFORMANCE_STATISTIC_PATH "/opt/finastra/kplus-front/entities/Standalone/log/servers/kgrs-perf-statistic.csv"
+#
+#
+#
+#      Path of the log file for performance statistic on Windows. Must be fully qualified.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers\kgrs-perf-statistic.csv
+PERFORMANCE_STATISTIC_PATH_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers\kgrs-perf-statistic.csv"
+#
+#
+#
+#      Separator character in log file for performance statistic.
+#      default: ;
+SEPARATOR ;
+#
+#
+#
+#      The number of seconds between each dump to log file.
+#      default: 0
+TASK_QUEUE_DUMP_INTERVAL 0
+#
+#
+#
+#      Frequency in minutes of log and reset of performance statistics.
+#      default: 15.0
+PERFORMANCE_STATISTIC_RESET_FREQUENCY 15.0
+#
+#
+#
+#      Enable log of performance statistics.
+#      default: FALSE
+PERFORMANCE_STATISTIC_ENABLE FALSE
+#
+#
+#
+#      Define in millisecond the frequency used to update the metrics for the monitoring
+#      The minimum value for the frequency is 200. (if a value inferior to 200 is specified,
+#      the frequency will be set to 200)
+#      default: 500
+MONITORING_PUSH_TIME 500
+#
+#
+#
+#      Type of statment used for insertion
+#      Possible values: Standard [STD]. Bulk [BULK]
+#      default: BULK
+REPOSITORY_STMT_TYPE BULK
+#
+#
+#
+#      Description of K+ service (server, handler or peripheral).
+#      default: "Kondor Insight Global Repository Server. If this service is stopped Insight Reports will not work properly"
+SERVICE_DESCRIPTION "Kondor Insight Global Repository Server. If this service is stopped Insight Reports will not work properly"
+#
+#
+#
+#      Display name of K+ service (server, handler or peripheral).
+#      default: "Insight Global Repository Server  (kgrs)"
+SERVICE_DISPLAYNAME "Insight Global Repository Server  (kgrs)"
+#
+#
+#
+#      Number of miliseconds that we'll wait to make next database reconnection attempt if connection was previously lost
+#      default: 5000
+DATABASE_RECONNECTION_TIMEOUT 5000
+#
+#
+#
+#      Number of database reconnection attempts before application will give up. If parameter is set to -1 than application will try forever.
+#      default: 3
+DATABASE_RECONNECTION_COUNT 3
+#
+#
+#   End of file
+#
+

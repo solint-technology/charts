@@ -1,0 +1,46 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ template "portal-ems.fullname" . }}
+  labels:
+    app: {{ template "portal-ems.name" . }}
+    chart: {{ template "portal-ems.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "portal-ems.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "portal-ems.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      hostname: portal-ems
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+              protocol: TCP
+          volumeMounts:
+          - mountPath: /opt/finastra/kplus-front/tmpConfig/
+            name: config-volume
+          command: ["/bin/sh", "-c"]
+          args: ["JKonfigure -s -D /opt/finastra/kplus-front/entities/Standalone/config/ -f /opt/finastra/kplus-front/tmpConfig/kondor.active && /opt/finastra/kplus-front//entities/Standalone/config/webaccess/WebaccessServer/etc/start_ems -fg"]
+          livenessProbe:
+            tcpSocket:
+              port: {{ .Values.livenessProbe.http.port }}
+            initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
+            failureThreshold: {{ .Values.livenessProbe.failureThreshold }}
+      volumes:
+        - name: config-volume
+          configMap:
+            name: {{ .Release.Name }}-kondor

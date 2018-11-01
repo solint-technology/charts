@@ -1,0 +1,100 @@
+#
+#
+#   File : sqlhdl.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Output directory for the Kondor+ SQL Handler log files.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/peripherals
+LOGDIR "/opt/finastra/kplus-front/entities/Standalone/log/peripherals"
+#
+#
+#
+#      Output directory for the Kondor+ SQL Handler log files.
+#      default: C:/Program Files/Reuters/Kplus30/entities/Standalone/config/peripherals
+LOGDIR_WINNT "C:/Program Files/Reuters/Kplus30/entities/Standalone/config/peripherals"
+#
+#
+#
+#      Number of days before the Kondor+ SQL Handler log files are deleted by Kondor+. 
+#      If you do not want the log files to be deleted, set this parameter to -1.
+#      default: 15
+LOGREMOVE 15
+#
+#
+#
+#      Name of the handler to Kondor+ SQL Handler at the database connection
+#      default: SQL
+DATA_NAME SQL
+#
+#
+#
+#      Database in which the SQL procedures are stored.
+#      By default, SQLHandler set the Kustom db.
+#      default: 
+DATA_BASE 
+#
+#
+#
+#      Prefix for the names of the procedures.
+#      default: Void
+DATA_CODE Void
+#
+#
+#
+#      Indicates if the Kondor+ SQL Handler sends messages to Kondor+ Communications 
+#      -> Blotters -> Monitors -> SQL Handlers each time a procedure is called.
+#      default: FALSE
+FEED_MONITOR_BLOTTER FALSE
+#
+#
+#
+#      Reuters Triarch Network Management Station (NMS) watchdog interval in seconds. 
+#      This parameter is only applicable if the NM is activated.
+#      default: 90
+NM_WATCH_DOG 90
+#
+#
+#
+#      Application identification for the Reuters Triarch Network Management Agent 
+#      (NMA). This parameter is only applicable if NM is activated. The value must be between 256 and 512
+#      default: 256
+NM_APP_ID 256
+#
+#
+#
+#      Indicates if the Reuters Triarch Network Management Station (NMS) is activated.
+#      default: FALSE
+NM_ACTIVATE FALSE
+#
+#
+#
+#      Specify a directory for accessing scripts to execute
+#      default: .
+SCRIPT_DIR .
+#
+#
+#
+#      Specify a directory for accessing scripts to execute
+#      default: .
+SCRIPT_DIR_WINNT "."
+#
+#
+#
+#      Brief description of K+ service (server, handler or peripheral).
+#      default: "Kondor SQL Handler monitor every new deal and data transaction and run SQL procedures to perform specific tasks"
+SERVICE_DESCRIPTION "Kondor SQL Handler monitor every new deal and data transaction and run SQL procedures to perform specific tasks"
+#
+#
+#
+#      Brief display name of K+ service (server, handler or peripheral).
+#      default: "SQL Handler  (sqlhdl)"
+SERVICE_DISPLAYNAME "SQL Handler  (sqlhdl)"
+#
+#
+#   End of file
+#
+

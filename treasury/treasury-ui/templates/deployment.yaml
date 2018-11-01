@@ -1,0 +1,45 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ template "treasury-ui.fullname" . }}
+  labels:
+    app: {{ template "treasury-ui.name" . }}
+    chart: {{ template "treasury-ui.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "treasury-ui.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "treasury-ui.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+          - name: config-volume
+            mountPath: /dist/frontend/config/
+          command: ["/bin/sh", "-c"]
+          args: ["cp /dist/frontend/config/conf.json /dist/frontend/conf.json \
+          && cp /dist/frontend/config/mb-package.json /dist/frontend/mb-package.json \
+          && /dist/frontend/start.sh \
+          && tail -f /dist/frontend/data/logs/output.log"]
+          livenessProbe:
+            httpGet:
+              port: {{ .Values.service.port }}
+              scheme: HTTPS
+            initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+            timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
+            failureThreshold: {{ .Values.livenessProbe.failureThreshold }}
+      volumes:
+        - name: config-volume
+          configMap:
+            name: {{ template "treasury-ui.fullname" . }}

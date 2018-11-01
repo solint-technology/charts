@@ -1,0 +1,90 @@
+#
+#
+#   File : krfsws.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Log directory for Unix
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/servers
+KSERVER_LOGDIR "/opt/finastra/kplus-front/entities/Standalone/log/servers"
+#
+#
+#
+#      Log directory for Windows
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers
+KSERVER_LOGDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers"
+#
+#
+#
+#      Log level of the application
+#       0 : error only
+#       1 : Error and warning
+#       2 : Error, warning and info
+#       4 : Error, warning, info and trace (maximum level)
+#      default: 1
+KSERVER_LOG_LEVEL 1
+#
+#
+#
+#      Indicates if the entity specific cache should be enabled
+#      Speed-up deal insertion significantly but use more memory.
+#      default: TRUE
+ENABLE_ENTITY_SPECIFIC_CACHE TRUE
+#
+#
+#
+#      Number of thread to allocate for each entity in the entity specific cache
+#      Only has any effects if ENABLE_ENTITY_SPECIFIC_CACHE is true.
+#      default: 2
+CACHE_THREAD_PER_ENTITY 2
+#
+#
+#
+#      The entity specific cache is refreshed at the specific interval (in minutes)
+#      default: 2
+ENTITY_CACHE_REFRESH_PERIOD 2
+#
+#
+#
+#      Define the list of Web Service that will be launched by the server. Each service should
+#      be separated by a semicolon ';'
+#      Possible values: All, Bond, BondsOtcOpt, CallAccount, CapFloor, CashFlow, CompProduct, EqOtcOpt, Equity, EquitySwap, External, Forward, Fra, Future, FxOption, FxSwap, Iam, LoanDeposit, Option, Paper, Repo, SecurLoan, Spot, Swap, Swaption, Warrant
+#      The 'All' value means that all type of Web Service supported (except External) will be launched at the same time.
+#      The 'External' deal exclude all other type of deals and should be the only one on the list of supported deals.
+#      You do not have to set this parameter if you do not use the Web Service functionnalities
+#      default: All
+WS_KDEWS_SUPPORTED_DEALS_LIST All
+#
+#
+#
+#      Define in millisecond the frequency used to update the metrics for the monitoring
+#      The minimum value for the frequency is 200. (if a value inferior to 200 is specified,
+#      the frequency will be set to 200)
+#      default: 500
+MONITORING_PUSH_TIME 500
+#
+#
+#
+#      Description of K+ service (server, handler or peripheral).
+#      default: "Kondor Web Access financial and utility services"
+SERVICE_DESCRIPTION "Kondor Web Access financial and utility services"
+#
+#
+#
+#      Display name of K+ service (server, handler or peripheral).
+#      default: "Web Access financial and utility services (krfsws)"
+SERVICE_DISPLAYNAME "Web Access financial and utility services (krfsws)"
+#
+#
+#
+#      Define the range of port numbers used by the web servers krfwsws
+#      default: 1025:65535
+KRFSWS_PORT_RANGE 1026:1026
+#
+#
+#   End of file
+#
+

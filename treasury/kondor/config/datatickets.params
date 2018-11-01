@@ -1,0 +1,105 @@
+#
+#
+#   File : datatickets.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Number of days before Kondor+ deletes KplusExport log files.
+#      Set to -1 if you do not want Kondor+ to delete the log files.
+#      default: 15
+LOGREMOVE 15
+#
+#
+#
+#      Output directory for the K+Export log files on Unix.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/peripherals
+LOGDIR "/opt/finastra/kplus-front/entities/Standalone/log/peripherals"
+#
+#
+#
+#      Output directory for the K+Export log files on Windows.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\peripherals
+LOGDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\peripherals"
+#
+#
+#
+#      Name of the client defined in Kondor+ Data Manager -> Reference Data -> 
+#      Third Parties -> Codifiers
+#      default: DATATICKET
+TRADEKAST_CODIFIER DATATICKET
+#
+#
+#
+#      Taken from tradekast params
+#      default: kplus_tradekast
+TRADEKAST_PORT kplus_tradekast
+#
+#
+#
+#      Taken from generic var TDK_HOSTNAME
+#      default: tradekast
+TRADEKAST_HOSTS tradekast
+#
+#
+#
+#      Number of seconds after which the connection stops if no message is received 
+#      on either side
+#      default: 40
+TRADEKAST_TIMEOUT 40
+#
+#
+#
+#      Taken from tradekast params
+#      default: RENDEZVOUS_MODE
+COMM_MODE RENDEZVOUS_MODE
+#
+#
+#
+#      Taken from tradekast params
+#      default: 8889
+RV_PORT 8889
+#
+#
+#
+#      Taken from tradekast params
+#      default: eth0;;
+RV_NETWORK eth0;;
+#
+#
+#
+#      Taken from tradekast params
+#      default: tcp:kplus-front-rvd-kis-tk:8889
+RV_DAEMON tcp:kplus-front-rvd-kis-tk:8889
+#
+#
+#
+#      Specifies if the data are submitted to the double validation criteria and
+#      blotter prior to being received by KplusExport.
+#      default: FALSE
+DOUBLE_VALIDATION FALSE
+#
+#
+#
+#      Specifies a Field name that will be used to select printing template files. If specified, the field's value will be used to a local directory (postscript/local/<value>) where templates are taken.
+#      default: 
+PRINTING_TEMPLATE_FIELD 
+#
+#
+#
+#      Brief description of K+ service (server, handler or peripheral).
+#      default: "Kondor service for printing static data modifications"
+SERVICE_DESCRIPTION "Kondor service for printing static data modifications"
+#
+#
+#
+#      Brief display name of K+ service (server, handler or peripheral).
+#      default: "Data Tickets (datatickets)"
+SERVICE_DISPLAYNAME "Data Tickets (datatickets)"
+#
+#
+#   End of file
+#
+

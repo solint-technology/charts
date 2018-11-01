@@ -1,0 +1,37 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ template "rendezVous.fullname" . }}
+  labels:
+    app: {{ template "rendezVous.name" . }}
+    chart: {{ template "rendezVous.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "rendezVous.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "rendezVous.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+          - containerPort: {{ .Values.rvdService.port }}
+            protocol: TCP
+          - containerPort: {{ .Values.httpService.port }}
+            protocol: TCP
+        env:
+        - name: TIBCO_SERVICE
+          value: "{{ .Values.rvdService.port }}"
+        - name: TIBCO_DAEMON
+          value: 'tcp:{{ .Values.rvdService.port }}'
+        - name: TIBCO_HTTP
+          value: "{{ .Values.httpService.port }}"

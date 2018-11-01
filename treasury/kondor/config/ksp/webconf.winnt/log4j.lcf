@@ -1,0 +1,43 @@
+#log4j.rootCategory=OFF
+log4j.rootLogger=${ksp.logging.level}, CONSOLE, FILE_USER
+
+log4j.category.com.reuters.ksp.signon.AbstractSignonHelperDAO=INFO
+log4j.category.com.reuters.ksp.common.business.service.impl.LoginServiceImpl=INFO
+log4j.category.com.reuters.ksp.mainapplication.KspApplication=INFO
+log4j.category.ksp.com.rfs.j2ee.KiWI.controller.web.DisplayWebHelper=OFF
+
+# Following lines are used to limit JBoss logging
+# No effect when used with weblogic
+log4j.category.org.jboss=WARN
+log4j.category.com.arjuna=WARN
+log4j.category.org.apache=WARN
+
+# The root category uses the appender called CONSOLE. Since no priority is
+# specified, the root category assumes the default priority for root
+# which is DEBUG in log4j. The root category is the only category that
+# has a default priority. All other categories do not have a default
+# priority. in which case the priority is inherited from the
+# hierarchy.
+
+# CONSOLE is set to be a ConsoleAppender which outputs to System.out. 
+log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
+log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
+log4j.appender.CONSOLE.layout.ConversionPattern=[%d{dd/MM/yyyy HH:mm:ss}] [%X{UserName}] [%p] [%c{1}] %m%n
+# CONSOLE threshold is set to OFF by default in the start scripts
+# you can override it by adding "-Dksp.logging.console.threshold=<level>"
+# at the command line or to the env. var. JAVA_OPTIONS
+log4j.appender.CONSOLE.threshold=${ksp.logging.console.threshold}
+
+# FILE_USER appender to split logs into login name files 
+log4j.appender.FILE_USER=com.reuters.ksp.utilities.log.LoginNameRollingAppender
+log4j.appender.FILE_USER.DirectoryPath=${ksp.logging.dir}/users
+log4j.appender.FILE_USER.FileName=log.txt
+log4j.appender.FILE_USER.MaxFileSize=1MB
+log4j.appender.FILE_USER.MaxBackupIndex=2
+log4j.appender.FILE_USER.layout=org.apache.log4j.PatternLayout
+log4j.appender.FILE_USER.layout.ConversionPattern=[%d{dd/MM/yyyy HH:mm:ss}] [%p] [%c{1}] %m%n
+
+
+log4j.appender.FILE.File=C:/Program Files/Reuters/Kplus30/entities/Standalone/log/ksp//log4j.log
+log4j.category.org.apache.catalina.loader.WebappClassLoader=FATAL
+log4j.category.org.apache=INFO

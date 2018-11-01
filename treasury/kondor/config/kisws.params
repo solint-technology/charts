@@ -1,0 +1,76 @@
+#
+#
+#   File : kisws.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Name of the Kondor+ Import Server WS port defined in the services file that allows communication 
+#      between this server and the client.
+#      default: kisws_port
+KIS_PORTNAME kplus_kisws
+#
+#
+#
+#      Defines the output directory for Kondor+ Import Server WS log files.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/peripherals
+LOGDIR  "/opt/finastra/kplus-front/entities/Standalone/log/peripherals"
+#
+#
+#
+#      Number of days before the Kondor+ Import Server WS log files are deleted.
+#      If you do NOT want the log files to be deleted, set this parameter to -1.
+#      default: 15
+LOGREMOVE  15
+#
+#
+#
+#      Allows KISWS to communicate with clients either by means of TCP/IP or
+#      by means of Tib/Rendezvous
+#      default: TCP_IP_MODE
+COMM_MODE TCP_IP_MODE
+#
+#
+#
+#      Maximum time interval in seconds allowed without communication
+#      between the Kondor+ Import Server and the client servers. 
+#      That is, if the Kondor+ Import Server WS does not receive a ping response 
+#      from a client server within the specified time interval,
+#      the Kondor+ Import Server WS cuts communication with the client server.
+#      default: 60
+CLIENT_TIMEOUT 60
+#
+#
+#
+#      Time interval in seconds between each ping message between the Kondor+ Import Server WS and the client servers. 
+#      That is, the Kondor+ Import Server WS sends a ping message to the client servers every <number>
+#      of seconds, where <number> is the value specified for this parameter.
+#      default: 15
+CLIENT_PING_INTERVAL 15
+#
+#
+#
+#      Port number used for inter-daemon communication
+#      default: 8888
+RV_PORT 8888
+#
+#
+#
+#      Specifies the network interface and the multicast groups used to send and receive messages
+#             Example: lan0;224.1.1.1,224.1.1.2;224.1.1.1
+#      default: 
+RV_NETWORK 
+#
+#
+#
+#      Service, hostname, and port number used to connect to the daemon.
+#           Examples: tcp:1234 or tcp:hostname:1234
+#      default: 
+RV_DAEMON 
+#
+#
+#   End of file
+#
+

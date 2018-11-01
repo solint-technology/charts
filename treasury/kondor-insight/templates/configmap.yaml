@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "kondor-insight.fullname" . }}
+  labels:
+    app: {{ template "kondor-insight.fullname" . }}
+    chart: {{ template "kondor-insight.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+data:
+  server.conf: |
+{{ include "kondor-insight-server.conf" . | indent 4 }}

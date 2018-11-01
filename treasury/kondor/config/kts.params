@@ -1,0 +1,85 @@
+#
+#
+#   File : kts.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Defines the output directory for Kondor+ Task Server log files on Unix.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/servers
+LOGDIR  "/opt/finastra/kplus-front/entities/Standalone/log/servers"
+#
+#
+#
+#      Defines the output directory for Kondor+ Task Server log files on Windows.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers
+LOGDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers"
+#
+#
+#
+#      Name of the Kondor+ Task Server
+#      default: KTS
+KTS_NAME  KTS
+#
+#
+#
+#      Level of information stored in the log files.
+#      0=Errors, 1=Warnings, 2= Informational messages 3=Debug
+#      default: 1
+LOGLEVEL  1
+#
+#
+#
+#      Number of days before the kts log files are deleted.
+#      If you do NOT want the log files to be deleted, set this parameter to -1.
+#      default: 15
+LOGREMOVE  15
+#
+#
+#
+#      Maximum number of subprocesses for the KTS.
+#      default: 50
+KTS_PROC_NUM_LIMIT 50
+#
+#
+#
+#      Timeout for Kondor+ Task Server (KTS) client application.
+#      Number of seconds a KTS client waits between 2 ping
+#      messages it receives from the KTS server before the client
+#      exits with an error.
+#      default: 60
+KTS_PING_TIMEOUT  60
+#
+#
+#
+#      Ping interval for Kondor+ Task Server (KTS).
+#      Number of seconds a KTS waits between sending 2 ping messages.
+#      default: 5
+KTS_PING_INTERVAL  5
+#
+#
+#
+#      Define in millisecond the frequency used to update the metrics for the monitoring
+#      The minimum value for the frequency is 200. (if a value inferior to 200 is specified,
+#      the frequency will be set to 200)
+#      default: 500
+MONITORING_PUSH_TIME 500
+#
+#
+#
+#      Description of K+ service (server, handler or peripheral).
+#      default: "Kondor Task Server. This service remotely launches reports, revaluation and batches"
+SERVICE_DESCRIPTION "Kondor Task Server. This service remotely launches reports, revaluation and batches"
+#
+#
+#
+#      Display name of K+ service (server, handler or peripheral).
+#      default: "Task Server (kts)"
+SERVICE_DISPLAYNAME "Task Server (kts)"
+#
+#
+#   End of file
+#
+

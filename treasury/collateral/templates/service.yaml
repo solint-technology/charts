@@ -1,0 +1,15 @@
+kind: "Service"
+apiVersion: "v1"
+metadata:
+  name: {{ template "collateral.fullname" . }}
+  {{- template "collateral.labels" . }}
+spec:
+  ports:
+    - name: {{ template "collateral.name" . }}
+      protocol: {{ .Values.protocol  | quote }}
+      port: {{ .Values.port }}
+      targetPort: {{ .Values.port }}
+selector:
+    app: {{ template "collateral.name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}

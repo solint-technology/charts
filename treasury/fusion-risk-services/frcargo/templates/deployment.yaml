@@ -1,0 +1,50 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ template "frcargo.fullname" . }}
+  labels:
+    app: {{ template "frcargo.name" . }}
+    chart: {{ template "frcargo.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "frcargo.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "frcargo.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      hostname: frcargo
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+          - name: config-volume
+            mountPath: /home/fusionrisk/FR_Cargo/customConfig/
+          command: ["/bin/sh", "-c"]
+          args: ["rm ${FRCARGO_HOME}/etc/server.conf && cp ${FRCARGO_HOME}/customConfig/server.conf ${FRCARGO_HOME}/etc/server.conf && exec ${FRCARGO_HOME}/bin/server.sh run"]
+#          args: ["rm ${FRCARGO_HOME}/etc/server.conf && cp ${FRCARGO_HOME}/customConfig/server.conf ${FRCARGO_HOME}/etc/server.conf && exec ${FRCARGO_HOME}/bin/start.sh ; tail -f ${FRCARGO_HOME}/data/log/server.log --pid $$(cat $${FRCARGO_HOME}/data/server.pid)"]
+#          args: ["sleep 3600 "]
+
+          ports:
+            - name: http
+              containerPort: 8181
+              protocol: TCP
+#          livenessProbe:
+#            httpGet:
+#              path: /api/doc
+#              port: http
+#          initialDelaySeconds: 90
+#          periodSeconds: 60
+#          timeoutSeconds: 10
+#          failureThreshold: 3
+      volumes:
+        - name: config-volume
+          configMap:
+            name: {{ template "frcargo.fullname" . }}

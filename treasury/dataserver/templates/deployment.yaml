@@ -1,0 +1,296 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ template "dataserver.fullname" . }}
+  labels:
+    app: {{ template "dataserver.name" . }}
+    chart: {{ template "dataserver.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "dataserver.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "dataserver.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      initContainers:
+{{- if .Values.dataImages.kplus }}
+      - name: {{ .Chart.Name }}-kplus-dbdata
+        image: "{{ .Values.dataImages.registry }}/kondor/vol-db-{{ .Values.dataImages.dataset }}-kplus:{{ .Values.dataImages.kplus }}"
+        imagePullPolicy: {{ .Values.dataImages.pullPolicy }}
+        volumeMounts:
+        - mountPath: /dbdata/
+          name: vol-db-{{ .Values.dataImages.dataset }}-kplus
+        command: ["/bin/sh", "-c"]
+        args: ["cp -r /db_01common/* /dbdata && ls /dbdata"]
+{{- end }}
+{{- if .Values.dataImages.archive }}
+      - name: {{ .Chart.Name }}-archive-dbdata
+        image: "{{ .Values.dataImages.registry }}/kondor/vol-db-{{ .Values.dataImages.dataset }}-archive:{{ .Values.dataImages.archive }}"
+        imagePullPolicy: {{ .Values.dataImages.pullPolicy }}
+        volumeMounts:
+        - mountPath: /dbdata/
+          name: vol-db-{{ .Values.dataImages.dataset }}-archive
+        command: ["/bin/sh", "-c"]
+        args: ["cp -r /db_archive/* /dbdata && ls /dbdata"]
+{{- end }}
+{{- if .Values.dataImages.version }}
+      - name: {{ .Chart.Name }}-version-dbdata
+        image: "{{ .Values.dataImages.registry }}/kondor/vol-db-{{ .Values.dataImages.dataset }}-version:{{ .Values.dataImages.version }}"
+        imagePullPolicy: {{ .Values.dataImages.pullPolicy }}
+        volumeMounts:
+        - mountPath: /dbdata/
+          name: vol-db-{{ .Values.dataImages.dataset }}-version
+        command: ["/bin/sh", "-c"]
+        args: ["cp -r /db_version/* /dbdata && ls /dbdata"]
+{{- end }}
+{{- if .Values.dataImages.ktpplus }}
+      - name: {{ .Chart.Name }}-ktpplus-dbdata
+        image: "{{ .Values.dataImages.registry }}/kondor/vol-db-{{ .Values.dataImages.dataset }}-ktpplus:{{ .Values.dataImages.ktpplus }}"
+        imagePullPolicy: {{ .Values.dataImages.pullPolicy }}
+        volumeMounts:
+        - mountPath: /dbdata/
+          name: vol-db-{{ .Values.dataImages.dataset }}-ktpplus
+        command: ["/bin/sh", "-c"]
+        args: ["cp -r /db_tp/* /dbdata && ls /dbdata"]
+{{- end }}
+{{- if .Values.dataImages.ktparch }}
+      - name: {{ .Chart.Name }}-ktparch-dbdata
+        image: "{{ .Values.dataImages.registry }}/kondor/vol-db-{{ .Values.dataImages.dataset }}-ktparch:{{ .Values.dataImages.ktparch }}"
+        imagePullPolicy: {{ .Values.dataImages.pullPolicy }}
+        volumeMounts:
+        - mountPath: /dbdata/
+          name: vol-db-{{ .Values.dataImages.dataset }}-ktparch
+        command: ["/bin/sh", "-c"]
+        args: ["cp -r /db_tparch/* /dbdata && ls /dbdata"]
+{{- end }}
+{{- if .Values.dataImages.ksp }}
+      - name: {{ .Chart.Name }}-ksp-dbdata
+        image: "{{ .Values.dataImages.registry }}/kondor/vol-db-{{ .Values.dataImages.dataset }}-ksp:{{ .Values.dataImages.ksp }}"
+        imagePullPolicy: {{ .Values.dataImages.pullPolicy }}
+        volumeMounts:
+        - mountPath: /dbdata/
+          name: vol-db-{{ .Values.dataImages.dataset }}-ksp
+        command: ["/bin/sh", "-c"]
+        args: ["cp -r /db_ksp/* /dbdata && ls /dbdata"]
+{{- end }}
+{{- if .Values.dataImages.alm }}
+      - name: {{ .Chart.Name }}-alm-dbdata
+        image: "{{ .Values.dataImages.registry }}/kondor/vol-db-{{ .Values.dataImages.dataset }}-alm:{{ .Values.dataImages.alm }}"
+        imagePullPolicy: {{ .Values.dataImages.pullPolicy }}
+        volumeMounts:
+        - mountPath: /dbdata/
+          name: vol-db-{{ .Values.dataImages.dataset }}-alm
+        command: ["/bin/sh", "-c"]
+        args: ["cp -r /db_alm/* /dbdata && ls /dbdata"]
+{{- end }}
+{{- if .Values.dataImages.wa }}
+      - name: {{ .Chart.Name }}-wa-dbdata
+        image: "{{ .Values.dataImages.registry }}/kondor/vol-db-{{ .Values.dataImages.dataset }}-wa:{{ .Values.dataImages.wa }}"
+        imagePullPolicy: {{ .Values.dataImages.pullPolicy }}
+        volumeMounts:
+        - mountPath: /dbdata/
+          name: vol-db-{{ .Values.dataImages.dataset }}-wa
+        command: ["/bin/sh", "-c"]
+        args: ["cp -r /db_wa/* /dbdata && ls /dbdata"]
+{{- end }}
+{{- if .Values.dataImages.rate }}
+      - name: {{ .Chart.Name }}-rate-dbdata
+        image: "{{ .Values.dataImages.registry }}/kondor/vol-db-{{ .Values.dataImages.dataset }}-rate:{{ .Values.dataImages.rate }}"
+        imagePullPolicy: {{ .Values.dataImages.pullPolicy }}
+        volumeMounts:
+        - mountPath: /dbdata/
+          name: vol-db-{{ .Values.dataImages.dataset }}-rate
+        command: ["/bin/sh", "-c"]
+        args: ["cp -r /db_rate/* /dbdata && ls /dbdata"]
+{{- end }}
+{{- if .Values.dataImages.rknet }}
+      - name: {{ .Chart.Name }}-rknet-dbdata
+        image: "{{ .Values.dataImages.registry }}/kondor/vol-db-{{ .Values.dataImages.dataset }}-rknet:{{ .Values.dataImages.rknet }}"
+        imagePullPolicy: {{ .Values.dataImages.pullPolicy }}
+        volumeMounts:
+        - mountPath: /dbdata/
+          name: vol-db-{{ .Values.dataImages.dataset }}-rknet
+        command: ["/bin/sh", "-c"]
+        args: ["cp -r /db_rknet/* /dbdata && ls /dbdata"]
+{{- end }}
+{{- if .Values.dataImages.rknetcustom }}
+      - name: {{ .Chart.Name }}-rknetcustom-dbdata
+        image: "{{ .Values.dataImages.registry }}/kondor/vol-db-{{ .Values.dataImages.dataset }}-rknetcustom:{{ .Values.dataImages.rknetcustom }}"
+        imagePullPolicy: {{ .Values.dataImages.pullPolicy }}
+        volumeMounts:
+        - mountPath: /dbdata/
+          name: vol-db-{{ .Values.dataImages.dataset }}-rknetcustom
+        command: ["/bin/sh", "-c"]
+        args: ["cp -r /db_rknetcustom/* /dbdata && ls /dbdata"]
+{{- end }}
+{{- if .Values.dataImages.insight }}
+      - name: {{ .Chart.Name }}-insight-dbdata
+        image: "{{ .Values.dataImages.registry }}/kondor/vol-db-{{ .Values.dataImages.dataset }}-insight:{{ .Values.dataImages.insight }}"
+        imagePullPolicy: {{ .Values.dataImages.pullPolicy }}
+        volumeMounts:
+        - mountPath: /dbdata/
+          name: vol-db-{{ .Values.dataImages.dataset }}-insight
+        command: ["/bin/sh", "-c"]
+        args: ["cp -r /db_insight/* /dbdata && ls /dbdata"]
+{{- end }}
+{{- if .Values.dataImages.mchui }}
+      - name: {{ .Chart.Name }}-mchui-dbdata
+        image: "{{ .Values.dataImages.registry }}/kondor/vol-db-{{ .Values.dataImages.dataset }}-mchui:{{ .Values.dataImages.mchui }}"
+        imagePullPolicy: {{ .Values.dataImages.pullPolicy }}
+        volumeMounts:
+        - mountPath: /dbdata/
+          name: vol-db-{{ .Values.dataImages.dataset }}-mchui
+        command: ["/bin/sh", "-c"]
+        args: ["cp -r /db_mchui/* /dbdata && ls /dbdata"]
+{{- end }}
+
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        env:
+        - name: ACCEPT_EULA
+          value: "Y"
+        - name: MSSQL_SA_PASSWORD
+          value: {{ .Values.mssql.saPassword }}
+        - name: MSSQL_COLLATION
+          value: {{ .Values.mssql.collation }}
+        ports:
+          - containerPort: {{ .Values.service.port }}
+        livenessProbe:
+          exec:
+            command:
+            - /opt/mssql-tools/bin/sqlcmd
+            - -S
+            - localhost
+            - -U
+            - sa
+            - -P
+            - {{ .Values.mssql.saPassword }}
+            - -b
+            - -Q
+            - 'select 1'
+          periodSeconds: 30
+          initialDelaySeconds: 60
+        command: ["/bin/sh", "-c"]
+        args: ["/treasury/startAndLoad.sh && tail -f /dev/null"]
+        volumeMounts:
+        - name: config-volume
+          mountPath: /treasury/
+{{- if .Values.dataImages.kplus }}
+        - name: vol-db-{{ .Values.dataImages.dataset }}-kplus
+          mountPath: /db_01common/
+{{- end }}
+{{- if .Values.dataImages.archive }}
+        - name: vol-db-{{ .Values.dataImages.dataset }}-archive
+          mountPath: /db_archive/
+{{- end }}
+{{- if .Values.dataImages.version }}
+        - name: vol-db-{{ .Values.dataImages.dataset }}-version
+          mountPath: /db_version/
+{{- end }}
+{{- if .Values.dataImages.ktpplus }}
+        - name: vol-db-{{ .Values.dataImages.dataset }}-ktpplus
+          mountPath: /db_tp/
+{{- end }}
+{{- if .Values.dataImages.ktparch }}
+        - name: vol-db-{{ .Values.dataImages.dataset }}-ktparch
+          mountPath: /db_tparch/
+{{- end }}
+{{- if .Values.dataImages.ksp }}
+        - name: vol-db-{{ .Values.dataImages.dataset }}-ksp
+          mountPath: /db_ksp/
+{{- end }}
+{{- if .Values.dataImages.alm }}
+        - name: vol-db-{{ .Values.dataImages.dataset }}-alm
+          mountPath: /db_alm/
+{{- end }}
+{{- if .Values.dataImages.wa }}
+        - name: vol-db-{{ .Values.dataImages.dataset }}-wa
+          mountPath: /db_wa/
+{{- end }}
+{{- if .Values.dataImages.rate }}
+        - name: vol-db-{{ .Values.dataImages.dataset }}-rate
+          mountPath: /db_rate/
+{{- end }}
+{{- if .Values.dataImages.rknet }}
+        - name: vol-db-{{ .Values.dataImages.dataset }}-rknet
+          mountPath: /db_rknet/
+{{- end }}
+{{- if .Values.dataImages.rknetcustom }}
+        - name: vol-db-{{ .Values.dataImages.dataset }}-rknetcustom
+          mountPath: /db_rknetcustom/
+{{- end }}
+{{- if .Values.dataImages.insight }}
+        - name: vol-db-{{ .Values.dataImages.dataset }}-insight
+          mountPath: /db_insight/
+{{- end }}
+{{- if .Values.dataImages.mchui }}
+        - name: vol-db-{{ .Values.dataImages.dataset }}-mchui
+          mountPath: /db_mchui/
+{{- end }}
+
+      volumes:
+        - name: config-volume
+          configMap:
+            name: {{ template "dataserver.fullname" . }}
+            defaultMode: 0755
+{{- if .Values.dataImages.kplus }}
+        - name: vol-db-{{ .Values.dataImages.dataset }}-kplus
+          emptyDir: {}
+{{- end }}
+{{- if .Values.dataImages.archive }}
+        - name: vol-db-{{ .Values.dataImages.dataset }}-archive
+          emptyDir: {}
+{{- end }}
+{{- if .Values.dataImages.version }}
+        - name: vol-db-{{ .Values.dataImages.dataset }}-version
+          emptyDir: {}
+{{- end }}
+{{- if .Values.dataImages.ktpplus }}
+        - name: vol-db-{{ .Values.dataImages.dataset }}-ktpplus
+          emptyDir: {}
+{{- end }}
+{{- if .Values.dataImages.ktparch }}
+        - name: vol-db-{{ .Values.dataImages.dataset }}-ktparch
+          emptyDir: {}
+{{- end }}
+{{- if .Values.dataImages.ksp }}
+        - name: vol-db-{{ .Values.dataImages.dataset }}-ksp
+          emptyDir: {}
+{{- end }}
+{{- if .Values.dataImages.alm }}
+        - name: vol-db-{{ .Values.dataImages.dataset }}-alm
+          emptyDir: {}
+{{- end }}
+{{- if .Values.dataImages.wa }}
+        - name: vol-db-{{ .Values.dataImages.dataset }}-wa
+          emptyDir: {}
+{{- end }}
+{{- if .Values.dataImages.rate }}
+        - name: vol-db-{{ .Values.dataImages.dataset }}-rate
+          emptyDir: {}
+{{- end }}
+{{- if .Values.dataImages.rknet }}
+        - name: vol-db-{{ .Values.dataImages.dataset }}-rknet
+          emptyDir: {}
+{{- end }}
+{{- if .Values.dataImages.rknetcustom }}
+        - name: vol-db-{{ .Values.dataImages.dataset }}-rknetcustom
+          emptyDir: {}
+{{- end }}
+{{- if .Values.dataImages.insight }}
+        - name: vol-db-{{ .Values.dataImages.dataset }}-insight
+          emptyDir: {}
+{{- end }}
+{{- if .Values.dataImages.mchui }}
+        - name: vol-db-{{ .Values.dataImages.dataset }}-mchui
+          emptyDir: {}
+{{- end }}

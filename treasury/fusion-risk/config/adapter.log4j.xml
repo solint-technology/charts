@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration>
+
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p %c{1} - %m%n"/>
+		</layout>
+	</appender>
+
+	<!-- A time/date based rolling appender for the main kgrAdapterLogger log -->
+    <appender name="LOGFILE" class="org.apache.log4j.DailyRollingFileAppender">
+      <param name="File" value="/home/fusionrisk/CMR/log/kgrAdapterLogger.log"/>
+      <param name="Append" value="true"/>
+
+      <!-- Rollover at midnight each day -->
+      <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+
+      <!-- Rollover at the top of each hour
+      <param name="DatePattern" value="'.'yyyy-MM-dd-HH"/>
+      -->
+
+      <layout class="org.apache.log4j.PatternLayout">
+         <!-- The default pattern: Date Priority [Category] Message\n -->
+         <param name="ConversionPattern" value="%d %-5p [%c] %m%n"/>
+
+         <!-- The full pattern: Date MS Priority [Category] (Thread:NDC) Message\n
+         <param name="ConversionPattern" value="%d %-5r %-5p [%c] (%t:%x) %m%n"/>
+          -->
+      </layout>
+	</appender>
+
+	<appender name="LOGSTASH" class="org.apache.log4j.net.SocketAppender">
+		<param name="RemoteHost" value="localhost" />
+		<param name="ReconnectionDelay" value="60000" />
+		<param name="Threshold" value="DEBUG" />
+	</appender>
+
+	<!-- PERF Logger
+			Used to Log perf in each part of web application
+	<appender name="PERF_FILTER" class="org.apache.log4j.FileAppender">
+		<param name="file" value="/home/fusionrisk/CMR/log/perf.log"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{HH:mm:ss:SSS}] - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelMatchFilter">
+			<param name="levelToMatch" value="DEBUG"/>
+		</filter>
+	</appender>
+	-->
+
+	<!-- EMAIL WebApp Logger
+		USed to send Mail to administrators when an internal error occurs
+    <appender name="EMAIL.GUI" class="org.apache.log4j.net.SMTPAppender">
+        <param name="BufferSize" value="512" />
+        <param name="SMTPHost" value="...." />
+        <param name="From" value="KGR_WebbAppError@reuters.com" />
+        <param name="To" value="....." />
+        <param name="Subject" value="Internal Error on KGR Adapter" />
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="WARN"/>
+            <param name="LevelMax" value="FATAL"/>
+        </filter>
+    </appender>
+
+	<appender class="org.apache.log4j.AsyncAppender" name="ASYNC.GUI">
+		<appender-ref ref="EMAIL.GUI"/>
+	</appender>
+	-->
+
+	<!--
+	<logger name="KGR.MailLogger" additivity="false">
+		<level value="warn" />
+		<appender-ref ref="ASYNC.GUI" />
+	</logger>
+
+	<logger name="global.PerfFilter" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="PERF_FILTER" />
+	</logger>
+	-->
+
+	<logger name="org.apache.cxf">
+		<level value="WARN" />
+	</logger>
+
+	<logger name="org.springframework">
+		<level value="WARN" />
+	</logger>
+
+    <logger name="org.mortbay.log">
+        <level value="INFO" />
+    </logger>
+
+    <logger name="com.reuters.kgr">
+        <level value="ERROR" />
+    </logger>
+
+    <root>
+        <level value="WARN" />
+        <appender-ref ref="CONSOLE" />
+	    <appender-ref ref="LOGFILE" />
+	    <!--<appender-ref ref="LOGSTASH"/>-->
+    </root>
+
+</log4j:configuration>

@@ -1,0 +1,160 @@
+#
+#
+#   File : kplusdaemon.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      The output directory for the kplusdaemon log files on Unix.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/peripherals
+LOGDIR "/opt/finastra/kplus-front/entities/Standalone/log/peripherals"
+#
+#
+#
+#      The output directory for the kplusdaemon log files on Windows.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\peripherals
+LOGDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\peripherals"
+#
+#
+#
+#      Number of days before the kplusdaemon log files are deleted. 
+#      If you do NOT want the log files to be deleted, set this parameter to -1.
+#      default: 15
+LOGREMOVE 15
+#
+#
+#
+#      Specify whether short reference lines in ASCII deal and object export files are
+#      used. Short reference lines have the format: 
+#      <table_name>.Ref "<short_name_value>" "<name_value>" "<download_key_value>"
+#      For example: Cpty_Issuer.Ref "JPGT" "JAPANESE GOVERNMENT" "Kondor 31"
+#      default: FALSE
+USE_SHORT_FMT FALSE
+#
+#
+#
+#      Indicates whether information concerning the correspondents 
+#      (Corresp_PayToTheir.Std) of deals is exported from Kondor+.
+#      This data indicates if the correspondents are the default ones or if they 
+#      have been changed.
+#      default: FALSE
+DUMP_CORRESP_STD FALSE
+#
+#
+#
+#      Indicates if a ticket is printed every time a deal is sent to be double 
+#      validated.
+#      default: FALSE
+DOUBLE_VALIDATION_TICKET FALSE
+#
+#
+#
+#      Indicates if double validation is applied to print ticket requests.
+#      default: FALSE
+DOUBLE_VALIDATE_PRINTING FALSE
+#
+#
+#
+#      Indicates whether the old file names (previous to version 1.4) are used for
+#      export files. The old file names do not include the transaction number.
+#      default: FALSE
+OLD_FILE_NAME FALSE
+#
+#
+#
+#      Indicates whether the export file of the insert or delete part of an UPDATE is
+#      exported as an INSERT or DELETE when the only change is the status of the deal
+#      from "Pending" to "Valid".
+#      default: FALSE
+HIDE_STATUS_UPDATE FALSE
+#
+#
+#
+#      Boolean parameter that allows you to store the PostScript file for each deal
+#      ticket that Kondor+ prints. This parameter allows you to reprint any deal
+#      tickets that are lost during printing. The PostScript files are stored in
+#      numerical order in the directory that you specify for the TICKETS_DIR parameter.
+#      default: FALSE
+STORE_TICKETS FALSE
+#
+#
+#
+#      Path for the storage of PostScript tickets. This parameter is only 
+#      applicable if the STORE_TICKETS parameter is set to TRUE.
+#      default: /tmp
+TICKETS_DIR "/tmp"
+#
+#
+#
+#      Boolean parameter that allows you to print information text or comments 
+#      associated to a deal.
+#      default: FALSE
+PRINT_TEXT_INFO FALSE
+#
+#
+#
+#      Boolean parameter that allows you to print information text or comments 
+#      associated to a deal in the reload phase.
+#      default: TRUE
+PRINT_TEXT_INFO_RELOAD TRUE
+#
+#
+#
+#      Boolean parameter that indicates whether KplusDaemon sends an event to Kondor+ 
+#      Communications -> Monitoring -> Ticket Printing when KplusDaemon prints a deal.
+#      See ?Ticket Printing Monitor? on page 76. You can use Kondor+ Communications -> 
+#      Monitoring -> Ticket Printing for troubleshooting problems with printing only if 
+#      this parameter is set to TRUE.
+#      default: FALSE
+FEED_EXPORT_BLOTTER FALSE
+#
+#
+#
+#      Boolean parameter that indicates whether KplusDaemon calculates the global
+#      balance, and adds it to the deal ticket.
+#      default: FALSE
+CALL_ACCOUNTS_BALANCE FALSE
+#
+#
+#
+#      Boolean parameter that indicates whether the deal ticket printing is
+#      performed on the printer associated with the group of the user or that of the 
+#      last user that performed the action to print. Default: FALSE. For example, if 
+#      PRINT_FOR_LAST_USER is FALSE, for a deal inserted by a user in group A and later 
+#      updated by a user in group B, KplusDaemon sends the deal ticket only to the 
+#      printer defined for the user who inserted the deal (that is the user in group A)
+#      default: FALSE
+PRINT_FOR_LAST_USER FALSE
+#
+#
+#
+#      Define in millisecond the frequency used to update the metrics for the monitoring
+#      The minimum value for the frequency is 200. (if a value inferior to 200 is specified,
+#      the frequency will be set to 200)
+#      default: 500
+MONITORING_PUSH_TIME 500
+#
+#
+#
+#      Field Name from the output that indicates whether some specific templates must be used and which one. The value of the specified field will be used as the key to the template directory.
+#      default: 
+PRINTING_TEMPLATE_FIELD 
+#
+#
+#
+#      Brief description of K+ service (server, handler or peripheral).
+#      default: "Kondor service for printing deal modifications and managing deal ticket printing"
+SERVICE_DESCRIPTION "Kondor service for printing deal modifications and managing deal ticket printing"
+#
+#
+#
+#      Brief display name of K+ service (server, handler or peripheral).
+#      default: "Kplus Daemon (kplusdaemon)"
+SERVICE_DISPLAYNAME "Kplus Daemon (kplusdaemon)"
+#
+#
+#   End of file
+#
+

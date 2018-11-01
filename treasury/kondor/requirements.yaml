@@ -1,0 +1,358 @@
+dependencies:
+  - name: rendezvous
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kplus-front-rvd
+
+  - name: rendezvous
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kplus-front-rvd-kis-tk
+
+#
+# Kondor core servers
+#
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kms
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: klws
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kdews
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: krs
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kvs
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: krth
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kis
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: tradekast
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kvers
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kois-server
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kois-agent
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: keds
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kctds
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kcfs
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kbs-server
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kbs-agent
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kcs-server
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kcs-agent
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: dealflow
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kplusdaemon
+
+#
+# KXLS
+#
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kxls-basis
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kxls-limits
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kxls-report
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kxls-setup
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kxls-realtime
+
+#
+# Kondor core Handlers
+#
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kbondhdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kbondsdepohdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kcustodyhdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kdeposithdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kequityhdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kfuturehdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kfxmmcarrycfhdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kfxswaphdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kmbsabshdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: koptionhdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kpaperhdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kspothdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kwarranthdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kbondcf-master-hdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kbondcf-slave-hdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kbondotc-master-hdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kbondotc-slave-hdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kcommofutotc-master-hdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kcommofutotc-slave-hdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kcommootc-master-hdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kcommootc-slave-hdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: keqotc-master-hdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: keqotc-slave-hdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kfxotc-master-hdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kfxotc-slave-hdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kindexotc-master-hdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kindexotc-slave-hdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kmmcf-master-hdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kmmcf-slave-hdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: krepocf-master-hdl
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: krepocf-slave-hdl
+
+#
+# Insight services
+#
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kes
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kts
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kgrs-server
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kgrs-agent
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kmdcs
+
+#
+# KGL
+#
+#  - name: kserver
+#    repository: http://localhost:8879/charts
+#    version: 0.1.0
+#    alias: kglagent
+
+
+# Webaccess Services
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: krfsws
+
+  - name: kserver
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+    alias: kfinws
+
+  - name: portal-ems
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+
+  - name: webaccess
+    repository: http://localhost:8879/charts
+    version: 0.1.0

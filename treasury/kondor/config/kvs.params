@@ -1,0 +1,309 @@
+#
+#
+#   File : kvs.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Indicates weither the server takes KVS, KBS, KCS or KOIS identity.
+#      default: KVS
+SERVER_PROFILE KVS
+#
+#
+#
+#      Name of the Kondor+ Value Server defined in the keyletters.cfm PIXL
+#      configuration file.
+#      default: KVSSTANDALONE
+SERVER_NAME  KVSSTANDALONE
+#
+#
+#
+#      Defines the output directory for Kondor+ Value Server log files on Unix.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/servers
+LOGDIR  "/opt/finastra/kplus-front/entities/Standalone/log/servers"
+#
+#
+#
+#      Defines the output directory for Kondor+ Value Server log files on Windows.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers
+LOGDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers"
+#
+#
+#
+#      Level of information stored in the log files.
+#      0=Errors, 1=Warnings, 2= informational messages 3=Debug
+#      default: 1
+LOGLEVEL  1
+#
+#
+#
+#      Number of days before the Kondor+ Bonds Server log files are deleted.
+#      If you do NOT want the log files to be deleted, set this parameter to -1.
+#      Remove log after <n> days, -1 means never
+#      default: 15
+LOGREMOVE  15
+#
+#
+#
+#      Boolean indicate if the server saves rates, bonds and curves
+#      Between midnight and the night batch.
+#      default: FALSE
+MIDNIGHT_RUN  FALSE
+#
+#
+#
+#      Number of seconds between break time and midnight
+#      KVS must stop before midnight for log files management
+#      default: 10
+MIDNIGHT_BREAK  10
+#
+#
+#
+#      Integer indicating the maximum number of snapshot records open
+#      at a given time. Snapshot records are used to handle records which
+#      do not update in real time.
+#      default: 50
+MAX_CONCURRENT_SNAPSHOT  50
+#
+#
+#
+#      Maximum number of pending real-time tasks processed on each iteration
+#      of the main loop.
+#      This value must be AT LEAST 1.
+#      default: 50
+MAX_REALTIME_TASK_PER_LOOP 50
+#
+#
+#
+#      Boolean parameters indicates if server should save instruments values to
+#      the database.
+#      default: TRUE
+DATABASE_UPDATE  TRUE
+#
+#
+#
+#      Minimum number of seconds that must ellapse between two database storage
+#      of a given instrument value. If 0 then the instrument value is saved as
+#      soon as possible.
+#      default: 3
+DATABASE_UPDATE_INTERVAL  3
+#
+#
+#
+#      Minimum delta between 2 pairs updates to be saved in database
+#      default: 0.05
+DELTA  0.05
+#
+#
+#
+#      Minimum difference in value between 2 pairs updates to be saved in database
+#      default: 0.0001
+DIFF  0.0001
+#
+#
+#
+#      Delay in seconds before a reverse or a crossed pair is recomputed.
+#      This parameters is used to minize the number of updates on pairs. 
+#      A value of 0 indicates that the pairs are recomputed without delay.
+#      default: 5
+PAIRS_RECOMPUTE_DELAY 5
+#
+#
+#
+#      Minimum amount of time in seconds between two real-time publication on the same pair.
+#      Set to 0.0 to enable all real-time publications.
+#      default: 5.0
+PAIRS_MIN_PUBLICATION_INTERVAL 5.0
+#
+#
+#
+#      Boolean indicates if this server manage Basket Indexes.
+#      default: TRUE
+MANAGE_BASKETINDEXES  TRUE
+#
+#
+#
+#      Boolean indicates if this server manage Compound Products.
+#      default: TRUE
+MANAGE_COMPOUNDPRODUCTS  TRUE
+#
+#
+#
+#      Boolean indicates if this server manage Credit Spreads.
+#      default: TRUE
+MANAGE_CREDITSPREADS  TRUE
+#
+#
+#
+#      Boolean indicates if this server manage Equities.
+#      default: TRUE
+MANAGE_EQUITIES  TRUE
+#
+#
+#
+#      Boolean indicates if this server manage Futures.
+#      default: TRUE
+MANAGE_FUTURES  TRUE
+#
+#
+#
+#      Boolean indicates if this server manage Mbs Abs.
+#      default: TRUE
+MANAGE_MBSABS  TRUE
+#
+#
+#
+#      Boolean indicates if this server manage Options.
+#      default: TRUE
+MANAGE_OPTIONS  TRUE
+#
+#
+#
+#      Boolean indicates if this server manage Pairs.
+#      default: TRUE
+MANAGE_PAIRS  TRUE
+#
+#
+#
+#      Boolean indicates if this server manage Papers.
+#      default: TRUE
+MANAGE_PAPERS  TRUE
+#
+#
+#
+#      Boolean indicates if this server manage Warrants.
+#      default: TRUE
+MANAGE_WARRANTS  TRUE
+#
+#
+#
+#      Boolean indicates if this server manage ZCIIS.
+#      default: TRUE
+MANAGE_ZCIIS TRUE
+#
+#
+#
+#      Boolean indicates if this server manage Bonds Quotes.
+#      default: TRUE
+MANAGE_BONDS_QUOTES  TRUE
+#
+#
+#
+#      Boolean indicates if this server manage EquitiesQuotes.
+#      default: TRUE
+MANAGE_EQUITIES_QUOTES  TRUE
+#
+#
+#
+#      Boolean indicates if this server manage Futures Quotes.
+#      default: TRUE
+MANAGE_FUTURES_QUOTES  TRUE
+#
+#
+#
+#      Boolean indicates if this server manage Options Quotes.
+#      default: TRUE
+MANAGE_OPTIONS_QUOTES  TRUE
+#
+#
+#
+#      Boolean indicates if this server manage Fixing Pairs Quotes.
+#      default: TRUE
+MANAGE_PAIRS_QUOTES  TRUE
+#
+#
+#
+#      Boolean indicates if this server manage Recovery Rates.
+#      default: TRUE
+MANAGE_RECOVERY_RATES  TRUE
+#
+#
+#
+#      Boolean indicates if this server manage Warrants Quotes.
+#      default: TRUE
+MANAGE_WARRANTS_QUOTES  TRUE
+#
+#
+#
+#      Boolean indicates if this server manage ZCIIS Quotes.
+#      default: FALSE
+MANAGE_ZCIIS_QUOTES  FALSE
+#
+#
+#
+#      How to manage 0.0 value received from Realtime for equities.
+#      When Ask (resp. Bid) is 0.0 and Bid (resp. Ask) is different from 0.0
+#      0 => 0.0 is used as a real value
+#      1 => the Bid (resp. Ask) is replacing 0.0 value
+#      2 => the previous Ask (resp. Bid) value is used and thus Ask (resp. Bid) remains unchanged
+#      default: 0
+EQUITIES_ZEROVALUES_MANAGEMENT 0
+#
+#
+#
+#      Path of the log file for performance statistic on Unix. Must be fully qualified.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/servers/kvs-perf-statistic.csv
+PERFORMANCE_STATISTIC_PATH "/opt/finastra/kplus-front/entities/Standalone/log/servers/kvs-perf-statistic.csv"
+#
+#
+#
+#      Path of the log file for performance statistic on Windows. Must be fully qualified.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers\kvs-perf-statistic.csv
+PERFORMANCE_STATISTIC_PATH_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers\kvs-perf-statistic.csv"
+#
+#
+#
+#      Values separator in the log file for performance statistic.
+#      default: ;
+SEPARATOR ;
+#
+#
+#
+#      Frequency in minutes of log and reset of performance statistics.
+#      default: 15.0
+PERFORMANCE_STATISTIC_RESET_FREQUENCY 15.0
+#
+#
+#
+#      Enable log of performance statistics.
+#      default: FALSE
+PERFORMANCE_STATISTIC_ENABLE FALSE
+#
+#
+#
+#      Define in millisecond the frequency used to update the metrics for the monitoring
+#      The minimum value for the frequency is 200. (if a value inferior to 200 is specified,
+#      the frequency will be set to 200)
+#      default: 500
+MONITORING_PUSH_TIME 500
+#
+#
+#
+#      Boolean indicates if this server manage Basket Indexes Quotes
+#      default: TRUE
+MANAGE_BASKETINDEXES_QUOTES TRUE
+#
+#
+#
+#      Boolean indicates if this server manage Volatilities.
+#      default: True
+MANAGE_VOLATILITIES  TRUE
+#
+#
+#
+#      Description of K+ service (server, handler or peripheral).
+#      default: "Kondor Value Server. If this service is stopped Kondor RealTime will not work properly"
+SERVICE_DESCRIPTION "Kondor Value Server. If this service is stopped Kondor RealTime will not work properly"
+#
+#
+#
+#      Display name of K+ service (server, handler or peripheral).
+#      default: "Value Server (kvs)"
+SERVICE_DISPLAYNAME "Value Server (kvs)"
+#
+#
+#   End of file
+#
+

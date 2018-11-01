@@ -1,0 +1,224 @@
+#
+#
+#   File : KplusImport.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      List of the hosts where the Kondor+ Import Server (kis) can run.
+#      These names must be specified in the hosts file. Each name must be
+#      separated by the slash '/' character.
+#      For example "HOSTNAME1 / HOSTNAME2 / HOSTNAME3"
+#      default: kis
+KIS_HOST_NAMES kis
+#
+#
+#
+#      Name of the kis port defined in the services file that
+#      allows communication between KplusImport and kis.
+#      default: kplus_kis
+KIS_PORT_NAME kplus_kis
+#
+#
+#
+#      Short name of KIS client: KplusImport. 
+#      You must create a short name here. This is the short name that you specify in
+#      Kondor+ Communications -> Configuration -> Import Server Clients
+#      default: KPLUSIMPORT
+CLIENT_NAME KPLUSIMPORT
+#
+#
+#
+#      Time interval in seconds between each parsing of the import files.
+#      Used only if the argument 'FOREVER' is used when KplusImport is started.
+#      default: 300
+FOREVER_INTERVAL 300
+#
+#
+#
+#      Maximum time interval in seconds between each ping message between
+#      KplusImport and kis. That is, KplusImport sends a ping message
+#      to kis every <number> of seconds, where <number> is the value
+#      specified for this parameter.
+#      default: 15
+KIS_PING_INTERVAL 15
+#
+#
+#
+#      Kis reconnect time interval in seconds. 
+#      If kis is down, KplusImport tries to reconnect to kis every <number> of seconds,
+#      where <number> is the value specified for this parameter.
+#      default: 20
+KIS_RECONNECT 20
+#
+#
+#
+#      Maximum time interval in seconds allowed without communication between
+#      KplusImport and kis. That is, if KplusImport does not receive 
+#      a ping response from kis within the specified time interval,
+#      KplusImport cuts communication with kis.
+#      default: 60
+KIS_TIMEOUT 60
+#
+#
+#
+#      UPDATE_MODE is a Boolean parameter that allows you to specify if updates are
+#      allowed. If you set UPDATE_MODE to:
+#          ? TRUE updates and inserts are allowed
+#          ? FALSE updates are not allowed
+#      default: FALSE
+UPDATE_MODE FALSE
+#
+#
+#
+#      Boolean parameter that allows you to specify if files are moved in case an
+#      error occurs. If you set ON_ERROR_RENAME to:
+#          ? TRUE files are moved to the error directory if an error occurs for an
+#            object (if an error occurs for a deal, files are not moved)
+#          ? FALSE files are not moved if an error occurs
+#      This parameteres is set to TRUE if the FOREVER argument is used when starting 
+#      KplusImport as a server.
+#      default: FALSE
+ON_ERROR_RENAME FALSE
+#
+#
+#
+#      Allows you to specify if .retry files are generated in the default Errors
+#      directory or the directory defined for the ERRORDIR parameter. If you
+#      set ON_ERROR_SAVE_RECORDS to:
+#          ? TRUE .retry files are generated
+#          ? FALSE no .retry files are generated
+#      default: FALSE
+ON_ERROR_SAVE_RECORDS FALSE
+#
+#
+#
+#      Boolean parameter that allows you to specify if import files are always
+#      removed after a deal or object is successfully imported to Kondor+. 
+#      If you set to:
+#      ? TRUE the files are always removed if no error occurs
+#      ? FALSE files are not removed
+#      default: TRUE
+ON_SUCCESS_UNLINK TRUE
+#
+#
+#
+#      Boolean parameter that allows you to specify if log messages are displayed
+#      on-screen and success messages are written in the log files. 
+#      If set to:
+#          ? TRUE log messages are displayed on-screen and success messages are 
+#            written in the log files
+#          ? FALSE no messages are displayed
+#      default: FALSE
+LOG_VERBOSE FALSE
+#
+#
+#
+#      Number of days before KplusImport deletes log files. 
+#      Set to -1 If you do not want Kondor+ to delete the log files.
+#      default: 15
+LOGREMOVE 15
+#
+#
+#
+#      Absolute path for the log files when KplusImport is started on Unix
+#      with the FILE argument.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/peripherals
+LOGDIR "/opt/finastra/kplus-front/entities/Standalone/log/peripherals"
+#
+#
+#
+#      Absolute path for the log files when KplusImport is started on Windows
+#      with the FILE argument.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\peripherals
+LOGDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\peripherals"
+#
+#
+#
+#      Absolute path for the error files when you start KplusImport on Unix
+#      with the FILE argument.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/Import/Errors
+ERRORDIR "/opt/finastra/kplus-front/entities/Standalone/log/Import/Errors"
+#
+#
+#
+#      Absolute path for the error files when you start KplusImport on Windows
+#      with the FILE argument.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\Import\Errors
+ERRORDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\Import\Errors"
+#
+#
+#
+#      Communication mode
+#      possible values : TCP_IP_MODE RENDEZVOUS_MODE
+#      default: RENDEZVOUS_MODE
+COMM_MODE RENDEZVOUS_MODE
+#
+#
+#
+#      Rendezvous Service: Port number used for inter-daemon communication
+#      default: 8889
+RV_PORT 8889
+#
+#
+#
+#      TIB/Rendezvous Network: Specifies the network interface and the multicast
+#      groups used to send and receive messages
+#         Example: lan0;224.1.1.1,224.1.1.2;224.1.1.1
+#      default: eth0;;
+RV_NETWORK eth0;;
+#
+#
+#
+#      TIB/Rendezvous Daemon: Service, hostname, and port number used to connect
+#      to the daemon.
+#           Examples: tcp:1234 or tcp:hostname:1234
+#      default: tcp:kplus-front-rvd-kis-tk:8889
+RV_DAEMON tcp:kplus-front-rvd-kis-tk:8889
+#
+#
+#
+#      Absolute path for the base directory when you start KplusImport on Unix.
+#      default: /opt/finastra/kplus-front/entities/Standalone/Import
+IMPORT_DIR "/opt/finastra/kplus-front/entities/Standalone/Import"
+#
+#
+#
+#      Absolute path for the base directory when you start KplusImport on Windows.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\Import
+IMPORT_DIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\Import"
+#
+#
+#
+#      Boolean parameter that indicates if deals are inserted into K+ Database
+#      by KFIS instead of KIS.
+#       ? TRUE deals are inserted by KFIS (Kondor Fast Import Server).
+#       ? FALSE deals are inserted by KIS (Kondor Import Server) itself.
+#      default: FALSE
+FAST_MODE FALSE
+#
+#
+#
+#      Specifies if the connection is established with rv secure daemon
+#      default: FALSE
+IS_RVD_SECURE_DAEMON FALSE
+#
+#
+#
+#      This parameter is only applicable only if IS_RVD_SECURE_DAEMON parameter is set to TRUE. Specifies the username of the secure daemon client
+#      default: 
+RVD_SECURE_USERNAME 
+#
+#
+#
+#      This parameter is only applicable only if IS_RVD_SECURE_DAEMON parameter is set to TRUE. Specifies the crypted password to rvsd daemon
+#             Example: {Crypt2}c1rtjvRHE5t=
+#      default: {Crypt2}1r+mEDOTSIM=
+RVD_SECURE_PASSWORD {Crypt2}1r+mEDOTSIM=
+#
+#
+#   End of file
+#
+

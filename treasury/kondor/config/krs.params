@@ -1,0 +1,97 @@
+#
+#
+#   File : krs.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Name of the Kondor+ Record Server defined in the keyletters.cfm PIXL
+#      configuration file.
+#      default: KRS
+SERVER_NAME  KRS
+#
+#
+#
+#      Kms reconnect time interval in seconds. That is, if Kms is
+#      down the Kondor+ Record Server tries to reconnect to Kms every
+#      <number> of seconds, where <number> is the value specified for this
+#      parameter.
+#      default: 20
+KMS_RECONNECT  20
+#
+#
+#
+#      Maximum time interval in seconds allowed without communication between the
+#      Kondor+ Record Server and the position handlers. That is, if the Kondor+
+#      Record Server does not receive a ping response from a handler within the
+#      specified time interval, the Kondo
+#      default: 60
+HANDLER_TIMEOUT  60
+#
+#
+#
+#      Maximum time interval in seconds between each ping message between the
+#      Kondor+ Record Server and the position handlers. That is, the Kondor+
+#      Record Server sends a ping message to the handlers every <number> of
+#      seconds, where <number> is the value specifie
+#      default: 45
+HANDLER_PING_INTERVAL  45
+#
+#
+#
+#      Defines the output directory for Kondor+ Record Server log files on Unix.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/servers
+LOGDIR  "/opt/finastra/kplus-front/entities/Standalone/log/servers"
+#
+#
+#
+#      Defines the output directory for Kondor+ Record Server log files on Windows.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers
+LOGDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers"
+#
+#
+#
+#      Level of information stored in the log files.
+#      0=Errors, 1=Warnings, 2=Messages
+#      default: 1
+LOG_LEVEL  1
+#
+#
+#
+#      Number of days before the Kondor+ Record Server log files are deleted.
+#      If you do NOT want the log files to be deleted, set this parameter to -1.
+#      default: 15
+LOGREMOVE  15
+#
+#
+#
+#      Maximum number of connections on the database. This value MUST be between 2 and 14.
+#      default: 10
+MAX_DATABASE_CONNECTION  10
+#
+#
+#
+#      Define in millisecond the frequency used to update the metrics for the monitoring
+#      The minimum value for the frequency is 200. (if a value inferior to 200 is specified,
+#      the frequency will be set to 200)
+#      default: 500
+MONITORING_PUSH_TIME 500
+#
+#
+#
+#      Description of K+ service (server, handler or peripheral).
+#      default: "Kondor Record Server. If this service is stopped Kondor RealTime will not work properly"
+SERVICE_DESCRIPTION "Kondor Record Server. If this service is stopped Kondor RealTime will not work properly"
+#
+#
+#
+#      Display name of K+ service (server, handler or peripheral).
+#      default: "Record Server (krs)"
+SERVICE_DISPLAYNAME "Record Server (krs)"
+#
+#
+#   End of file
+#
+

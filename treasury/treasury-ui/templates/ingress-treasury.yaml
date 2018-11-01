@@ -1,0 +1,17 @@
+{{- if .Values.ingress.enabled -}}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: treasury-ui
+  annotations:
+    nginx.org/rewrites: "serviceName=treasury-ui rewrite=/"
+spec:
+  rules:
+  - host: {{ .Values.ingress.host }}
+    http:
+      paths:
+      - path: /treasury
+        backend:
+          serviceName: treasury-ui
+          servicePort: {{ .Values.service.port }}
+{{- end }}

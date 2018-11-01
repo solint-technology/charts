@@ -1,0 +1,52 @@
+<Product id="KplusCore" name="STANDALONE ENTITY" shortname="STANDALONE" type="Standalone Entity">
+    <SpecificParameterList>
+        <Parameter id="INSTITUTION_NAME"                value="KONDOR SET"/>
+        <Parameter id="ENTITY_LOCAL_CURRENCY_SHORTNAME" value="EUR"/>
+        <Parameter id="ENTITY_CITY_SHORTNAME"           value="FRPA"/>
+        <Parameter id="KPLUSHOME"                       value="/opt/finastra/kplus-front"/>
+        <Parameter id="CONFIG_DIR"                      value="/opt/finastra/kplus-front/entities/Standalone/config"/>
+    </SpecificParameterList>
+    <LogicalGroupList>
+        <LogicalGroup id="KplusGlobal">
+            <Database name="kplus">
+                <Owner automaticChange="allowed"/>
+                <Indexes location="default"/>
+                <UserConfigurationList/>
+            </Database>
+        </LogicalGroup>
+        <LogicalGroup id="KplusLocal">
+            <Database name="kplus">
+                <Owner automaticChange="allowed"/>
+                <Indexes location="default"/>
+                <UserConfigurationList/>
+            </Database>
+        </LogicalGroup>
+        <LogicalGroup id="KplusArchive">
+            <Database name="KplusArchive">
+                <Owner automaticChange="allowed"/>
+                <Indexes location="default"/>
+                <UserConfigurationList/>
+            </Database>
+        </LogicalGroup>
+        <LogicalGroup id="KplusVersion">
+            <Database name="KplusVersion">
+                <Owner automaticChange="allowed"/>
+                <Indexes location="default"/>
+                <UserConfigurationList/>
+            </Database>
+        </LogicalGroup>
+        <LogicalGroup id="Kustom">
+            <Database name="Kustom">
+                <Owner automaticChange="allowed"/>
+                <Indexes location="default"/>
+                <UserConfigurationList/>
+            </Database>
+        </LogicalGroup>
+    </LogicalGroupList>
+    <DataServer type="jdbc:sqlserver">
+        <host>kplus-db</host>
+        <port>1433</port>
+        <LoginList><!-- Put here logins and passwords for "kplus-db:1433" --></LoginList>  	 
+        <UserConfigurationList/>        
+    </DataServer>
+</Product>

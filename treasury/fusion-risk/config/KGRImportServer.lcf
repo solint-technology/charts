@@ -1,0 +1,100 @@
+
+# c - Used to output the category of the logging event. The category 
+# conversion specifier can be optionally followed by precision specifier, 
+# that is a decimal constant in brackets. 
+# If a precision specifier is given, then only the corresponding number 
+# of right most components of the category name will be printed. 
+# By default the category name is printed in full. 
+# For example, for the category name ""a.b.c"" the pattern %c{2} 
+# will output ""b.c"". 
+#  
+# d - Used to output the date of the logging event. 
+# The date conversion specifier may be followed by a date format specifier 
+# enclosed between braces. 
+# 
+# F - Used to output the file name where the logging request was issued. 
+# WARNING Generating caller location information is extremely slow. 
+# It's use should be avoided unless execution speed is not an issue. 
+# 
+# l - Used to output location information of the caller which generated 
+# the logging event. 
+# The location information depends on the JVM implementation but usually 
+# consists of the fully qualified name of the calling method followed by 
+# the callers source the file name and line number between parentheses. 
+# The location information can be very useful. However, it's generation is 
+# extremely slow. It's use should be avoided unless execution speed is 
+# not an issue. 
+#  
+# L - Used to output the line number from where the logging request was issued. 
+# WARNING Generating caller location information is extremely slow. 
+# It's use should be avoided unless execution speed is not an issue. 
+#  
+# m - Used to output the application supplied message associated with 
+# the logging event. 
+# 
+# M - Used to output the method name where the logging request was issued. 
+# WARNING Generating caller location information is extremely slow. 
+# It's use should be avoided unless execution speed is not an issue. 
+#  
+# n - Outputs the platform dependent line separator character or characters. 
+# This conversion character offers practically the same performance 
+# as using non-portable line separator strings such as ""\n"", or ""\r\n"". 
+# Thus, it is the preferred way of specifying a line separator. 
+#  
+# p - Used to output the priority of the logging event. 
+#
+# r - Used to output the number of milliseconds elapsed since the 
+# start of the application until the creation of the logging event. 
+#
+# t - Used to output the name of the thread that generated the logging event. 
+#
+# x - Used to output the NDC (nested diagnostic context) associated 
+# with the thread that generated the logging event.  
+#
+# X - Used to output the MDC (mapped diagnostic context) associated 
+# with the thread that generated the logging event. 
+# The X conversion character must be followed by the key for the map 
+# placed between braces, as in %X{clientNumber} where clientNumber 
+# is the key. The value in the MDC corresponding to the key will be output.
+#
+# % - The sequence %% outputs a single percent sign.  
+#
+log4j.appender.file.layout.ConversionPattern=--------------------------------------------------------------%n<%d{%H:%m:%S}> <%p> %m%n
+
+#"!#C ConsoleAppender: appends log events to System.out or System.err using a layout specified by the user. 
+# The default target is System.out. 
+# DailyRollingFileAppender extends FileAppender so that the underlying file is rolled over at a user chosen frequency. 
+# FileAppender appends log events to a file. 
+# RollingFileAppender extends FileAppender to backup the log files when they reach a certain size. 
+# WriterAppender appends log events to a Writer or an OutputStream depending on the user's choice. 
+# SMTPAppender sends an e-mail when a specific logging event occurs, typically on errors or fatal errors. 
+# SocketAppender sends LoggingEvent objects to a remote a log server, usually a SocketNode. 
+# SocketHubAppender sends LoggingEvent objects to a set of remote log servers, usually a SocketNodes 
+# SyslogAppendersends messages to a remote syslog daemon. 
+# TelnetAppender is a log4j appender that specializes in writing to a read-only socket. "
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+
+log4j.appender.stdout.layout.ConversionPattern: --------------------------------------------------------------%n<%d{%H:%m:%S}> <%p> %m%n
+
+log4j.rootLogger=INFO, CONSOLE
+log4j.appender.CONSOLE=org.apache.log4j.ConsoleAppender
+log4j.appender.CONSOLE.layout=org.apache.log4j.PatternLayout
+log4j.appender.CONSOLE.layout.ConversionPattern=[%d{%H:%M:%S}]- %p - %c - %m%n
+
+log4j.logger.server.import=INFO,FILE_IMPORT
+log4j.logger.server.web_services=INFO,FILE_IMPORT
+log4j.logger.lib.KNETAdapter=ERROR, FILE_IMPORT
+
+log4j.appender.FILE_IMPORT=org.apache.log4j.FileAppender
+log4j.appender.FILE_IMPORT.file=/home/fusionrisk/CMR/logKGRImportServer.log
+log4j.appender.FILE_IMPORT.layout=org.apache.log4j.PatternLayout
+log4j.appender.FILE_IMPORT.layout.ConversionPattern=[%d{%D-%H:%M:%S}]- %-5p - %c - %-30l - %m%n
+
+#log4j.appender.SOCKETSERV=org.apache.log4j.net.SocketAppender
+#log4j.appender.SOCKETSERV.Port=$V(LOG4J_PORT)
+#log4j.appender.SOCKETSERV.RemoteHost=frcmr
+log4j.appender.file=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.file.File=/home/fusionrisk/CMR/loglog4j-KGRImportServer.log
+log4j.appender.file.layout=org.apache.log4j.PatternLayout

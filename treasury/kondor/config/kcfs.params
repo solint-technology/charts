@@ -1,0 +1,133 @@
+#
+#
+#   File : kcfs.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Name of the Kondor+ Cash Flow Server
+#      default: KCFSSTANDALONE
+SERVER_NAME  KCFSSTANDALONE
+#
+#
+#
+#      Kms reconnect time interval in seconds. That is, if Kms is
+#      down the Kondor+ Cash Flow Server tries to reconnect to Kms every
+#      <number> of seconds, where <number> is the value specified for this
+#      parameter.
+#      default: 20
+KMS_RECONNECT  20
+#
+#
+#
+#      Maximum time interval in seconds allowed without communication between the
+#      Kondor+ Cash Flow Server and the position handlers. That is, if the Kondor+
+#      Cash Flow Server does not receive a ping response from a handler within the
+#      specified time interval, the
+#      default: 60
+HANDLER_TIMEOUT  60
+#
+#
+#
+#      Maximum time interval in seconds between each ping message between the
+#      Kondor+ Cash Flow Server and the position handlers. That is, the Kondor+
+#      Cash Flow Server sends a ping message to the handlers every <number> of
+#      seconds, where <number> is the value sp
+#      default: 45
+HANDLER_PING_INTERVAL  45
+#
+#
+#
+#      Defines the output directory for log files on Unix.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/servers
+LOGDIR  "/opt/finastra/kplus-front/entities/Standalone/log/servers"
+#
+#
+#
+#      Defines the output directory for log files on Windows.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers
+LOGDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers"
+#
+#
+#
+#      Level of information stored in the log files.
+#      0=Errors, 1=Warnings, 2=Messages
+#      default: 1
+LOG_LEVEL  1
+#
+#
+#
+#      Number of days before the Kondor+ Record Server log files are deleted.
+#      If you do NOT want the log files to be deleted, set this parameter to -1.
+#      default: 15
+LOGREMOVE  15
+#
+#
+#
+#      Maximum number of connections on the database. This value MUST be between 2 and 14.
+#      default: 10
+MAX_DATABASE_CONNECTION  10
+#
+#
+#
+#      TIB/Rendezvous Service: Port number used for inter-daemon communication
+#      default: 
+RDV_SERVICE 
+#
+#
+#
+#      TIB/Rendezvous Network: Specifies the network interface and the multicast
+#      groups used to send and receive messages
+#      Example: lan0;224.1.1.1,224.1.1.2;224.1.1.1
+#      default: 
+RDV_NETWORK  
+#
+#
+#
+#      TIB/Rendezvous Daemon: Service, hostname, and port number used to connect
+#      to the daemon.
+#      Examples: tcp:1234 or tcp:hostname:1234
+#      default: 
+RDV_DAEMON 
+#
+#
+#
+#      Is the certified delivery mode used for RDV messaging ?
+#      default: 
+RDV_CM_USED 
+#
+#
+#
+#      Global time limit for certfied delivery mode :
+#      RDV continue attempts at delivery until this time limit expires
+#      Recommended to be higher than 60
+#      0 means no time limit
+#      default: 
+RDV_CM_TIME_LIMIT 
+#
+#
+#
+#      Define in millisecond the frequency used to update the metrics for the monitoring
+#      The minimum value for the frequency is 200. (if a value inferior to 200 is specified,
+#      the frequency will be set to 200)
+#      default: 500
+MONITORING_PUSH_TIME 500
+#
+#
+#
+#      Description of K+ service (server, handler or peripheral).
+#      default: "Kondor Cash Flow Server is a realtime data publisher that updates cash flow positions. If this service is stopped the Cash Flow Risk Analyzer will not work properly"
+SERVICE_DESCRIPTION "Kondor Cash Flow Server is a realtime data publisher that updates cash flow positions. If this service is stopped the Cash Flow Risk Analyzer will not work properly"
+#
+#
+#
+#      Display name of K+ service (server, handler or peripheral).
+#      default: "Cash Flow Server  (kcfs)"
+SERVICE_DISPLAYNAME "Cash Flow Server  (kcfs)"
+#
+#
+#   End of file
+#
+

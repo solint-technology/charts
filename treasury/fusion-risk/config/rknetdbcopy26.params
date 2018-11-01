@@ -1,0 +1,88 @@
+#
+#    File    : rknetdbcopy.params
+#
+#    Synopsis: This file contains all of the parameters that can modify
+#              the initialization of rknetdbcopy.
+#
+#
+#    Kondor Server Name
+KONDOR_SERVER_NAME 
+#
+#    Name of the Kondor+ Database.
+#    default: kplus
+#
+KONDOR_DATABASE_NAME kplus
+#
+#    Name of the KreditNet Database.
+#    default: KreditNet   
+KONDOR_KREDITNET_DATABASE_NAME rknet
+#
+#    Absolute path name of the Sybase interfaces file
+#    Do NOT use the Sybase variable $SYBASE here.
+#    default: $SYBASE/interfaces it present,
+#             or ~sybase/interfaces if ~sybase exists.
+#SYBASE_INTERFACE_SUN4SOL /usr/sybase/interfaces
+#SYBASE_INTERFACE_RS6000  /usr/sybase/interfaces
+#SYBASE_INTERFACE_WINNT   \\ptxsnas01\database\dat\sybase\interfaces\winnt\sql.ini
+#
+#    Identification of the source dedicated to this Kondor+ system
+#    Definition of its short name (up to 16 characters)
+#    default: KONDOR
+SOURCE_SHORTNAME KONDOR
+#
+#    Definition of the source's long name (up to 40 characters)
+#    default: KONDOR
+#SOURCE_NAME KONDOR
+#
+#    Definition of the kplus login name for this Kondor+ source.
+#    default: kplus
+SOURCE_KPLUS_LOGIN kplus
+#
+#    Definition of the time delta with the master server (in pos./neg. hours)
+#    default: 0
+#SOURCE_TIME_DELTA 0
+#
+#    Definition of the consolidation folder for all trades coming from
+#    this source. If none is specified, the original folders will be
+#    replicated and used in their original trades.
+#    default:
+#SOURCE_FOLDER_SHORTNAME
+#
+#    Definition of the consolidation folder for all trades coming from
+#    this source. If none is specified, the original folders will be
+#    replicated and used in their original trades.
+#    default:
+#SOURCE_FOLDER_NAME
+#
+#    Indicate whether the Kondor+'s KreditNet database must be used for
+#    data retrieval into the Reuters KreditNet database.
+#    default: TRUE
+#RETRIEVE_KREDITNET_DB TRUE
+#
+#    Indicate if the global Set-up of Reuters KreditNet must be updated
+#    according to this Kondor+'s KreditNet database's Set-up.
+#    default: TRUE
+#UPDATE_SETUP TRUE
+#
+#    Specify a particular codifier to use when copying some data from
+#    Kondor+. When Folders, Users and Cpty are copied, if they have a
+#    code for this codifier, it will be used instead of the original
+#    shortname during the copy.
+#    default:
+#USE_CODIFIER
+#
+#    Specify verbose mode
+#    default: FALSE
+#VERBOSE_MODE TRUE
+#
+#	Specify if databases traces should be logged into a dedicated 
+#	file (./RKNetPowerTierlogfile)
+#	default: FALSE
+#POWERTIERLOG   TRUE
+#
+#	Specify the default currency used for K+ folder groups if any
+#	is specified.
+#   default: EUR
+DEFAULT_CURRENCY       EUR
+#
+# End of File

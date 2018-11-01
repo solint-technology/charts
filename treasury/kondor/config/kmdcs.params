@@ -1,0 +1,71 @@
+#
+#
+#   File : kmdcs.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#       Defines the output directory for log files on Unix.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/servers
+LOGDIR "/opt/finastra/kplus-front/entities/Standalone/log/servers"
+#
+#
+#
+#       Defines the output directory for log files on Windows.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers
+LOGDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\servers"
+#
+#
+#
+#      Level of information written to the log files.
+#      default: 1
+LOGLEVEL 1
+#
+#
+#
+#      Number of days before the server log files are deleted. If you do NOT want the log files to be deleted, set this parameter to -1. Remove log after <n> days, -1 means never
+#      default: 15
+LOGREMOVE 15
+#
+#
+#
+#      Boolean indicate if the server saves rates, bonds and curves Between midnight and the night batch. Fixing insertion will fail if TRUE
+#      default: FALSE
+MIDNIGHT_RUN  FALSE
+#
+#
+#
+#      Number of seconds between break time and midnight KVS must stop before midnight for log files management
+#      default: 10
+MIDNIGHT_BREAK  10
+#
+#
+#
+#      Count of database connections used to fetch data from database while populating data in MDCSp.
+#      default: 1
+DB_CONNECTION_POOL_SIZE 1
+#
+#
+#
+#      How often can a market data cache be made (in minutes)
+#      default: 1
+MIN_CREATE_DELAY_MDC 1
+#
+#
+#
+#      Description of K+ service (server, handler or peripheral).
+#      default: "Kondor Insight Market Data Cache Server. If this service is stopped Market Data Cache in Insight Reports will not work properly"
+SERVICE_DESCRIPTION "Kondor Insight Market Data Cache Server. If this service is stopped Market Data Cache in Insight Reports will not work properly"
+#
+#
+#
+#      Display name of K+ service (server, handler or peripheral).
+#      default: "Insight Market Data Cache Server  (kmdcs)"
+SERVICE_DISPLAYNAME "Insight Market Data Cache Server  (kmdcs)"
+#
+#
+#   End of file
+#
+

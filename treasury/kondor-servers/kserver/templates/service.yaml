@@ -1,0 +1,40 @@
+{{- if .Values.service.port }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "kserver.name" . }}
+  labels:
+    app: {{ template "kserver.name" . }}
+    chart: {{ template "kserver.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      protocol: TCP
+  selector:
+    app: {{ template "kserver.name" . }}
+    release: {{ .Release.Name }}
+{{- end }}
+{{- if .Values.service.extport }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "kserver.name" . }}-ext
+  labels:
+    app: {{ template "kserver.name" . }}
+    chart: {{ template "kserver.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: NodePort
+  ports:
+    - port: {{ .Values.service.port }}
+      nodePort: {{ .Values.service.extport }}
+      protocol: TCP
+  selector:
+    app: {{ template "kserver.name" . }}
+    release: {{ .Release.Name }}
+{{- end }}

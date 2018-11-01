@@ -1,0 +1,43 @@
+# Default values for treasury.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+database:
+    hostIP: 192.168.39.1
+    hostPort: 32937
+    localService: kplus-db
+    localPort: 1433
+
+treasury-ui:
+    ingress:
+      enabled: false
+
+kondor:
+  webaccess:
+    ingress:
+      enabled: false
+
+  kxls-realtime:
+    replicaCount: 20
+
+  kplus-front-rvd:
+    rvdService:
+      type: ClusterIP
+      port: 7500
+      nodePort: 32500
+
+    httpService:
+      type: NodePort
+      port: 7501
+      nodePort: 32100
+
+  kplus-front-rvd-kis-tk:
+    rvdService:
+      type: ClusterIP
+      port: 8889
+      nodePort: 32589
+
+    httpService:
+      type: NodePort
+      port: 8890
+      nodePort: 32590

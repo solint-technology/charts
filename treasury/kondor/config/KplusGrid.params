@@ -1,0 +1,429 @@
+#
+#
+#   File : KplusGrid.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Absolute path name of the Grid Calling DLL for Solaris Sparc systems
+#      default: /opt/finastra/kplus-front/lib/int/sun4sol/libKGridDSCall.so
+GRID_CALL_DYNLIB_SUN4SOL "/opt/finastra/kplus-front/lib/int/sun4sol/libKGridDSCall.so"
+#
+#
+#
+#      Absolute path name of the Grid Calling DLL for Windows systems
+#      default: C:\Program Files\Reuters\Kplus30\lib64\int\win\KGridDSCall.dll
+GRID_CALL_DYNLIB_WINNT "C:\Program Files\Reuters\Kplus30\lib64\int\win\KGridDSCall.dll"
+#
+#
+#
+#      Absolute path name of the Grid Calling DLL for Solaris X86 systems
+#      default: /opt/finastra/kplus-front/lib64/int/sol/libKGridDSCall.so
+GRID_CALL_DYNLIB_X86SOL "/opt/finastra/kplus-front/lib64/int/sol/libKGridDSCall.so"
+#
+#
+#
+#      Absolute path name of the Grid Calling DLL for Linux X86 systems
+#      default: /opt/finastra/kplus-front/lib64/int/lin/libKGridDSCall.so
+GRID_CALL_DYNLIB_X86LINUX "/opt/finastra/kplus-front/lib64/int/lin/libKGridDSCall.so"
+#
+#
+#
+#      Absolute path name of the Client Grid Logs Generation directory for Solaris systems
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/KplusGrid
+GRID_CLIENT_LOG_PATH_UNIX "/opt/finastra/kplus-front/entities/Standalone/log/KplusGrid"
+#
+#
+#
+#      Absolute path name of the Client Grid Logs Generation directory for Windows systems
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\KplusGrid
+GRID_CLIENT_LOG_PATH_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\KplusGrid"
+#
+#
+#
+#      Absolute path name of the Engine Grid Logs Generation directory for Solaris systems
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/KplusGrid
+GRID_ENGINE_LOG_PATH_UNIX "/opt/finastra/kplus-front/entities/Standalone/log/KplusGrid"
+#
+#
+#
+#      Absolute path name of the Engine Grid Logs Generation directory for Windows systems
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\KplusGrid
+GRID_ENGINE_LOG_PATH_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\KplusGrid"
+#
+#
+#
+#      Specifies whether the check box in the Reporting Set-up screens must 
+#      be checked by default
+#      default: FALSE
+GRID_SET_DEFAULT FALSE
+#
+#
+#
+#      Specifies after how many days, remaining temporary files (scripts & results)
+#      must be removed when starting a new report.
+#      default: 0
+GRID_FILES_PURGE_FREQ 0
+#
+#
+#
+#      Identifies whether statistics are stored in the database for each grid
+#      execution and for each job.
+#      default: FALSE
+GRID_STATS_STORE FALSE
+#
+#
+#
+#      Identifies whether db cache is used in the execution of a task
+#      default: TRUE
+GRID_USE_DBCACHE TRUE
+#
+#
+#
+#      Identifies whether the tmp files are to be removed at the end of the job execution
+#      default: TRUE
+GRID_REMOVE_TMPFILES TRUE
+#
+#
+#
+#      DataSynapse Grid Service Name
+#      default: KGridReporting
+DS_GRID_SERVICE_REPORTING KGridReporting
+#
+#
+#
+#      DataSynapse Check Service Method Name
+#      default: LaunchTest
+DS_GRID_METHOD_CHECK LaunchTest
+#
+#
+#
+#      DataSynapse Standard Report Service Method Name
+#      default: LaunchStandardReport
+DS_GRID_METHOD_STANDARD_REPORT LaunchStandardReport
+#
+#
+#
+#      DataSynapse WhatIf Report Service Method Name
+#      default: LaunchWhatIfReport
+DS_GRID_METHOD_WHATIF_REPORT LaunchWhatIfReport
+#
+#
+#
+#      Identifies whether some standard instruments must be split in intervals and 
+#      in this case which size the deals intervals will have. 
+#      
+#      The general GRID_DEALS_INTERVAL_SIZE value can be overriden by a specific 
+#      instrument value. 
+#      
+#      For the general GRID_DEALS_INTERVAL_SIZE value means that no splitting is 
+#      requested unless it is specified for an instrument. 
+#      
+#      For a specific instrument means that no splitting is requested for this 
+#      instrument although there may be a general value.
+#      default: 0
+GRID_DEALS_INTERVAL_SIZE 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_Bonds 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_CommoOTCOptions 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_CommoFutOTCOptions 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_CommoOptions 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_CommoSwap 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_MBSABS 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_Equities 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_BondWarrants 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_IndexWarrants 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_EquityWarrants 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_CurrencyWarrants 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_CP_BondsLike 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_CP_OtherFungible 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_Futures 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_EquityOptions 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_FutureOptions 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_IndexOptions 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_CurrencyOptions 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_FxSwaps 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_OutrightForwards 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_Spot 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_IAMDiscount 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_LoansDeposits 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_Repos 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_Paper 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_SecuritiesLending 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_CashFlow 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_CapsFloors 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_FRAs 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_FxOTCOptions 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_BondsOTCOptions 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_IRSCIRS 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_Swaptions 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_EquitySwapEquity 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_EquitySwapIndex 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_CreditSwapCreditDefaultSwap 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_CreditSwapTotalReturnSwap 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_CreditSwapCreditLinkedNote 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_CreditSwapAssetSwap 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_EqOTCOptionsEquity 0
+#
+#
+#
+#      See GRID_DEALS_INTERVAL_SIZE help.
+#      default: 0
+GRID_SPLIT_SIZE_EqOTCOptionsIndex 0
+#
+#
+#
+#      optional; if no value is found in KplusGrid.params, GRID_TASK_POOL will default to 4
+#      default: 4
+GRID_TASK_POOL 4
+#
+#
+#
+#      If TRUE, instruments are automatically splitted according to the average
+#      deal time execution and the time duration specifed for a unitary task.
+#      If FALSE, instruments are splitted according to what is specified 
+#      in the GRID_SPLIT_SIZE_xxx parameters.
+#      default: FALSE
+GRID_AUTO_SPLIT FALSE
+#
+#
+#
+#      Time in second above which a task will be
+#      default: 60
+GRID_MAX_TASK_DURATION 60
+#
+#
+#
+#      Time in second below which a task will not be splitted
+#      default: 10
+GRID_MIN_TASK_DURATION 10
+#
+#
+#
+#      mandatory if libKGridReportLocalCall parallel report processing is to execute successfully
+#      default: 
+GRID_EXEC_X86SOL 
+#
+#
+#
+#      mandatory if libKGridReportLocalCall parallel report processing is to execute successfully
+#      default: 
+GRID_EXEC_SUN4SOL 
+#
+#
+#
+#      mandatory if libKGridReportLocalCall parallel report processing is to execute successfully
+#      default: 
+GRID_EXEC_WINNT ""
+#
+#
+#
+#      mandatory if libKGridReportLocalCall parallel report processing is to execute successfully
+#      default: 
+GRID_EXEC_X86LINUX 
+#
+#
+#   End of file
+#
+

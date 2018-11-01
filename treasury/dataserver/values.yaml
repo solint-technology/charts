@@ -1,0 +1,54 @@
+# Default values for dataserver.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+# official mssql image: To be tested.
+  registry: microsoft
+  repository: mssql-server-linux
+
+# Alternate registry for gdynia deploiement
+#  registry: registry-gdn.misys.global.ad
+#  registry: registry.misys.global.ad
+#  repository: kondor/mssql-server-linux
+
+# In prod, should use a fixed version
+  tag: latest
+#  pullPolicy: Always
+  pullPolicy: IfNotPresent
+
+
+
+dataImages:
+  registry: registry.misys.global.ad
+#  registry: registry-gdn.misys.global.ad
+  kplus: 3472_20180727T101732
+  archive: 3472_20180727T101732
+  version: 3472_20180727T101732
+  ktpplus: 3472_20180727T101732
+#  ktparch: 3472_20180727T101732
+  ksp: 3472_20180914T160627
+#  alm: 3472_20180727T101732
+  wa: 3472_20180727T101732
+#  rate: 3472_20180727T101732
+#  rknet: 3472_20180727T101732
+#  rknetcustom: 3472_20180727T101732
+  insight: 3472_20180727T101732
+#  mchui: 3472_20180727T101732
+#  collateral: 3472_20180727T101732
+  dataset: tomaps
+  pullPolicy: IfNotPresent
+#  pullPolicy: Always
+
+
+service:
+#  type: ClusterIP
+  port: 1433
+  extport: 30433
+
+mssql:
+  saUser: sa
+  saPassword: Kondor_123
+  collation: SQL_Latin1_General_CP1_CS_AS

@@ -1,0 +1,21 @@
+dependencies:
+#  - name: dataserver
+#    repository: http://localhost:8879/charts
+#    version: 0.1.0
+#    alias: kplus-db
+#
+  - name: kondor
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+
+  - name: kondor-insight
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+
+  - name: treasury-ui
+    repository: http://localhost:8879/charts
+    version: 0.1.0
+
+  - name: fusion-risk
+    repository: http://localhost:8879/charts
+    version: 0.1.0

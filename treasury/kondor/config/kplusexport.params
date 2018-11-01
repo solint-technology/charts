@@ -1,0 +1,262 @@
+#
+#
+#   File : kplusexport.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      Number of days before Kondor+ deletes KplusExport log files.
+#      Set to -1 if you do not want Kondor+ to delete the log files.
+#      default: 15
+LOGREMOVE 15
+#
+#
+#
+#      Output directory for the K+Export log files on Unix.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/peripherals
+LOGDIR "/opt/finastra/kplus-front/entities/Standalone/log/peripherals"
+#
+#
+#
+#      Output directory for the K+Export log files on Windows.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\peripherals
+LOGDIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\peripherals"
+#
+#
+#
+#      Name of the client defined in Kondor+ Data Manager -> Reference Data -> 
+#      Third Parties -> Codifiers
+#      default: EXPORT
+TRADEKAST_CODIFIER EXPORT
+#
+#
+#
+#      Taken from tradekast params
+#      default: kplus_tradekast
+TRADEKAST_PORT kplus_tradekast
+#
+#
+#
+#      Taken from generic var TDK_HOSTNAME
+#      default: tradekast
+TRADEKAST_HOSTS tradekast
+#
+#
+#
+#      Number of seconds after which the connection stops if no message is received 
+#      on either side
+#      default: 40
+TRADEKAST_TIMEOUT 40
+#
+#
+#
+#      Directory where to store any KplusExport deal and data files on Unix.
+#      default: /opt/finastra/kplus-front/entities/Standalone/Export
+DUMP_DIR "/opt/finastra/kplus-front/entities/Standalone/Export"
+#
+#
+#
+#      Directory where to store any KplusExport deal and data files on Windows.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\Export
+DUMP_DIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\Export"
+#
+#
+#
+#      Adds a dump mask to the dump directory for the KplusExport deal files. The first
+#      %s represents the deal table name and the second, a name containing the capture 
+#      date of the deal and its identity.
+#      default: deals/%s/%s
+DEAL_DUMP_MASK deals/%s/%s
+#
+#
+#
+#      Adds a dump mask to the dump directory for the KplusExport data files. The first
+#      %s represents the data table name and the second, a name containing the capture
+#      date of the data and its identity.
+#      default: objects/%s/%s
+DATA_DUMP_MASK objects/%s/%s
+#
+#
+#
+#      Specifies if the deals are submitted to the double validation criteria and
+#      blotter prior to being received by KplusExport.
+#      default: FALSE
+DOUBLE_VALIDATION FALSE
+#
+#
+#
+#      TradeKast stops the deals (only if you set CUT_OFF to TRUE) when the deal locker
+#      mechanism is activated
+#      default: FALSE
+CUT_OFF FALSE
+#
+#
+#
+#      Specifies if KplusExport only receives deals made by users having a code
+#      associated with the TRADEKAST_CODIFIER
+#      default: TRUE
+CHECK_USER_CODE TRUE
+#
+#
+#
+#      Allows you to define how Kondor+ processes acknowledgements from the back office
+#          * 0 - no export acknowledgements from the back office are processed
+#          * 1 - processes export acknowledgements from the back office and overwrites 
+#                any existing download key of a deal
+#          * 2 - processes export acknowledgements from the back office and verifies 
+#                the download key of a deal, but does not overwrite the key 
+#                if it exists;
+#      default: 0
+ACKNOWLEDGEMENT_MODE 0
+#
+#
+#
+#      Time interval (in seconds) between each check of the back office acknowledgement
+#      directory, that is realated to ACKNOWLEDGEMENT_DIR variable
+#      
+#      ACKNOWLEDGEMENT_FREQ is only available if you set ACKNOWLEGEMENT_MODE to 1 or 2
+#      default: 300
+ACKNOWLEDGEMENT_FREQ 300
+#
+#
+#
+#      The directory for acknowledgement files on Unix.
+#      default: /opt/finastra/kplus-front/entities/Standalone/log/Import/ack
+ACKNOWLEDGEMENT_DIR "/opt/finastra/kplus-front/entities/Standalone/log/Import/ack"
+#
+#
+#
+#      The directory for acknowledgement files on Windows.
+#      default: C:\Program Files\Reuters\Kplus30\entities\Standalone\log\Import\ack
+ACKNOWLEDGEMENT_DIR_WINNT "C:\Program Files\Reuters\Kplus30\entities\Standalone\log\Import\ack"
+#
+#
+#
+#      Boolean parameter that indicates whether the Acknowledgement process
+#      should update the movements with the deals.
+#      default: FALSE
+ACK_UPDATE_MVT FALSE
+#
+#
+#
+#      Taken from tradekast params
+#      default: RENDEZVOUS_MODE
+COMM_MODE RENDEZVOUS_MODE
+#
+#
+#
+#      Taken from tradekast params
+#      default: 8889
+RV_PORT 8889
+#
+#
+#
+#      Taken from tradekast params
+#      default: eth0;;
+RV_NETWORK eth0;;
+#
+#
+#
+#      Taken from tradekast params
+#      default: tcp:kplus-front-rvd-kis-tk:8889
+RV_DAEMON tcp:kplus-front-rvd-kis-tk:8889
+#
+#
+#
+#      Boolean parameter that indicates whether external schedules will be exported in old format or in TSV format
+#      default: TRUE
+EXTERNAL_SCHEDULE_IN_OLD_FORMAT TRUE
+#
+#
+#
+#      Specifies a Pricing Calculation Config Object
+#      default: 
+PRICING_CCO 
+#
+#
+#
+#      Specifies if all deals Pricing must be included in the message
+#      default: FALSE
+INCLUDE_PRICING FALSE
+#
+#
+#
+#      Specifies if all deals Pricing (as of a specified date) must be included in the message
+#      default: 
+INCLUDE_PRICING_ASOF 
+#
+#
+#
+#      Interval in minutes after which curves cache is refreshed.
+#      default: 10
+PRICING_CURVES_CACHE_REFRESH_INTERVAL 10
+#
+#
+#
+#      Specifies if the Pricing Market Data must be included in the message
+#      default: FALSE
+INCLUDE_MARKET_DATA FALSE
+#
+#
+#
+#      Specifies if the Pricing Market Data must be shifted and included in the message
+#      default: FALSE
+INCLUDE_SIMULATION FALSE
+#
+#
+#
+#      Specifies if the Forex Positions (SpotPosCF and FxSwapPosCF) must be sent
+#      default: FALSE
+INCLUDE_FOREX_POS FALSE
+#
+#
+#
+#      Specifies if KplusExport must generate XML files instead of the KplusImport compatible format.
+#      default: FALSE
+XML_MODE FALSE
+#
+#
+#
+#      Define in millisecond the frequency used to update the metrics for the monitoring
+#      The minimum value for the frequency is 200. (if a value inferior to 200 is specified,
+#      the frequency will be set to 200)
+#      default: 500
+MONITORING_PUSH_TIME 500
+#
+#
+#
+#      Specifies if the connection is established with rv secure daemon
+#      default: FALSE
+IS_RVD_SECURE_DAEMON FALSE
+#
+#
+#
+#      This parameter is only applicable only if IS_RVD_SECURE_DAEMON parameter is set to TRUE. Specifies the username of the secure daemon client
+#      default: 
+RVD_SECURE_USERNAME 
+#
+#
+#
+#      This parameter is only applicable only if IS_RVD_SECURE_DAEMON parameter is set to TRUE. Specifies the crypted password to rvsd daemon
+#             Example: {Crypt2}c1rtjvRHE5t=
+#      default: {Crypt2}1r+mEDOTSIM=
+RVD_SECURE_PASSWORD {Crypt2}1r+mEDOTSIM=
+#
+#
+#
+#      Brief description of K+ service (server, handler or peripheral).
+#      default: "Kondor file-driven export connector exporting data to external systems using a TradeKast server and export clients"
+SERVICE_DESCRIPTION "Kondor file-driven export connector exporting data to external systems using a TradeKast server and export clients"
+#
+#
+#
+#      Brief display name of K+ service (server, handler or peripheral).
+#      default: "Kplus Export  (kplusexport)"
+SERVICE_DISPLAYNAME "Kplus Export  (kplusexport)"
+#
+#
+#   End of file
+#
+

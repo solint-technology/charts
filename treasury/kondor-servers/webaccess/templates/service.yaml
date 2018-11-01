@@ -1,0 +1,38 @@
+{{- if ne .Values.ingress.enabled true -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "wa.name" . }}-ext
+  labels:
+    app: {{ template "wa.name" . }}
+    chart: {{ template "wa.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: NodePort
+  ports:
+    - port: {{ .Values.service.port }}
+      nodePort: {{ .Values.service.extport }}
+      protocol: TCP
+  selector:
+    app: {{ template "wa.name" . }}
+    release: {{ .Release.Name }}
+---
+{{- end }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "wa.name" . }}
+  labels:
+    app: {{ template "wa.name" . }}
+    chart: {{ template "wa.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: ClusterIP
+  ports:
+    - port: {{ .Values.service.port }}
+      protocol: TCP
+  selector:
+    app: {{ template "wa.name" . }}
+    release: {{ .Release.Name }}

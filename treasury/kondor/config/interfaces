@@ -1,0 +1,4 @@
+
+KPLUS
+    master tcp ether kplus-db 1433
+    query tcp ether kplus-db 1433

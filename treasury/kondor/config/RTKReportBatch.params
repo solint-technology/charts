@@ -1,0 +1,83 @@
+#
+#
+#   File : RTKReportBatch.params.default
+#   @(#) $Id$
+#
+#
+#
+#
+#
+#      The default home directory for program execution
+#      default: /opt/finastra/kplus-front/common/rtk
+HOMEDIR /opt/finastra/kplus-front/common/rtk
+#
+#
+#
+#      The  path of xml config files
+#      default: /opt/finastra/kplus-front/common/rtk/xml
+XMLPATH /opt/finastra/kplus-front/common/rtk/xml
+#
+#
+#
+#      The path of dataset view def files
+#      default: /opt/finastra/kplus-front/common/rtk/dsv
+XMLDSVIEWDEFPATH /opt/finastra/kplus-front/common/rtk/dsv
+#
+#
+#
+#      The default home directory for program execution
+#      default: C:\Program Files\Reuters\Kplus30\common\rtk
+WINNT_HOMEDIR C:\Program Files\Reuters\Kplus30\common\rtk
+#
+#
+#
+#      The  path of xml config files
+#      default: C:\Program Files\Reuters\Kplus30\common\rtk\xml
+WINNT_XMLPATH C:\Program Files\Reuters\Kplus30\common\rtk\xml
+#
+#
+#
+#      The path of dataset view def files
+#      default: C:\Program Files\Reuters\Kplus30\common\rtk\dsv
+WINNT_XMLDSVIEWDEFPATH C:\Program Files\Reuters\Kplus30\common\rtk\dsv
+#
+#
+#
+#      Absolute path name of the Grid Calling DLL for Solaris systems
+#      default: /opt/finastra/kplus-front/lib/int/sun4sol/libRTKGridDSCall.so
+XMLGRIDDYNLIB_SUN4SOL /opt/finastra/kplus-front/lib/int/sun4sol/libRTKGridDSCall.so
+#
+#
+#
+#      Absolute path name of the Grid Calling DLL for Windows systems
+#      default: C:\Program Files\Reuters\Kplus30\lib64\int\win\RTKGridDSCall.dll
+XMLGRIDDYNLIB_WINNT "C:\Program Files\Reuters\Kplus30\lib64\int\win\RTKGridDSCall.dll"
+#
+#
+#
+#      Grid Service name
+#      default: RTKGridDSCComputing
+XMLDATASETCALCULATORDSSERVICENAME RTKGridDSCComputing
+#
+#
+#
+#      Grid Method name
+#      default: computeDSC
+XMLDATASETCALCULATORDSMETHODNAME computeDSC
+#
+#
+#
+#      Logging level (0 - only errors, 1 - errors and warnings, 2 - all)
+#      default: 0
+LOGLEVEL 0
+#
+#
+#
+#      Number of workers (threads) in horizontal calculators in RTK. Set to 0 if standard (synchronous) mode should be applied. Numbers greater than 2 should offer a gain in performance.
+#      default: 0
+RTK_NUMBER_OF_HORIZONTAL_WORKERS 0
+#
+#
+#   End of file
+#
+

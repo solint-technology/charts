@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "frcargo.fullname" . }}
+  labels:
+    app: {{ template "frcargo.fullname" . }}
+    chart: {{ template "frcargo.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+data:
+  server.conf: |
+{{ include "frcargo-server.conf" . | indent 4 }}

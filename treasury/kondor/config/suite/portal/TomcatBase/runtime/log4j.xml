@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+  <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender"> 
+    <param name="Target" value="System.out"/> 
+    <layout class="org.apache.log4j.PatternLayout"> 
+      <param name="ConversionPattern" value="LATEST %d{ABSOLUTE} %-5p[%c] %m%n"/> 
+    </layout> 
+  </appender> 
+  
+    <appender name="FILEPORTAL" class="org.apache.log4j.RollingFileAppender">
+        <param name="MaxFileSize" value="1Mb"/>
+        <param name="MaxBackupIndex" value="3"/>
+        <param name="file" value="/opt/finastra/kplus-front/entities/Standalone/config/suite/logs/portal/portal.log"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d [%7r]%x %6p - %30.30c - %m%n"/>            
+        </layout>
+    </appender>  
+
+  <root> 
+    <priority value="INFO"/> 
+    <appender-ref ref="CONSOLE" />
+    <appender-ref ref="FILEPORTAL" /> 
+  </root>
+  
+  <logger name="org.springframework">
+    <level value="WARN"/>
+	<appender-ref ref="CONSOLE" />	
+  </logger>
+
+   <logger name="org.springframework.jms.listener">
+    <level value="INFO"/>
+	<appender-ref ref="CONSOLE" />	
+  </logger>
+  
+  <logger name="portalAsyncUpdate.jsp">
+    <level value="INFO"/>
+	<appender-ref ref="CONSOLE" />	
+    <appender-ref ref="FILEPORTAL" /> 	
+  </logger>    
+  
+</log4j:configuration>
+ 
